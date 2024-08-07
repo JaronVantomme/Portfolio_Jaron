@@ -4,6 +4,9 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
+    fontFamily: {
+      'poppins': ['Poppins'],
+    },
     extend: {},
     colors: {
       'white': ['#ffffff'],
@@ -11,9 +14,26 @@ module.exports = {
       'gray': ['#AAAAAA'],
       'background_dark': ['#1C1F24'],
       'background_light': ['#212326'],
-      'primary': ['#FEC76A'],
+      'primary': ['#89CFF0'],
       'skillsBackground': ['#303133'],
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      addUtilities({
+        '.desktopTitle1': {
+          'font-family': 'Poppins, cursive',
+          'font-size': '20px',
+        },  
+        '.desktopTitle2': {
+          'font-family': 'Poppins, cursive',
+          'font-size': '55px',
+        },  
+        '.desktopTitle3': {
+          'font-family': 'Poppins, cursive',
+          'font-size': '20px',
+        },  
+      });
+    },
+  ],
 }
