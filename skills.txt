@@ -1,0 +1,61 @@
+Adbode XD
+After Effect 
+Arduino
+Astro
+Azure
+C#
+Chart.js
+CSS
+.NET
+
+
+Firebase
+Figma
+Expo
+Eslint
+Docker
+Dapr
+Git
+Flutter
+
+Lerna
+Github
+Gitkraken
+GraphQL
+HTML
+JavaScript
+Kubernetis
+Jest
+JSON
+
+Netlify
+Nest.js
+MySql
+NPM 
+Postman
+Node.js
+MQTT 
+Next.js
+MongoDB
+
+Three.js
+Prettier
+Python
+React
+Sass
+Socket.io
+Raspberry Pi
+Tailwind
+
+Azure B2C
+Storybook
+UI/UX
+Xamarin
+Typescript
+Azure Pipelines
+Vue.js
+Vite
+UnoCSS
+
+Angular
+

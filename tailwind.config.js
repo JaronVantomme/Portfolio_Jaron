@@ -7,7 +7,17 @@ module.exports = {
     fontFamily: {
       'poppins': ['Poppins'],
     },
-    extend: {},
+    extend: {
+      animation: {
+        'loop-scroll': 'loop-scroll 50s linear infinite',
+      },
+      keyframes: {
+        'loop-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
+        }
+      }                    
+    },
     colors: {
       'white': ['#ffffff'],
       'black': ['#000000'],
