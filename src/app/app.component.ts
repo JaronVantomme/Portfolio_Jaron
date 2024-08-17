@@ -10,7 +10,7 @@ import { CursorBallComponent } from './components/cursor-ball/cursor-ball.compon
   imports: [RouterOutlet, HeaderComponent, FooterComponent, CursorBallComponent],
   template: `
   <app-cursor-ball></app-cursor-ball>
-  <div class="flex flex-col min-h-screen">
+  <div class="flex flex-col min-h-screen overflow-x-hidden">
     <app-header></app-header>
     <div class="flex-1 bg-background-dark-0">
       <router-outlet></router-outlet>
