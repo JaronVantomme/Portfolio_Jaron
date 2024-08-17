@@ -41,7 +41,9 @@
   display: flex;
   align-items: center;
   white-space: nowrap;
-  height: 80px;
+  height: fit-content;
+  width: fit-content;
+  padding: 20px 30px;
   min-width: fit-content;
   background-color: #42464d; 
   border-radius: 12px;
@@ -51,11 +53,18 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
   cursor: pointer;
+  object-fit: cover;
 }
 
 .skill-item:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px); /* Lichte verhoging */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Schaduw wordt sterker */
+  background-color: #565b63; /* Kleurtint iets lichter bij hover */
 }
+/* 
+.skill-item:hover {
+  transform: scale(1.05);
+} */
 
 .skill-icon {
   min-width: 32px;
