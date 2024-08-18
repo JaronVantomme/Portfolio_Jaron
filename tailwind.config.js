@@ -35,13 +35,25 @@ module.exports = {
           'font-family': 'Poppins, cursive',
           'font-size': '20px',
         },  
+        '.mobileTitle1': {
+          'font-family': 'Poppins, cursive',
+          'font-size': '25px',
+        },  
         '.desktopTitle2': {
           'font-family': 'Poppins, cursive',
-          'font-size': '55px',
+          'font-size': '43px',
+        },  
+        '.mobileTitle2': {
+          'font-family': 'Poppins, cursive',
+          'font-size': '24px',
         },  
         '.desktopTitle3': {
           'font-family': 'Poppins, cursive',
           'font-size': '20px',
+        },  
+        '.mobileTitle3': {
+          'font-family': 'Poppins, cursive',
+          'font-size': '15px',
         },  
       });
     },

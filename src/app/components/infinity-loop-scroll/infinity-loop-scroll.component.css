@@ -76,3 +76,51 @@
 p {
   margin: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .infinity-scroll-wrapper {
+    padding: 10px;
+  }
+
+  .skill-item {
+    padding: 12px 20px;
+    font-size: 16px;
+    margin: 0 8px;
+  }
+
+  .skill-icon {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+
+  .infinity-scroll-content-left,
+  .infinity-scroll-content-right {
+    animation-duration: 50s;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .infinity-scroll-wrapper {
+    padding: 8px;
+  }
+
+  .skill-item {
+    padding: 12px 20px;
+    font-size: 14px;
+    margin: 0 6px;
+  }
+
+  .skill-icon {
+    min-width: 20px;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+
+  .infinity-scroll-content-left,
+  .infinity-scroll-content-right {
+    animation-duration: 40s;
+  }
+}
