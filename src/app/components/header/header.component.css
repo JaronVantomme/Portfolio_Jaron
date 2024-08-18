@@ -1,0 +1,8 @@
+.fixed-container {
+    pointer-events: none; /* Klikken en hoveren worden doorgelaten naar onderliggende inhoud */
+}
+
+.fixed-container button,
+.fixed-container a {
+    pointer-events: auto; /* Interactie mogelijk op specifieke elementen binnen de vaste container */
+}

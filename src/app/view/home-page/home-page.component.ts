@@ -25,4 +25,30 @@ export class HomePageComponent {
     new Typed('#typed-text', options);
   }
 
+  applyRipple(event: MouseEvent) {
+    const button = event.currentTarget as HTMLElement;
+    const ripple = button.querySelector('.ripple') as HTMLElement;
+
+    // Verwijder eventuele bestaande ripple-effecten
+    ripple.classList.remove('animate');
+
+    // Bereken de grootte en positie van de ripple
+    const rect = button.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = event.clientX - rect.left - size / 2;
+    const y = event.clientY - rect.top - size / 2;
+
+    // Stel de grootte en positie in
+    ripple.style.width = ripple.style.height = `${size}px`;
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+
+    // Forceer een hertekening van de ripple
+    ripple.offsetWidth; // Dit zorgt ervoor dat de stijlwijzigingen worden gepusht
+    ripple.classList.add('animate');
+
+    // Verwijder de animatie na afloop
+    setTimeout(() => ripple.classList.remove('animate'), 600); // Zorg ervoor dat de duur van de timeout overeenkomt met de duur van de animatie
+  }
+
 }

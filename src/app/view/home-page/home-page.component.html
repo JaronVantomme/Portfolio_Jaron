@@ -1,21 +1,21 @@
 <section class="w-screen h-screen bg-background_dark-0">
-  <div class="flex flex-col w-full h-full justify-center pl-4 sm:pl-8 md:pl-[90px] lg:pl-[200px] items-center md:items-start">
-      <p class="text-primary-0 mobileTitle1 md:desktopTitle1 text-center md:text-left mb-3 md:mb-0">
-          Welkom
-      </p>
-      <p class="mobileTitle2 text-white-0 font-semibold w-full sm:w-3/4 md:w-3/4 lg:w-full xl:w-full text-center md:text-left md:desktopTitle2">
-          Hi, I'm <span class="text-primary-0">Jaron Vantomme</span>
-      </p>
-      <!-- <p class="desktopTitle2 text-white-0 font-semibold w-full sm:w-3/4 md:w-3/4 lg:w-2/3 xl:w-1/2 text-center lg:text-left">
-          Hi, I'm <span id="typed-text" class="text-primary-0"></span>
-      </p> -->
-      <p class="mobileTitle3 md:desktopTitle3 w-[280px] md:w-[680px] text-gray-0 text-center md:text-left">
-          I am a Full Stack Web Developer based in Belgium. I design and develop experiences that make people's lives easier.
-      </p>
-      <button class="bg-primary-0 rounded-full w-fit px-4 sm:px-6 py-2 font-semibold mt-5 cursor-pointer text-center">
-          CONTACT
-      </button>
-  </div>
+    <div class="flex flex-col w-full h-full justify-center pl-4 sm:pl-8 md:pl-[90px] lg:pl-[200px] items-center md:items-start">
+        <p class="text-primary-0 mobileTitle1 md:desktopTitle1 text-center md:text-left mb-3 md:mb-0">
+            Welcome
+        </p>
+        <p class="mobileTitle2 text-white-0 font-semibold w-full sm:w-3/4 md:w-3/4 lg:w-full xl:w-full text-center md:text-left md:desktopTitle2">
+            Hi, I'm <span id="typed-text" class="text-primary-0"></span>
+        </p>
+        <p class="mobileTitle3 md:desktopTitle3 w-[280px] md:w-[680px] text-gray-0 text-center md:text-left">
+            I am a Full Stack Web Developer based in Belgium. I design and develop experiences that make people's lives easier.
+        </p>
+        <!-- Je component HTML bestand -->
+        <button (click)="applyRipple($event)" class="bg-primary-0 rounded-full w-fit px-4 sm:px-6 py-2 font-semibold mt-5 cursor-pointer text-center relative overflow-hidden">
+            CONTACT
+            <span class="ripple"></span>
+        </button>
+
+    </div>
 </section>
 
 
@@ -26,6 +26,6 @@
         <p class="mobileTitle3 md:desktopTitle3 text-gray-0">What i can do</p>
         <app-infinity-loop-scroll class="relative mt-8"></app-infinity-loop-scroll>        
     </div>
-    <div class="absolute w-32 md:w-72 top-0 left-0 h-full bg-gradient-to-r from-background_light-0 via-background-light to-transparent"></div>
-    <div class="absolute w-32 md:w-72 top-0 right-0 h-full bg-gradient-to-r from-background_light-0 via-background-light to-transparent rotate-180"></div>
+    <div class="pointer-events-none absolute w-32 md:w-72 top-0 left-0 h-full bg-gradient-to-r from-background_light-0 via-background-light to-transparent"></div>
+    <div class="pointer-events-none absolute w-32 md:w-72 top-0 right-0 h-full bg-gradient-to-r from-background_light-0 via-background-light to-transparent rotate-180"></div>
 </section>

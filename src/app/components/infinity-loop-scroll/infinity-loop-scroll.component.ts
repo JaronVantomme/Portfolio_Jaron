@@ -28,7 +28,7 @@ export class InfinityLoopScrollComponent implements OnInit {
     { name: 'Dapr', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Dapr_logo.svg/1024px-Dapr_logo.svg.png', link: '' },
     { name: 'Git', icon: 'https://book.git-scm.com/images/logos/downloads/Git-Icon-1788C.png', link: '' },
     { name: 'Flutter', icon: 'https://seeklogo.com/images/F/flutter-logo-5086DD11C5-seeklogo.com.png', link: '' },
-    { name: 'Github', icon: 'https://pngimg.com/d/github_PNG58.png', link: '' },
+    { name: 'Github', icon: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg', link: '' },
     { name: 'Gitkraken', icon: 'https://www.svgrepo.com/show/330510/gitkraken.svg', link: '' },
     { name: 'GraphQL', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/768px-GraphQL_Logo.svg.png', link: '' },
     { name: 'HTML', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/1024px-HTML5_Badge.svg.png', link: '' },
