@@ -6,5 +6,6 @@
     position: fixed;
     pointer-events: none;
     transition: transform 0.1s ease-out;
+    z-index: 99999;
 }
   
