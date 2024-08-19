@@ -6,3 +6,8 @@
 .fixed-container a {
     pointer-events: auto; /* Interactie mogelijk op specifieke elementen binnen de vaste container */
 }
+
+.magnet-button {
+    position: relative;
+    z-index: 99998;
+  }

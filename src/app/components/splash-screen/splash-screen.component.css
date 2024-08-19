@@ -1,0 +1,44 @@
+@keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes zoomOut {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+  }
+  
+  .logo-path {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: draw 2.5s ease forwards;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1s ease forwards 2.5s;
+  }
+
+  
+
+  

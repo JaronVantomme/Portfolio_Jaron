@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { InfinityLoopScrollComponent } from '../../components/infinity-loop-scroll/infinity-loop-scroll.component';
 import Typed from 'typed.js';
+import { CursorService } from '../../services/CursorService';
 
 @Component({
   selector: 'app-home-page',
@@ -10,13 +11,16 @@ import Typed from 'typed.js';
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
+
+  constructor(private cursorService: CursorService) {}
+
   ngAfterViewInit(): void {
     const options = {
-      strings: ["Jaron Vantomme", "a programmer", "a developer", "a designer"],
+      strings: ["Jaron Vantomme", "Jaron Vantomme", "a programmer" , "a programmer", "a developer" , "a developer", "a designer" , "a designer"],
       typeSpeed: 100,
       backSpeed: 100,
       backDelay: 3000,
-      startDelay: 500,
+      startDelay: 250,
       loop: true,
       showCursor: true,
       cursorChar: '|',
@@ -29,26 +33,36 @@ export class HomePageComponent {
     const button = event.currentTarget as HTMLElement;
     const ripple = button.querySelector('.ripple') as HTMLElement;
 
-    // Verwijder eventuele bestaande ripple-effecten
     ripple.classList.remove('animate');
 
-    // Bereken de grootte en positie van de ripple
     const rect = button.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height);
     const x = event.clientX - rect.left - size / 2;
     const y = event.clientY - rect.top - size / 2;
 
-    // Stel de grootte en positie in
     ripple.style.width = ripple.style.height = `${size}px`;
     ripple.style.left = `${x}px`;
     ripple.style.top = `${y}px`;
 
-    // Forceer een hertekening van de ripple
-    ripple.offsetWidth; // Dit zorgt ervoor dat de stijlwijzigingen worden gepusht
+    ripple.offsetWidth;
     ripple.classList.add('animate');
 
-    // Verwijder de animatie na afloop
-    setTimeout(() => ripple.classList.remove('animate'), 600); // Zorg ervoor dat de duur van de timeout overeenkomt met de duur van de animatie
+    setTimeout(() => ripple.classList.remove('animate'), 600);
+  }
+
+  @HostListener('document:mousemove', ['$event'])
+  onMouseMove(event: MouseEvent) {
+    this.cursorService.updateMousePosition(event.clientX, event.clientY);
+  }
+
+  @HostListener('mouseover', ['$event'])
+  onMouseOver(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    if (target.classList.contains('magnet-button')) {
+      this.cursorService.updateHoveringElement(target);
+    } else {
+      this.cursorService.updateHoveringElement(null);
+    }
   }
 
 }
