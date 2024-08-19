@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { CursorService } from '../../services/CursorService';
 
 @Component({
   selector: 'app-infinity-loop-scroll',
@@ -9,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./infinity-loop-scroll.component.css']
 })
 export class InfinityLoopScrollComponent implements OnInit {
+
+  constructor(private cursorService: CursorService) {}
 
   skills = [
     { name: 'Adobe XD', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Adobe_XD_CC_icon.svg/800px-Adobe_XD_CC_icon.svg.png', link: '' },

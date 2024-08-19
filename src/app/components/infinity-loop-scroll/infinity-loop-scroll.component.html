@@ -1,10 +1,10 @@
 
 <div class="infinity-scroll-wrapper">
   <div class="infinity-scroll-content-left" *ngFor="let skill of skillList1">
-    <div class="skill-item" *ngFor="let skillItem of skillList1">
+    <button class="skill-item" *ngFor="let skillItem of skillList1">
       <img [src]="skillItem.icon" [alt]="skillItem.name" class="skill-icon">
       <p>{{ skillItem.name }}</p>
-    </div>
+    </button>
   </div>
 </div>
   

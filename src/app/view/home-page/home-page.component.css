@@ -16,3 +16,8 @@
         opacity: 0; /* Verander de opacity naar 0 om de ripple te laten vervagen */
     }
 }
+
+.magnet-button {
+    position: relative;
+    z-index: 99998;
+  }

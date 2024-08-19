@@ -33,27 +33,27 @@ module.exports = {
       addUtilities({
         '.desktopTitle1': {
           'font-family': 'Poppins, cursive',
-          'font-size': '20px',
+          'font-size': '25px',
         },  
         '.mobileTitle1': {
           'font-family': 'Poppins, cursive',
-          'font-size': '25px',
+          'font-size': '21px',
         },  
         '.desktopTitle2': {
           'font-family': 'Poppins, cursive',
-          'font-size': '43px',
+          'font-size': '60px',
         },  
         '.mobileTitle2': {
           'font-family': 'Poppins, cursive',
-          'font-size': '24px',
+          'font-size': '42px',
         },  
         '.desktopTitle3': {
           'font-family': 'Poppins, cursive',
-          'font-size': '20px',
+          'font-size': '16px',
         },  
         '.mobileTitle3': {
           'font-family': 'Poppins, cursive',
-          'font-size': '15px',
+          'font-size': '16px',
         },  
       });
     },
