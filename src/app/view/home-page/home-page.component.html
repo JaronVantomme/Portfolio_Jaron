@@ -1,4 +1,4 @@
-<section class="w-screen h-screen bg-background_dark-0">
+<section id="welkom" class="w-screen h-screen bg-background_dark-0">
     <div class="flex flex-col w-full h-full justify-center pl-4 sm:pl-8 md:pl-[90px] lg:pl-[200px] items-center md:items-start">
         <p class="text-primary-0 mobileTitle1 md:desktopTitle1 text-center md:text-left mb-3 md:mb-0">
             Welcome
@@ -18,8 +18,7 @@
     </div>
 </section>
 
-
-<section class="relative w-screen h-fit bg-background_light-0 py-14">
+<section id="skills" class="relative w-screen h-fit bg-background_light-0 py-14">
     <div class="flex flex-col h-full w-full items-center">
         <p class="mobileTitle1 md:desktopTitle1 text-primary-0 mb-3 md:mb-0">Skills</p>
         <p class="mobileTitle2 md:desktopTitle2 text-white-0 font-semibold">MY SKILLS</p>
@@ -28,4 +27,48 @@
     </div>
     <div class="pointer-events-none absolute w-32 md:w-72 top-0 left-0 h-full bg-gradient-to-r from-background_light-0 via-background-light to-transparent"></div>
     <div class="pointer-events-none absolute w-32 md:w-72 top-0 right-0 h-full bg-gradient-to-r from-background_light-0 via-background-light to-transparent rotate-180"></div>
+</section>
+
+<section id="work" class="relative w-screen h-fit bg-background_dark-0 py-14">
+    <div class="flex flex-col h-full w-full items-center">
+        <p class="mobileTitle1 md:desktopTitle1 text-primary-0 mb-3 md:mb-0">Work</p>
+        <p class="mobileTitle2 md:desktopTitle2 text-white-0 font-semibold">MY WORK</p>
+        <p class="mobileTitle3 md:desktopTitle3 text-gray-0">Most common methods for designing website that wok well on desktop is responsive and adaptive design</p>
+    </div>
+
+    <div class="flex space-x-4 my-8 justify-center w-screen">
+        <button (click)="filterItems('all')" [ngClass]="{'text-primary-0': activeFilter === 'all', 'text-white-0 font-normal': activeFilter !== 'all'}"  class="text-primary-0 font-bold">All</button>
+        <button (click)="filterItems('web')" [ngClass]="{'text-primary-0': activeFilter === 'web', 'text-white-0 font-normal': activeFilter !== 'web'}" class="text-primary-0 font-bold">Web Design</button>
+        <button (click)="filterItems('app')" [ngClass]="{'text-primary-0': activeFilter === 'app', 'text-white-0 font-normal': activeFilter !== 'app'}" class="text-primary-0 font-bold">App Design</button>
+        <button (click)="filterItems('branding')" [ngClass]="{'text-primary-0': activeFilter === 'branding', 'text-white-0 font-normal': activeFilter !== 'branding'}" class="text-primary-0 font-bold">Branding</button>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-[950px] mx-auto p-10" [@fadeInOut]>
+        <div *ngFor="let item of filteredItems; let i = index"
+             [ngClass]="{
+               'row-span-2': i === 0 || i >= 2,
+               'row-span-1': i === 1
+             }"
+             class="relative bg-white text-black p-0 rounded-lg shadow-lg overflow-hidden work-item">
+          <img [src]="item.image" alt="{{ item.title }}" class="w-full h-full object-cover image-animation transition-transform duration-300"/>
+          <div class="overlay absolute inset-0 flex items-center justify-center p-4 opacity-0 transition-opacity duration-300 bg-black bg-opacity-50">
+            <div class="overlay-content flex items-center justify-center h-full w-full">
+              <button class="transition-transform transform scale-0 opacity-0 bg-blue-500 text-transparent py-2 px-4 rounded z-10">
+                <span class="text-white">Read More</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+
+</section>
+
+<section id="skills" class="relative w-screen h-fit bg-background_light-0 py-14">
+    <div class="flex flex-col h-full w-full items-center">
+        <p class="mobileTitle1 md:desktopTitle1 text-primary-0 mb-3 md:mb-0">Contact</p>
+        <p class="mobileTitle2 md:desktopTitle2 text-white-0 font-semibold">GET IN TOUCH</p>
+        <p class="mobileTitle3 md:desktopTitle3 text-gray-0">Send me an email</p>
+    </div>
 </section>

@@ -9,6 +9,7 @@ import { CursorService } from '../../services/CursorService';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  public activeSection: string = 'welkom';
 
   constructor(private cursorService: CursorService) {}
 
@@ -25,5 +26,30 @@ export class HeaderComponent {
     } else {
       this.cursorService.updateHoveringElement(null);
     }
+  }
+
+  scrollToSection(sectionId: string) {
+    this.activeSection = sectionId
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  observeSections() {
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.activeSection = entry.target.id;
+        }
+      });
+    }, {
+      threshold: 0.5, // Adjust the threshold as needed
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
   }
 }

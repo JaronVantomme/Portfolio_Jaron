@@ -28,11 +28,11 @@
 
     <section class="absolute top-5 right-5 md:top-14 md:right-14 flex flex-col justify-between h-full w-fit">
         <div class="flex flex-col items-end font-semibold text-[14px]">
-            <button class="magnet-button text-white-0">WELKOM</button>
-            <button class="magnet-button text-primary-0">SKILLS</button>
-            <button class="magnet-button text-primary-0">WORK</button>
-            <button class="magnet-button text-primary-0">CONTACT</button>
-        </div>
+            <button (click)="scrollToSection('welkom')" [class.active]="activeSection === 'welkom'" class="magnet-button text-primary-0">WELKOM</button>
+            <button (click)="scrollToSection('skills')" [class.active]="activeSection === 'skills'" class="magnet-button text-primary-0">SKILLS</button>
+            <button (click)="scrollToSection('work')" [class.active]="activeSection === 'work'" class="magnet-button text-primary-0">WORK</button>
+            <button (click)="scrollToSection('contact')" [class.active]="activeSection === 'contact'" class="magnet-button text-primary-0">CONTACT</button>
+        </div>    
     </section>
 
     <section class="absolute bottom-5 right-0 md:bottom-14 md:right-8">

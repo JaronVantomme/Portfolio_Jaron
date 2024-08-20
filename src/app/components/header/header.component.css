@@ -10,4 +10,9 @@
 .magnet-button {
     position: relative;
     z-index: 99998;
-  }
+}
+
+.magnet-button.active {
+    color: #FFF;
+    font-weight: bold;
+}
