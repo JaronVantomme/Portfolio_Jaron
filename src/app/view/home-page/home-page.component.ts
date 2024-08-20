@@ -1,16 +1,36 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, AfterViewInit } from '@angular/core';
+import VanillaTilt from 'vanilla-tilt';
 import { InfinityLoopScrollComponent } from '../../components/infinity-loop-scroll/infinity-loop-scroll.component';
 import Typed from 'typed.js';
 import { CursorService } from '../../services/CursorService';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [InfinityLoopScrollComponent],
+  imports: [InfinityLoopScrollComponent, CommonModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
-export class HomePageComponent {
+
+export class HomePageComponent implements AfterViewInit {
+  public activeFilter: string = 'all';
+
+  public workItems = [
+    { title: 'Project 1', category: 'web', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
+    { title: 'Project 2', category: 'app', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
+    { title: 'Project 3', category: 'branding', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
+    { title: 'Project 4', category: 'web', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
+    { title: 'Project 5', category: 'app', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
+    { title: 'Project 6', category: 'branding', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
+    { title: 'Project 6', category: 'branding', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
+    { title: 'Project 6', category: 'branding', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
+    { title: 'Project 6', category: 'branding', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
+    { title: 'Project 6', category: 'branding', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' }
+  ];
+
+  public filteredItems = this.workItems;
+
 
   constructor(private cursorService: CursorService) {}
 
@@ -27,6 +47,15 @@ export class HomePageComponent {
     };
 
     new Typed('#typed-text', options);
+
+    const elements = Array.from(document.querySelectorAll('.work-item')) as HTMLElement[];
+
+    VanillaTilt.init(elements, {
+      max: 5,
+      speed: 400,
+      glare: true,
+      'max-glare': 0.1,
+    });
   }
 
   applyRipple(event: MouseEvent) {
@@ -48,6 +77,15 @@ export class HomePageComponent {
     ripple.classList.add('animate');
 
     setTimeout(() => ripple.classList.remove('animate'), 600);
+  }
+
+  filterItems(category: string) {
+    this.activeFilter = category;
+    if (category === 'all') {
+      this.filteredItems = this.workItems;
+    } else {
+      this.filteredItems = this.workItems.filter(item => item.category === category);
+    }
   }
 
   @HostListener('document:mousemove', ['$event'])
