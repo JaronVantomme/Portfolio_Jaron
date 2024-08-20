@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { CursorService } from '../../services/CursorService';
 
 @Component({
@@ -7,11 +7,15 @@ import { CursorService } from '../../services/CursorService';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './infinity-loop-scroll.component.html',
-  styleUrls: ['./infinity-loop-scroll.component.css']
+  styleUrls: ['./infinity-loop-scroll.component.css'],
 })
 export class InfinityLoopScrollComponent implements OnInit {
 
-  constructor(private cursorService: CursorService) {}
+  public currentVisibleSkillLists: Set<string> = new Set();
+
+
+
+  constructor(private cursorService: CursorService, private elRef: ElementRef) {}
 
   skills = [
     { name: 'Adobe XD', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Adobe_XD_CC_icon.svg/800px-Adobe_XD_CC_icon.svg.png', link: '' },
@@ -111,8 +115,42 @@ export class InfinityLoopScrollComponent implements OnInit {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
-    console.log('Shuffled array:', array);
     return array;
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(event: Event) {
+    this.detectVisibleSkillLists();
+  }
+
+  detectVisibleSkillLists() {
+    const skillWrappers = [
+      { id: 'scroll-wrapper-1', listName: 'skillList1' },
+      { id: 'scroll-wrapper-2', listName: 'skillList2' },
+      { id: 'scroll-wrapper-3', listName: 'skillList3' },
+      { id: 'scroll-wrapper-4', listName: 'skillList4' },
+      { id: 'scroll-wrapper-5', listName: 'skillList5' },
+      { id: 'scroll-wrapper-6', listName: 'skillList6' }
+    ];
+
+    const viewportHeight = window.innerHeight;
+    const newVisibleSkillLists: Set<string> = new Set();
+
+    skillWrappers.forEach(wrapper => {
+      const element = this.elRef.nativeElement.querySelector(`#${wrapper.id}`) as HTMLElement;
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= viewportHeight - 50 && rect.bottom >= 0) {
+          newVisibleSkillLists.add(wrapper.listName);
+        }
+      }
+    });
+
+    if (this.currentVisibleSkillLists.size !== newVisibleSkillLists.size || 
+        [...this.currentVisibleSkillLists].some(item => !newVisibleSkillLists.has(item)) ||
+        [...newVisibleSkillLists].some(item => !this.currentVisibleSkillLists.has(item))) {
+      this.currentVisibleSkillLists = newVisibleSkillLists;
+    }
   }
   
 }

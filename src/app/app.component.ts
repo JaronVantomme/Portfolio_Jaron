@@ -11,19 +11,20 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent, CursorBallComponent, CommonModule, SplashScreenComponent],
   template: `
-    <app-cursor-ball *ngIf="!showSplash"></app-cursor-ball>
+    <app-header *ngIf="!showSplash"></app-header>
+    
     <div [ngClass]="{'splash-container': true, 'slide-out': !showSplash, 'slide-in': showSplash}">
       <app-splash-screen></app-splash-screen>
     </div>
+    
     <div *ngIf="!showSplash" class="flex flex-col min-h-screen overflow-x-hidden">
-      <app-header></app-header>
       <div class="flex-1 bg-background-dark-0">
         <router-outlet></router-outlet>
       </div>    
       <app-footer></app-footer>
     </div>
   `,
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'Jaron_Vantomme';

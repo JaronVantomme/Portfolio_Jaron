@@ -16,3 +16,23 @@
     color: #FFF;
     font-weight: bold;
 }
+
+.gradient-black-to-transparent-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; /* of w-screen voor volledige breedte */
+    height: 30vh; /* of h-screen voor volledige hoogte */
+    background: linear-gradient(to bottom, #1C1F24, #1C1F2400);
+    transform: translateY(-10px);
+}
+
+.gradient-black-to-transparent-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw; /* of w-screen voor volledige breedte */
+    height: 30vh; /* of h-screen voor volledige hoogte */
+    background: linear-gradient(to bottom, #1C1F2400, #1C1F24);
+    transform: translateY(10px);
+  }
