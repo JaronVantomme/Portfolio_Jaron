@@ -1,5 +1,6 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CursorService } from '../../services/CursorService';
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +9,29 @@ import { CursorService } from '../../services/CursorService';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   public activeSection: string = 'welkom';
 
-  constructor(private cursorService: CursorService) {}
+  constructor(private cursorService: CursorService, private scrollService: ScrollService) {}
+
+  ngOnInit(): void {
+
+    this.scrollService.currentSection$.subscribe(section => {
+      switch (section) {
+        case 'skills':
+          this.activeSection = 'skills';
+          break;
+        case 'work':
+          this.activeSection = 'work';
+          break;
+        case 'contact':
+          this.activeSection = 'contact';
+          break;
+        default:
+          this.activeSection = 'welkom';
+      }
+    });
+  }
 
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {

@@ -1,5 +1,5 @@
 
-<div class="infinity-scroll-wrapper">
+<div class="infinity-scroll-wrapper" id="scroll-wrapper-1"  [ngClass]="{ 'visible': currentVisibleSkillLists.has('skillList1') }">
   <div class="infinity-scroll-content-left" *ngFor="let skill of skillList1">
     <button class="skill-item" *ngFor="let skillItem of skillList1">
       <img [src]="skillItem.icon" [alt]="skillItem.name" class="skill-icon">
@@ -8,7 +8,7 @@
   </div>
 </div>
   
-<div class="infinity-scroll-wrapper">
+<div class="infinity-scroll-wrapper" id="scroll-wrapper-2"  [ngClass]="{ 'visible': currentVisibleSkillLists.has('skillList2') }">
   <div class="infinity-scroll-content-right" *ngFor="let skill of skillList2">
     <div class="skill-item" *ngFor="let skillItem of skillList2">
       <img [src]="skillItem.icon" [alt]="skillItem.name" class="skill-icon">
@@ -17,7 +17,7 @@
   </div>
 </div>
   
-<div class="infinity-scroll-wrapper">
+<div class="infinity-scroll-wrapper" id="scroll-wrapper-3"  [ngClass]="{ 'visible': currentVisibleSkillLists.has('skillList3') }">
   <div class="infinity-scroll-content-left" *ngFor="let skill of skillList3">
     <div class="skill-item" *ngFor="let skillItem of skillList3">
       <img [src]="skillItem.icon" [alt]="skillItem.name" class="skill-icon">
@@ -26,7 +26,7 @@
   </div>
 </div>
   
-<div class="infinity-scroll-wrapper">
+<div class="infinity-scroll-wrapper" id="scroll-wrapper-4"  [ngClass]="{ 'visible': currentVisibleSkillLists.has('skillList4') }">
   <div class="infinity-scroll-content-right" *ngFor="let skill of skillList4">
     <div class="skill-item" *ngFor="let skillItem of skillList4">
       <img [src]="skillItem.icon" [alt]="skillItem.name" class="skill-icon">
@@ -35,7 +35,7 @@
   </div>
 </div>
   
-<div class="infinity-scroll-wrapper">
+<div class="infinity-scroll-wrapper" id="scroll-wrapper-5" [ngClass]="{ 'visible': currentVisibleSkillLists.has('skillList5') }">
   <div class="infinity-scroll-content-left" *ngFor="let skill of skillList5">
     <div class="skill-item" *ngFor="let skillItem of skillList5">
       <img [src]="skillItem.icon" [alt]="skillItem.name" class="skill-icon">
@@ -45,7 +45,7 @@
 </div>
   
   
-<div class="infinity-scroll-wrapper">
+<div class="infinity-scroll-wrapper" id="scroll-wrapper-6"  [ngClass]="{ 'visible': currentVisibleSkillLists.has('skillList6') }">
   <div class="infinity-scroll-content-right" *ngFor="let skill of skillList6">
     <div class="skill-item" *ngFor="let skillItem of skillList6">
       <img [src]="skillItem.icon" [alt]="skillItem.name" class="skill-icon">

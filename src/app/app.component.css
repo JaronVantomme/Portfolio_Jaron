@@ -1,25 +1,34 @@
-/* Basis styling voor splash-container */
+/* Basis reset voor marges en padding */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Splash screen */
 .splash-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 10; /* Zorg ervoor dat de splashscreen bovenop andere content staat */
-    transition: transform 1s ease, opacity 300ms ease;
-    background-color: #1C1F24;
-  }
-  
-  /* CSS klasse voor slide-out effect */
-  .slide-out {
-    /* transform: translateY(-100%); */
-    opacity: 0;
-  }
-  
-  /* CSS klasse voor slide-in effect */
-  .slide-in {
-    /* transform: translateY(0); */
-    opacity: 1;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fff; /* of een andere kleur */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s ease;
+}
+
+.slide-out {
+  opacity: 0;
+}
+
+.slide-in {
+  opacity: 1;
+}
+
+/* Algemene stijlen voor de header, footer, etc. */
+.bg-background-dark-0 {
+  background-color: #1a1a1a; /* of een andere kleur */
+}

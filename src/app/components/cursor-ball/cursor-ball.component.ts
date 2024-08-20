@@ -49,7 +49,7 @@ export class CursorBallComponent implements OnInit {
     const ballElement = this.ball.nativeElement;
     ballElement.style.width = `${rect.width}px`;
     ballElement.style.height = `${rect.height}px`;
-    ballElement.style.borderRadius = `15px`; // Optional: you can adjust the border-radius based on your button's style
+    ballElement.style.borderRadius = `15px`;
     ballElement.style.transform = `translate(${rect.left}px, ${rect.top}px)`;
   }
 

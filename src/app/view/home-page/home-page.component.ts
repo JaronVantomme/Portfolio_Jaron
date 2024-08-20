@@ -1,9 +1,10 @@
-import { Component, HostListener, AfterViewInit } from '@angular/core';
+import { Component, HostListener, AfterViewInit, OnInit, ElementRef } from '@angular/core';
 import VanillaTilt from 'vanilla-tilt';
 import { InfinityLoopScrollComponent } from '../../components/infinity-loop-scroll/infinity-loop-scroll.component';
 import Typed from 'typed.js';
 import { CursorService } from '../../services/CursorService';
 import { CommonModule } from '@angular/common';
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
   selector: 'app-home-page',
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home-page.component.css'
 })
 
-export class HomePageComponent implements AfterViewInit {
+export class HomePageComponent implements OnInit {
   public activeFilter: string = 'all';
 
   public workItems = [
@@ -30,9 +31,14 @@ export class HomePageComponent implements AfterViewInit {
   ];
 
   public filteredItems = this.workItems;
+  private currentSection: string = '';
 
 
-  constructor(private cursorService: CursorService) {}
+  constructor(private cursorService: CursorService, private elRef: ElementRef, private scrollService: ScrollService) {}
+
+  ngOnInit() {
+    this.updateCurrentSection();
+  }
 
   ngAfterViewInit(): void {
     const options = {
@@ -100,6 +106,28 @@ export class HomePageComponent implements AfterViewInit {
       this.cursorService.updateHoveringElement(target);
     } else {
       this.cursorService.updateHoveringElement(null);
+    }
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(event: Event) {
+    this.updateCurrentSection();
+  }
+
+  updateCurrentSection() {
+    const sections = this.elRef.nativeElement.querySelectorAll('section');
+    let currentSectionId = '';
+
+    sections.forEach((section: HTMLElement) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+        currentSectionId = section.id;
+      }
+    });
+
+    if (this.currentSection !== currentSectionId) {
+      this.currentSection = currentSectionId;
+      this.scrollService.updateSection(currentSectionId);
     }
   }
 

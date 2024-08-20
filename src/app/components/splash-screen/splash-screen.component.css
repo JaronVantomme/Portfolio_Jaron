@@ -36,7 +36,16 @@
   }
   
   .animate-fade-in {
-    animation: fadeIn 1s ease forwards 2.5s;
+    animation: fadeIn 2s ease forwards 2.5s;
+  }
+
+  .show-background {
+    fill: #89CFF0; 
+    transition: fill 1s ease-in-out;
+  }
+
+  .hide-background {
+    fill: transparent; 
   }
 
   
