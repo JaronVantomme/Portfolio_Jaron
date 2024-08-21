@@ -25,10 +25,12 @@ module.exports = {
       'white': ['#ffffff'],
       'black': ['#000000'],
       'gray': ['#AAAAAA'],
+      'white_shadow': ['#FFFFFF30'],
       'background_dark': ['#1C1F24'],
       'background_light': ['#212326'],
       'primary': ['#89CFF0'],
       'skillsBackground': ['#303133'],
+      'poppup_background': ['#00000080'],
     },
   },
   plugins: [
