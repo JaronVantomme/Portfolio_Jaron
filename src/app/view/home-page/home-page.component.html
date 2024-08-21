@@ -65,10 +65,48 @@
 
 </section>
 
-<section id="contact" class="relative w-screen h-fit bg-background_light-0 py-14">
-    <div class="flex flex-col h-full w-full items-center">
-        <p class="mobileTitle1 md:desktopTitle1 text-primary-0 mb-3 md:mb-0">Contact</p>
-        <p class="mobileTitle2 md:desktopTitle2 text-white-0 font-semibold">GET IN TOUCH</p>
-        <p class="mobileTitle3 md:desktopTitle3 w-[280px] md:w-[680px] text-gray-0 text-center md:text-left">Send me an email</p>
+<section id="contact" class="relative w-screen h-fit bg-background_light-0 py-14 mx-auto ">
+    <div class="relative w-[90%] h-[450px] mx-auto overflow-hidden rounded-2xl perspective">
+        <div class="flip-card" [ngClass]="{'flipped': isFlipped}">
+            <!-- Flip Card Inner -->
+            <div class="flip-card-inner">
+                <!-- Front Side -->
+                <div class="flip-card-front">
+                    <img src="https://i.postimg.cc/vZ961hzV/image-69.png" alt="Background Image" class="background-image">
+                    <div class="overlay">
+                        <div class="content">
+                            <p class="mobileTitle1 md:desktopTitle1 text-primary-0 mb-3 md:mb-0">Contact</p>
+                            <p class="mobileTitle2 md:desktopTitle2 text-white-0 font-semibold">GET IN TOUCH</p>
+                            <button (click)="flipCard()" class="magnet-button bg-white-0 text-black-0 rounded-full w-fit px-4 sm:px-6 py-2 font-semibold mt-5 cursor-pointer text-center relative overflow-hidden">
+                                Send mail
+                                <span class="ripple-dark"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="relative flip-card-back">
+                    <img src="https://i.postimg.cc/vZ961hzV/image-69.png" alt="Background Image" class="background-image">
+                    <button (click)="closePopup()" class="absolute top-4 right-4 bg-none border-none cursor-pointer hover:opacity-80 w-fit h-fit z-50">
+                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M27 9L9 27" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M9 9L27 27" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </button>
+                    <div class="overlay">
+                        <form (submit)="sendEmail($event)" class="form-container">
+                            <h2 class="text-center text-primary-0">Send us a message</h2>
+                            <input type="text" name="name" placeholder="Your Name" required class="input-field"/>
+                            <input type="email" name="email" placeholder="Your Email" required class="input-field"/>
+                            <textarea name="message" placeholder="Your Message" required class="input-field"></textarea>
+                            <button type="submit" class="submit-button">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+
+

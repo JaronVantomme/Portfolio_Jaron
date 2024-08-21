@@ -16,6 +16,8 @@ import { ScrollService } from '../../services/scroll.service';
 
 export class HomePageComponent implements OnInit {
   public activeFilter: string = 'all';
+  public isFlipped = false;
+
 
   public workItems = [
     { title: 'Project 1', category: 'web', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
@@ -129,6 +131,20 @@ export class HomePageComponent implements OnInit {
       this.currentSection = currentSectionId;
       this.scrollService.updateSection(currentSectionId);
     }
+  }
+
+  flipCard() {
+    this.isFlipped = !this.isFlipped;
+  }
+
+  sendEmail(event: Event) {
+    event.preventDefault();
+
+    console.log('Formulier ingediend!');
+  }
+
+  closePopup() {
+    this.isFlipped = !this.isFlipped;
   }
 
 }
