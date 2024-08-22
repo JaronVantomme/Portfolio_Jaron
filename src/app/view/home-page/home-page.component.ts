@@ -20,16 +20,12 @@ export class HomePageComponent implements OnInit {
 
 
   public workItems = [
-    { title: 'Project 1', category: 'web', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
-    { title: 'Project 2', category: 'app', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
-    { title: 'Project 3', category: 'branding', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
-    { title: 'Project 4', category: 'web', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
-    { title: 'Project 5', category: 'app', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
-    { title: 'Project 6', category: 'branding', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
-    { title: 'Project 6', category: 'branding', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
-    { title: 'Project 6', category: 'branding', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
-    { title: 'Project 6', category: 'branding', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' },
-    { title: 'Project 6', category: 'branding', image: 'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg' }
+    { title: 'Project One', category: 'website', image: 'https://images2.imgbox.com/11/15/x9L0oYYh_o.png' },
+    { title: 'Social Creativity Cup 2020', category: 'document', image: 'https://images2.imgbox.com/6b/80/USb9T6Hv_o.png' },
+    { title: 'Device Programming Project', category: 'app', image: 'https://images2.imgbox.com/f4/fe/1QbH7RVE_o.png' },
+    { title: 'Interaction Design Project', category: 'website', image: 'https://images2.imgbox.com/7a/ca/biuRrCos_o.png' },
+    { title: 'Team Project', category: 'website', image: 'https://images2.imgbox.com/8b/e6/tudCoe8x_o.png' },
+    { title: 'Smart App Development Project', category: 'app', image: 'https://images2.imgbox.com/59/71/ZyO3WeIx_o.png' },
   ];
 
   public filteredItems = this.workItems;
@@ -84,7 +80,13 @@ export class HomePageComponent implements OnInit {
     ripple.offsetWidth;
     ripple.classList.add('animate');
 
-    setTimeout(() => ripple.classList.remove('animate'), 600);
+    setTimeout(() => {
+      ripple.classList.remove('animate')
+      const element = document.getElementById('contact');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 600);
   }
 
   filterItems(category: string) {

@@ -38,9 +38,9 @@
 
     <div class="flex space-x-4 my-8 justify-center w-screen">
         <button (click)="filterItems('all')" [ngClass]="{'text-primary-0': activeFilter === 'all', 'text-white-0 font-normal': activeFilter !== 'all'}"  class="text-primary-0 font-bold">All</button>
-        <button (click)="filterItems('web')" [ngClass]="{'text-primary-0': activeFilter === 'web', 'text-white-0 font-normal': activeFilter !== 'web'}" class="text-primary-0 font-bold">Web Design</button>
+        <button (click)="filterItems('website')" [ngClass]="{'text-primary-0': activeFilter === 'website', 'text-white-0 font-normal': activeFilter !== 'website'}" class="text-primary-0 font-bold">Web Design</button>
         <button (click)="filterItems('app')" [ngClass]="{'text-primary-0': activeFilter === 'app', 'text-white-0 font-normal': activeFilter !== 'app'}" class="text-primary-0 font-bold">App Design</button>
-        <button (click)="filterItems('branding')" [ngClass]="{'text-primary-0': activeFilter === 'branding', 'text-white-0 font-normal': activeFilter !== 'branding'}" class="text-primary-0 font-bold">Branding</button>
+        <button (click)="filterItems('document')" [ngClass]="{'text-primary-0': activeFilter === 'document', 'text-white-0 font-normal': activeFilter !== 'document'}" class="text-primary-0 font-bold">Document</button>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-[950px] mx-auto p-5">
@@ -53,7 +53,7 @@
           <img [src]="item.image" alt="{{ item.title }}" class="w-full h-full object-cover image-animation transition-transform duration-300"/>
           <div class="overlay absolute inset-0 flex items-center justify-center p-4 opacity-0 transition-opacity duration-300 bg-black bg-opacity-50">
             <div class="overlay-content flex items-center justify-center h-full w-full">
-              <button class="transition-transform transform scale-0 opacity-0 bg-blue-500 text-transparent py-2 px-4 rounded z-10">
+              <button class="transition-transform transform scale-0 opacity-0 bg-blue-500 text-transparent py-2 px-4 rounded z-10 cursor-pointer">
                 <span class="text-white">Read More</span>
               </button>
             </div>
@@ -65,14 +65,14 @@
 
 </section>
 
-<section id="contact" class="relative w-screen h-fit bg-background_light-0 py-14 mx-auto ">
-    <div class="relative w-[90%] h-[450px] mx-auto overflow-hidden rounded-2xl perspective">
+<section id="contact" class="relative w-screen h-fit bg-background_dark-0 py-14 mx-auto">
+    <div class="relative w-full max-w-[1200px] h-[80vh] md:h-[610px] mx-auto overflow-hidden perspective px-[30px]">
         <div class="flip-card" [ngClass]="{'flipped': isFlipped}">
             <!-- Flip Card Inner -->
             <div class="flip-card-inner">
                 <!-- Front Side -->
                 <div class="flip-card-front">
-                    <img src="https://i.postimg.cc/vZ961hzV/image-69.png" alt="Background Image" class="background-image">
+                    <img src="https://i.postimg.cc/wBvfBftc/image-70.png" alt="Background Image" class="background-image-front">
                     <div class="overlay">
                         <div class="content">
                             <p class="mobileTitle1 md:desktopTitle1 text-primary-0 mb-3 md:mb-0">Contact</p>
@@ -85,8 +85,8 @@
                     </div>
                 </div>
                 <!-- Back Side -->
-                <div class="relative flip-card-back">
-                    <img src="https://i.postimg.cc/vZ961hzV/image-69.png" alt="Background Image" class="background-image">
+                <div class="relative flip-card-back p-5">
+                    <img src="https://i.postimg.cc/wBvfBftc/image-70.png" alt="Background Image" class="background-image-back">
                     <button (click)="closePopup()" class="absolute top-4 right-4 bg-none border-none cursor-pointer hover:opacity-80 w-fit h-fit z-50">
                         <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M27 9L9 27" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -94,11 +94,12 @@
                         </svg>
                       </button>
                     <div class="overlay">
-                        <form (submit)="sendEmail($event)" class="form-container">
-                            <h2 class="text-center text-primary-0">Send us a message</h2>
-                            <input type="text" name="name" placeholder="Your Name" required class="input-field"/>
-                            <input type="email" name="email" placeholder="Your Email" required class="input-field"/>
-                            <textarea name="message" placeholder="Your Message" required class="input-field"></textarea>
+                        <form (submit)="sendEmail($event)" class="flex flex-col gap-4">
+                            <p class="mobileTitle2 md:desktopTitle2 text-white-0 font-semibold text-center">CONTACT FORM</p>
+                            <input type="text" id="name" name="name" placeholder="Full name" required class="input-field"/>
+                            <input type="number" id="phoneNumber" name="phoneNumber" placeholder="Phone number" required class="input-field"/>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required class="input-field"/>
+                            <textarea name="message" placeholder="Your Message" required class="input-field-area"></textarea>
                             <button type="submit" class="submit-button">Send</button>
                         </form>
                     </div>

@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* De volledige scrollbar */
+::-webkit-scrollbar {
+    width: 12px; /* Breedte van de scrollbar */
+    background-color: #1C1F24; /* Achtergrondkleur van de scrollbar */
+    border-radius: 10px; /* Afgeronde hoeken van de scrollbar */
+  }
+  
+  /* De scrollknop (thumb) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #89CFF0; /* Kleur van de scrollknop */
+    border-radius: 10px; /* Afgeronde hoeken van de scrollknop */
+  }
+  
+  /* De track van de scrollbar */
+  ::-webkit-scrollbar-track {
+    background-color: #212326; 
+    border-radius: 10px;
+  }
