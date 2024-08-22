@@ -28,7 +28,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'Jaron_Vantomme';
-  showSplash = false;
+  showSplash = true;
 
   ngOnInit() {
     setTimeout(() => {
