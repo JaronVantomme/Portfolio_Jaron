@@ -29,25 +29,31 @@
 
 .socials-indicator {
     position: absolute;
-    bottom: calc(45px + env(safe-area-inset-bottom));
-    left: 40px;
-    z-index: 50;
+    bottom: 0;
+    left: 0;
+    width: 100vw; 
+    height: 200px;
+    transform: translateY(0px);
+    transform: translateX(45px);
 }
 
 .scroll-indicator {
     position: absolute;
-    bottom: calc(75px + env(safe-area-inset-bottom));
-    right: 20px;
-    z-index: 50;
+    bottom: 0;
+    right: 0;
+    width: 5vw;
+    height: 115px;
+    transform: translateY(0px);
+    transform: translateX(-45px);
 }
 
 @media screen and (max-width: 768px) {
     .socials-indicator {
-        left: 30px;
+        transform: translateX(20px);
     }
 
     .scroll-indicator {
-        right: 0px;
+        width: 8vw;
     }
 }
 
@@ -63,10 +69,10 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100vw; /* of w-screen voor volledige breedte */
-    height: 30vh; /* of h-screen voor volledige hoogte */
+    width: 100vw;
+    height: 30vh;
     background: linear-gradient(to bottom, #1C1F2400, #1C1F24);
-    transform: translateY(10px);
+    transform: translateY(30px);
   }
 
   .section.scroll-indicator {
