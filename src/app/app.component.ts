@@ -21,14 +21,14 @@ import { CommonModule } from '@angular/common';
       <div class="flex-1 bg-background-dark-0">
         <router-outlet></router-outlet>
       </div>    
-      <app-footer></app-footer>
+      <app-footer class="footer"></app-footer>
     </div>
   `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'Jaron_Vantomme';
-  showSplash = true;
+  showSplash = false;
 
   ngOnInit() {
     setTimeout(() => {
