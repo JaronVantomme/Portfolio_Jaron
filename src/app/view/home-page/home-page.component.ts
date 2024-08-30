@@ -1,6 +1,7 @@
 import { Component, HostListener, AfterViewInit, OnInit, ElementRef, ViewChild } from '@angular/core';
 import VanillaTilt from 'vanilla-tilt';
 import { InfinityLoopScrollComponent } from '../../components/infinity-loop-scroll/infinity-loop-scroll.component';
+import { TimelineComponent } from '../../components/timeline/timeline.component';
 import Typed from 'typed.js';
 import { CursorService } from '../../services/CursorService';
 import { CommonModule } from '@angular/common';
@@ -13,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [InfinityLoopScrollComponent, CommonModule, FormsModule],
+  imports: [InfinityLoopScrollComponent, CommonModule, FormsModule, TimelineComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })

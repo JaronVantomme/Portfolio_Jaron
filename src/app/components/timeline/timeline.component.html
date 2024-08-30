@@ -1,0 +1,19 @@
+<div class="timeline">
+  <ul>
+    <li *ngFor="let item of workItems">
+      <div class="content">
+        <img class="content-img" [src]="item.image" [alt]="item.title">
+        <div class="content-info">
+          <h3 class="content-title">{{ item.title }}</h3>
+          <p class="content-description">{{ item.areaDescription }}</p>
+          <button class="content-button">Read More</button>
+        </div>
+      </div>
+      <div class="time" *ngIf="item.areaTime !== ''">
+        <p class="areaTime">{{ item.areaTime }}</p>
+        <p class="areaTitle">{{ item.areaTitle }}</p>
+        <p class="areaDescription">{{ item.areaDescription }}</p>
+      </div>
+    </li>
+  </ul>
+</div>
