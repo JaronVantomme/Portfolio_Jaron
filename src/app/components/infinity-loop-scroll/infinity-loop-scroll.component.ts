@@ -353,7 +353,6 @@ export class InfinityLoopScrollComponent implements OnInit {
   }
 
   openPopup(skillItem: {name: string, icon: string, visitLink: string, description: string}) {
-    console.log('skillItem: ', skillItem)
     this.selectedItem = skillItem
   }
 

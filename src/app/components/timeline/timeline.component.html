@@ -1,0 +1,28 @@
+<div class="timeline" #timelineContainer>
+  <div class="scroll-indicator"></div>
+  <ul>
+    <li *ngFor="let item of workItems; let i = index" #timelineItem>
+      <div *ngIf="item.isNewArea" class="timeline-point"></div>
+      <div *ngIf="i === 0" class="timeline-point-animation"></div>
+      <div class="content">
+        <img class="content-img" [src]="item.image" [alt]="item.title">
+        <div class="content-info">
+          <h3 class="content-title">{{ item.title }}</h3>
+          <p class="content-description">{{ item.areaDescription }}</p>
+          <button class="content-button">Read More</button>
+        </div>
+      </div>
+      <div class="time" *ngIf="item.areaTime !== '' && isAreaVisibleWithAnimation(i) && i === 0">
+        <p class="areaTime">{{ this.workItems[currentItemIndex].areaTime }}</p>
+        <p class="areaTitle">{{ this.workItems[currentItemIndex].areaTitle }}</p>
+        <p class="areaDescription">{{ this.workItems[currentItemIndex].areaDescription }}</p>
+      </div>  
+      <div class="time" *ngIf="isAreaVisible() && this.item.isNewArea">
+        <p class="areaTime">{{ this.item.areaTime }}</p>
+        <p class="areaTitle">{{ this.item.areaTitle }}</p>
+        <p class="areaDescription">{{ this.item.areaDescription }}</p>
+      </div>
+    </li>
+  </ul>
+  
+</div>

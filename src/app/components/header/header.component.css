@@ -24,7 +24,7 @@
     width: 100vw; /* of w-screen voor volledige breedte */
     height: 30vh; /* of h-screen voor volledige hoogte */
     background: linear-gradient(to bottom, #1C1F24, #1C1F2400);
-    transform: translateY(-10px);
+    transform: translateY(-100px);
 }
 
 .socials-indicator {
@@ -72,7 +72,7 @@
     width: 100vw;
     height: 30vh;
     background: linear-gradient(to bottom, #1C1F2400, #1C1F24);
-    transform: translateY(30px);
+    transform: translateY(100px);
   }
 
   .section.scroll-indicator {

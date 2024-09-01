@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CursorBallComponent } from './components/cursor-ball/cursor-ball.component';
 import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
 import { CommonModule } from '@angular/common';
+import { TitleService } from './services/title.service';
 
 @Component({
   selector: 'app-root',
@@ -27,8 +28,10 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Jaron_Vantomme';
   showSplash = true;
+
+  constructor(private titleService: TitleService) {}
+
 
   ngOnInit() {
     setTimeout(() => {
