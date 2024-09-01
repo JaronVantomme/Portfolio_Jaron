@@ -13,10 +13,10 @@ export class TimelineComponent implements AfterViewInit {
   @ViewChild('timelineContainer', { static: true }) timelineContainer!: ElementRef;
 
   public workItems = [
-    { title: 'Social Creativity Cup 2020', category: 'document', image: 'https://i.postimg.cc/L5KwkY3H/Social-Creativity-Cup.jpg', isNewArea: true, areaTime: '2016-2022', areaTitle: 'Student IW', areaDescription: 'VTI Roeselare' },
+    { title: 'Social Creativity Cup 2020', category: 'document', image: 'https://i.postimg.cc/L5KwkY3H/Social-Creativity-Cup.jpg', isNewArea: true, areaTime: '2010-2016', areaTitle: 'Student IW', areaDescription: 'VTI Roeselare' },
     { title: 'Project One', category: 'website', image: 'https://i.postimg.cc/T14c50mZ/Project-One.jpg', isNewArea: true, areaTime: '2016-2022', areaTitle: 'Student MCT', areaDescription: 'Howest Kortrijk' },
-    { title: 'Interaction Design Project', category: 'website', image: 'https://i.postimg.cc/DZt6WKyb/Interaction-Design-Project.jpg', isNewArea: false, areaTime: '', areaTitle: '', areaDescription: '' },
-    { title: 'Team Project', category: 'website', image: 'https://i.postimg.cc/zvgr4tJj/Team-Project.jpg', isNewArea: false, areaTime: '', areaTitle: '', areaDescription: '' },
+    { title: 'Interaction Design Project', category: 'website', image: 'https://i.postimg.cc/DZt6WKyb/Interaction-Design-Project.jpg', isNewArea: false, areaTime: '2016-2022', areaTitle: 'Student MCT', areaDescription: 'Howest Kortrijk' },
+    { title: 'Team Project', category: 'website', image: 'https://i.postimg.cc/zvgr4tJj/Team-Project.jpg', isNewArea: false, areaTime: '2016-2022', areaTitle: 'Student MCT', areaDescription: 'Howest Kortrijk' },
     { title: 'Portfolio', category: 'website', image: 'https://i.postimg.cc/0QGZFBCg/Portfolio-Mockup.jpg', isNewArea: true, areaTime: '2023 - Present', areaTitle: 'Afgestudeerd', areaDescription: 'Jobhopr' },
   ];
 
@@ -46,7 +46,7 @@ export class TimelineComponent implements AfterViewInit {
   //   scrollIndicator.style.height = `${scrollIndicatorHeight}px`;
   // }
 
-  currentItemIndex: number | null = null;
+  currentItemIndex: number= 0 ;
 
   ngAfterViewInit() {
     window.addEventListener('scroll', this.handleScroll.bind(this));
@@ -56,28 +56,41 @@ export class TimelineComponent implements AfterViewInit {
 
   handleScroll() {
     this.updateScrollIndicator();
-    this.checkVisibleItem();
+    if (window.innerWidth > 1300) {
+      this.checkVisibleItem();
+    }
   }
 
   updateScrollIndicator() {
     const timeline = this.timelineContainer.nativeElement;
     const scrollIndicator = timeline.querySelector('.scroll-indicator') as HTMLElement;
+    const time = timeline.querySelector('.time') as HTMLElement;
+    const points = document.querySelectorAll('.timeline-point-animation');
   
     const timelineRect = timeline.getBoundingClientRect();
     const windowHeight = window.innerHeight;
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   
-    // Correcte berekening zonder verplaatsen van start en end
-    const timelineStart = timelineRect.top + scrollTop - windowHeight / 2; // Startpositie is eerder
-    const timelineEnd = timelineRect.bottom + scrollTop - windowHeight / 2; // Eindpositie is eerder
+    const timelineStart = timelineRect.top + scrollTop - windowHeight / 2;
+    const timelineEnd = timelineRect.bottom + scrollTop - windowHeight / 2;
     
-    // De scrolled waarde wordt nu berekend tussen deze twee punten
     const scrolled = Math.max(0, Math.min(1, (scrollTop - timelineStart) / (timelineEnd - timelineStart)));
     
-    // Bereken de hoogte van de indicator
     const scrollIndicatorHeight = scrolled * timelineRect.height;
     
     scrollIndicator.style.height = `${scrollIndicatorHeight}px`;
+
+    if (window.innerWidth > 1300) {
+      time.style.top = `${scrollIndicatorHeight -20}px`
+      points.forEach(point => {
+        const htmlPoint = point as HTMLElement;
+        htmlPoint.style.top = `${scrollIndicatorHeight}px`
+      });
+    }
+  }
+
+  shouldShowPoint(index: number): boolean {
+    return index === 0; // Voorbeeld: toon de punt alleen bij het eerste item
   }
   
   
@@ -92,21 +105,48 @@ export class TimelineComponent implements AfterViewInit {
     let closestIndex: number | null = null;
     let closestDistance = Infinity;
 
+    const margin = 200;
+
     items.forEach((item: HTMLElement, index: number) => {
-      const rect = item.getBoundingClientRect();
-      const itemTop = rect.top + scrollTop;
+        const rect = item.getBoundingClientRect();
+        const itemTop = rect.top + scrollTop; 
+        const itemBottom = itemTop + rect.height; 
 
-      const distance = Math.abs(itemTop - scrollTop);
+        const distanceToTop = itemTop - scrollTop;
 
-      if (distance < closestDistance) {
-        closestDistance = distance;
-        closestIndex = index;
-      }
+        if (itemTop < scrollTop + viewportHeight + margin && itemBottom > scrollTop - margin) {
+            if (distanceToTop >= 100 && distanceToTop < closestDistance) {
+                closestDistance = distanceToTop;
+                closestIndex = index;
+            }
+        }
     });
 
     if (closestIndex !== null && closestIndex !== this.currentItemIndex) {
       this.currentItemIndex = closestIndex;
-      console.log(`Currently viewing item: ${this.workItems[this.currentItemIndex].title}`);
     }
   }
+
+  isAreaVisibleWithAnimation(index: number): boolean {
+    if (window.innerWidth > 1300) {
+      if (index == 0) {
+        return true
+      } else {
+        return false
+      }
+    } else {
+      return false
+    }
+
+  }
+  isAreaVisible(): boolean {
+    if (window.innerWidth > 1300) {
+      return false
+    } else {
+      return true
+    }
+  }
+
+
+
 }

@@ -212,15 +212,15 @@ export class HomePageComponent implements OnInit {
       message: this.message
     };
 
-    return emailjs.send(this.serviceId, this.templateId, templateParams, this.userId)
-      .then((response) => {
-        console.log('Email sent successfully:', response);
-        // TODO: popup met check spam folder als je geen bericht ontvangt
-        // TODO: styling fixen templte emailJS
-      })
-      .catch((error) => {
-        console.error('Failed to send email:', error);
-      });
+    // return emailjs.send(this.serviceId, this.templateId, templateParams, this.userId)
+    //   .then((response) => {
+    //     console.log('Email sent successfully:', response);
+    //     // TODO: popup met check spam folder als je geen bericht ontvangt
+    //     // TODO: styling fixen templte emailJS
+    //   })
+    //   .catch((error) => {
+    //     console.error('Failed to send email:', error);
+    //   });
   }
 
   closePopup() {
