@@ -248,4 +248,11 @@ body, html {
     margin-top: 10px;
 }
 
+.timeline-container {
+    position: sticky;
+    top: 0; /* Sticky aan de bovenkant van het scherm */
+    z-index: 10; /* Zodat het over andere inhoud schuift als dat nodig is */
+    width: 100%;
+    background: inherit; /* Behoud de achtergrond van de sectie */
+}
 

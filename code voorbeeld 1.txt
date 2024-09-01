@@ -62,25 +62,21 @@ export class TimelineComponent implements AfterViewInit {
   updateScrollIndicator() {
     const timeline = this.timelineContainer.nativeElement;
     const scrollIndicator = timeline.querySelector('.scroll-indicator') as HTMLElement;
-  
+
     const timelineRect = timeline.getBoundingClientRect();
     const windowHeight = window.innerHeight;
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
-    // Correcte berekening zonder verplaatsen van start en end
-    const timelineStart = timelineRect.top + scrollTop - windowHeight / 2; // Startpositie is eerder
-    const timelineEnd = timelineRect.bottom + scrollTop - windowHeight / 2; // Eindpositie is eerder
-    
-    // De scrolled waarde wordt nu berekend tussen deze twee punten
-    const scrolled = Math.max(0, Math.min(1, (scrollTop - timelineStart) / (timelineEnd - timelineStart)));
-    
-    // Bereken de hoogte van de indicator
-    const scrollIndicatorHeight = scrolled * timelineRect.height;
-    
+
+    const start = scrollTop + timelineRect.top;
+    const end = scrollTop + timelineRect.bottom - windowHeight;
+
+    const scrolled = Math.max(0, Math.min(1, (scrollTop - start) / (end - start)));
+
+    const timelineHeight = timelineRect.height;
+    const scrollIndicatorHeight = scrolled * timelineHeight;
+
     scrollIndicator.style.height = `${scrollIndicatorHeight}px`;
   }
-  
-  
 
   checkVisibleItem() {
     const timeline = this.timelineContainer.nativeElement;

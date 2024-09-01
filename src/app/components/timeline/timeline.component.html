@@ -1,6 +1,7 @@
-<div class="timeline">
+<div class="timeline" #timelineContainer>
+  <div class="scroll-indicator"></div>
   <ul>
-    <li *ngFor="let item of workItems">
+    <li *ngFor="let item of workItems; let i = index" #timelineItem>
       <div class="content">
         <img class="content-img" [src]="item.image" [alt]="item.title">
         <div class="content-info">
