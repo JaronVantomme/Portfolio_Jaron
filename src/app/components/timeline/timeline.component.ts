@@ -64,8 +64,12 @@ export class TimelineComponent implements AfterViewInit {
   updateScrollIndicator() {
     const timeline = this.timelineContainer.nativeElement;
     const scrollIndicator = timeline.querySelector('.scroll-indicator') as HTMLElement;
-    const time = timeline.querySelector('.time') as HTMLElement;
-    const points = document.querySelectorAll('.timeline-point-animation');
+    const timeOne = timeline.querySelector('.time-one') as HTMLElement;
+    const timeTwo = timeline.querySelector('.time-two') as HTMLElement;
+    const timeThree = timeline.querySelector('.time-three') as HTMLElement;
+    const pointOne = document.querySelectorAll('.timeline-point-animation-1');
+    const pointTwo = document.querySelectorAll('.timeline-point-animation-2');
+    const pointTree = document.querySelectorAll('.timeline-point-animation-3');
   
     const timelineRect = timeline.getBoundingClientRect();
     const windowHeight = window.innerHeight;
@@ -76,21 +80,58 @@ export class TimelineComponent implements AfterViewInit {
     
     const scrolled = Math.max(0, Math.min(1, (scrollTop - timelineStart) / (timelineEnd - timelineStart)));
     
-    const scrollIndicatorHeight = scrolled * timelineRect.height;
+    let scrollIndicatorHeight = scrolled * timelineRect.height;
+    let scrollIndicatorPointOneHeight = scrollIndicatorHeight
+    let scrollIndicatorPointTwoHeight = scrollIndicatorHeight
+    let scrollIndicatorPointThreeHeight = scrollIndicatorHeight
+
+    if (scrollIndicatorHeight < 15) {
+      scrollIndicatorHeight = 15;
+      if (window.innerWidth > 1300) {
+        scrollIndicatorPointOneHeight = 15;
+      } else {
+        scrollIndicatorPointOneHeight = 0;
+      }
+    }
+    if (scrollIndicatorHeight >= 264.5) {
+      scrollIndicatorPointOneHeight = 270;
+    }
+    if (scrollIndicatorHeight < 364.5) {
+      scrollIndicatorPointTwoHeight = 364.5
+    }
+    if (scrollIndicatorHeight >= 1315) {
+      scrollIndicatorPointTwoHeight = 1315;
+    }
+    if (scrollIndicatorHeight < 1415) {
+      scrollIndicatorPointThreeHeight = 1415 
+    }
+    
     
     scrollIndicator.style.height = `${scrollIndicatorHeight}px`;
 
+    
+
     if (window.innerWidth > 1300) {
-      time.style.top = `${scrollIndicatorHeight -20}px`
-      points.forEach(point => {
+      timeOne.style.top = `${scrollIndicatorPointOneHeight -20}px`
+      pointOne.forEach(point => {
         const htmlPoint = point as HTMLElement;
-        htmlPoint.style.top = `${scrollIndicatorHeight}px`
+        htmlPoint.style.top = `${scrollIndicatorPointOneHeight}px`
+      });
+      timeTwo.style.top = `${scrollIndicatorPointTwoHeight -20}px`
+      pointTwo.forEach(point => {
+        const htmlPoint = point as HTMLElement;
+        htmlPoint.style.top = `${scrollIndicatorPointTwoHeight}px`
+      });
+      timeThree.style.top = `${scrollIndicatorPointThreeHeight -20}px`
+      pointTree.forEach(point => {
+        const htmlPoint = point as HTMLElement;
+        htmlPoint.style.top = `${scrollIndicatorPointThreeHeight}px`
       });
     }
   }
 
   shouldShowPoint(index: number): boolean {
-    return index === 0; // Voorbeeld: toon de punt alleen bij het eerste item
+    return index === 0;
   }
   
   
