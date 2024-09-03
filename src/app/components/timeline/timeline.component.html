@@ -1,12 +1,12 @@
 <div class="timeline" #timelineContainer>
   <div class="scroll-indicator"></div>
   <ul>
-    <li *ngFor="let item of workItems; let i = index" #timelineItem>
+    <li *ngFor="let item of workItems; let i = index" #timelineItem [ngClass]="item.isNewArea ? 'margin' : 'noMargin'">
       <div *ngIf="item.isNewArea && isAreaVisible()" class="timeline-point"></div>
       <div *ngIf="i === 0 && isAreaVisibleWithAnimation(i)" class="timeline-point-animation-1"></div>
       <div *ngIf="i === 0 && isAreaVisibleWithAnimation(i)" class="timeline-point-animation-2"></div>
       <div *ngIf="i === 0 && isAreaVisibleWithAnimation(i)" class="timeline-point-animation-3"></div>
-      <div class="content">
+      <div [ngClass]="item.isNewArea ? 'content' :'content-noArea'">
         <img class="content-img" [src]="item.image" [alt]="item.title">
         <div class="content-info">
           <h3 class="content-title">{{ item.title }}</h3>

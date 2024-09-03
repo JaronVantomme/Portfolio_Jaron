@@ -105,6 +105,11 @@ export class TimelineComponent implements AfterViewInit {
     if (scrollIndicatorHeight < 1415) {
       scrollIndicatorPointThreeHeight = 1415 
     }
+    if (scrollIndicatorHeight > 1425) {
+      if (window.innerWidth <= 1300) {
+        scrollIndicatorHeight = 1425;
+      }
+    }
     
     
     scrollIndicator.style.height = `${scrollIndicatorHeight}px`;
