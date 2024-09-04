@@ -6,7 +6,7 @@
 ::-webkit-scrollbar {
     width: 12px; /* Breedte van de scrollbar */
     background-color: #1C1F24; /* Achtergrondkleur van de scrollbar */
-    border-radius: 10px; /* Afgeronde hoeken van de scrollbar */
+    border-radius: 0px; /* Afgeronde hoeken van de scrollbar */
   }
   
   /* De scrollknop (thumb) */
