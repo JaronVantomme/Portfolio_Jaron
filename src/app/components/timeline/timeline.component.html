@@ -11,7 +11,7 @@
         <div class="content-info">
           <h3 class="content-title">{{ item.title }}</h3>
           <p class="content-description">{{ item.areaDescription }}</p>
-          <button class="content-button">Read More</button>
+          <button class="content-button"  (click)="goToProjectDetails(item.id)">Read More</button>
         </div>
       </div>
       <!-- <div class="time" *ngIf="item.areaTime !== '' && isAreaVisibleWithAnimation(i) && i === 0">

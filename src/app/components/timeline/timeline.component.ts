@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-timeline',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.css']
 })
@@ -13,40 +14,20 @@ export class TimelineComponent implements AfterViewInit {
   @ViewChild('timelineContainer', { static: true }) timelineContainer!: ElementRef;
 
   public workItems = [
-    { title: 'Social Creativity Cup 2020', category: 'document', image: 'https://i.postimg.cc/L5KwkY3H/Social-Creativity-Cup.jpg', isNewArea: true, areaTime: '2010-2016', areaTitle: 'Student IW', areaDescription: 'VTI Roeselare' },
-    { title: 'Project One', category: 'website', image: 'https://i.postimg.cc/T14c50mZ/Project-One.jpg', isNewArea: true, areaTime: '2016-2022', areaTitle: 'Student MCT', areaDescription: 'Howest Kortrijk' },
-    { title: 'Interaction Design Project', category: 'website', image: 'https://i.postimg.cc/DZt6WKyb/Interaction-Design-Project.jpg', isNewArea: false, areaTime: '2016-2022', areaTitle: 'Student MCT', areaDescription: 'Howest Kortrijk' },
-    { title: 'Team Project', category: 'website', image: 'https://i.postimg.cc/zvgr4tJj/Team-Project.jpg', isNewArea: false, areaTime: '2016-2022', areaTitle: 'Student MCT', areaDescription: 'Howest Kortrijk' },
-    { title: 'Portfolio', category: 'website', image: 'https://i.postimg.cc/0QGZFBCg/Portfolio-Mockup.jpg', isNewArea: true, areaTime: '2023 - Present', areaTitle: 'Afgestudeerd', areaDescription: 'Jobhopr' },
+    { id:'Social-Creativity-Cup-2020', title: 'Social Creativity Cup 2020', category: 'document', image: 'https://i.postimg.cc/ZRC4DmBC/Social-Creativity-Cup-2020.png', isNewArea: true, areaTime: '2010-2016', areaTitle: 'Student IW', areaDescription: 'VTI Roeselare' },
+    { id:'Project-One', title: 'Project One', category: 'website', image: 'https://i.postimg.cc/TPQ34QtH/Project-One.png', isNewArea: true, areaTime: '2016-2022', areaTitle: 'Student MCT', areaDescription: 'Howest Kortrijk' },
+    { id:'Interaction-Design-Project', title: 'Interaction Design Project', category: 'website', image: 'https://i.postimg.cc/xTy8m0K2/Interaction-Design-Project-1.png', isNewArea: false, areaTime: '2016-2022', areaTitle: 'Student MCT', areaDescription: 'Howest Kortrijk' },
+    { id:'Team-Project', title: 'Team Project', category: 'website', image: 'https://i.postimg.cc/k4Q3H5MM/Team-Project-1.png', isNewArea: false, areaTime: '2016-2022', areaTitle: 'Student MCT', areaDescription: 'Howest Kortrijk' },
+    { id:'Portfolio', title: 'Portfolio', category: 'website', image: 'https://i.postimg.cc/156CcdtP/Portfolio.png', isNewArea: true, areaTime: '2023 - Present', areaTitle: 'Afgestudeerd', areaDescription: 'Jobhopr' },
   ];
 
-  // ngAfterViewInit() {
-  //   window.addEventListener('scroll', this.updateScrollIndicator.bind(this));
-  // }
-
-  // updateScrollIndicator() {
-  //   const timeline = this.timelineContainer.nativeElement;
-  //   const scrollIndicator = timeline.querySelector('.scroll-indicator') as HTMLElement;
-
-  //   const timelineRect = timeline.getBoundingClientRect();
-  //   const windowHeight = window.innerHeight;
-  //   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-  //   // Bepaal de boven- en onderkant van de timeline relatief ten opzichte van de scrollpositie
-  //   const start = scrollTop + timelineRect.top;
-  //   const end = scrollTop + timelineRect.bottom - windowHeight;
-
-  //   // Bereken hoeveel er gescrold is binnen de hoogte van de timeline
-  //   const scrolled = Math.max(0, Math.min(1, (scrollTop - start) / (end - start)));
-
-  //   // Pas de hoogte van de scroll-indicator aan op basis van het percentage van de gescrollde timeline
-  //   const timelineHeight = timelineRect.height;
-  //   const scrollIndicatorHeight = scrolled * timelineHeight;
-
-  //   scrollIndicator.style.height = `${scrollIndicatorHeight}px`;
-  // }
+  constructor(private router: Router) {}
 
   currentItemIndex: number= 0 ;
+
+  goToProjectDetails(projectId: string) {
+    this.router.navigateByUrl(`/project/${projectId}`)
+  }
 
   ngAfterViewInit() {
     window.addEventListener('scroll', this.handleScroll.bind(this));
