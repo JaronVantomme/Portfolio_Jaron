@@ -1,0 +1,41 @@
+{
+    "WELCOME": "WELCOME",
+    "SKILLS": "SKILLS",
+    "WORK": "WORK",
+    "CONTACT": "CONTACT",
+    "Welcome": "Welcome",
+    "Hi,_IM": "Hi, I'm",
+    "DESCRIPTION_1": "I am a Full Stack Web Developer based in Belgium. I design and develop experiences that make people's lives easier.",
+    "GetInTouch": "Get in touch",
+    "Skills": "Skills",
+    "MySkills": "MY SKILLS",
+    "SkillsDescription": "What I can do",
+    "Work": "Work",
+    "MyWork": "MY WORK",
+    "WorkDescription": "Most common methods for designing websites that work well on desktop are responsive and adaptive design.",
+    "Contact": "Contact",
+    "SendMail": "Send mail",
+    "ContactForm": "CONTACT FORM",
+    "Send": "Send",
+    "Projects": {
+        "Team-Project": {
+        "date": "October 2024",
+        "title": "Team Project",
+        "description": "An interactive Flappy Bird app controlled via a trampoline, combining gaming and physical activity.",
+        "link": "VISIT WEBSITE",
+        "largeDescription": "In our team project, we revamped the classic Flappy Bird game by allowing players to control the bird using a trampoline. This creates a unique and active gaming experience. We applied agile methodology to collaborate and develop the app, focusing on usability and enjoyment.",
+        "skills": [
+            "Programming",
+            "Teamwork",
+            "Agile Methodology",
+            "Game Design",
+            "Creative Thinking"
+        ],
+        "image": "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg",
+        "projectInfoSmallTitle": "Project overview",
+        "projectInfoTitle": "Team Project",
+        "projectInfo": "Na lang overwegen vond ik dat het tijd was voor een frisse start. Mijn vorige website, jaronvantomme2.netlify.app, was het resultaat van een project tijdens mijn schooltijd en diende me goed als eerste stap in de digitale wereld. Hoewel ik er veel van heb geleerd, voelde ik dat mijn vaardigheden en visie sindsdien zijn geëvolueerd.\n \n Deze nieuwe portfolio is gebouwd met Angular, een framework dat me in staat stelt om dynamische en moderne webapplicaties te ontwikkelen. Het nieuwe ontwerp weerspiegelt niet alleen mijn groei als developer, maar ook mijn drang om altijd bij te blijven met de nieuwste technologieën en trends in de industrie. \n \n Op deze website vind je een overzicht van mijn projecten, vaardigheden en ambities. Ik nodig je uit om een kijkje te nemen en mijn reis in de wereld van webontwikkeling verder te ontdekken. \n \n Bedankt voor je interesse en veel plezier op mijn nieuwe platform!"
+        }
+    }
+  }
+  

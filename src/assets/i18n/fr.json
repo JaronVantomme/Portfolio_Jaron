@@ -1,0 +1,38 @@
+{
+    "WELCOME": "BIENVENUE",
+    "SKILLS": "COMPÉTENCES",
+    "WORK": "TRAVAIL",
+    "CONTACT": "CONTACT",
+    "Welcome": "Bienvenue",
+    "Hi,_IM": "Salut, je suis",
+    "DESCRIPTION_1": "Je suis un Développeur Full Stack basé en Belgique. Je conçois et développe des expériences qui facilitent la vie des gens.",
+    "GetInTouch": "Prenez contact",
+    "Skills": "Compétences",
+    "MySkills": "MES COMPÉTENCES",
+    "SkillsDescription": "Ce que je peux faire",
+    "Work": "Travail",
+    "MyWork": "MON TRAVAIL",
+    "WorkDescription": "Les méthodes les plus courantes pour concevoir des sites Web qui fonctionnent bien sur les ordinateurs de bureau sont la conception responsive et adaptative.",
+    "Contact": "Contact",
+    "SendMail": "Envoyer un email",
+    "ContactForm": "FORMULAIRE DE CONTACT",
+    "Send": "Envoyer",
+    "Projects": {
+    "Team-Project": {
+      "date": "Octobre 2024",
+      "title": "Team Project",
+      "description": "Une application Flappy Bird interactive contrôlée via un trampoline, combinant jeu et activité physique.",
+      "link": "VISITEZ LE SITE WEB",
+      "largeDescription": "Dans notre projet d'équipe, nous avons renouvelé le classique Flappy Bird en permettant aux joueurs de contrôler l'oiseau à l'aide d'un trampoline. Cela offre une expérience de jeu unique et active. Nous avons appliqué la méthodologie agile pour collaborer et développer l'application, en mettant l'accent sur la convivialité et le plaisir.",
+      "skills": [
+        "Programmation",
+        "Travail en équipe",
+        "Méthodologie Agile",
+        "Design de jeux",
+        "Pensée créative"
+      ],
+      "image": "path/to/image.jpg"
+    }
+  }
+  }
+  

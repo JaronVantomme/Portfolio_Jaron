@@ -1,3 +1,31 @@
-<div class="w-screen h-screen flex justify-center items-center">
-    <p class="text-white-0">project works!</p>
-</div>
+<section id="welkom" class="w-screen h-smallFullScreen bg-background_dark-0">
+    <div class="flex flex-col w-full h-full justify-center pl-4 sm:pl-8 md:pl-[90px] lg:pl-[200px] items-center md:items-start">
+        <p class="text-primary-0 mobileTitle1 md:desktopTitle1 text-center md:text-left mb-3 md:mb-0">
+            {{ projectDate }}
+        </p>
+        <p class="mobileTitle2 text-white-0 font-semibold w-full sm:w-3/4 md:w-3/4 lg:w-full xl:w-full text-center md:text-left md:desktopTitle2">
+            {{ projectTitle }} <span id="typed-text" class="text-primary-0"></span>
+        </p>
+        <p class="mobileTitle3 md:desktopTitle3 w-[280px] md:w-[680px] text-gray-0 text-center md:text-left">
+            {{ projectDescription }}
+        </p>
+        <!-- Je component HTML bestand -->
+        <button (click)="applyRipple($event)" class="magnet-button bg-primary-0 rounded-full w-fit px-4 sm:px-6 py-2 font-semibold mt-5 cursor-pointer text-center relative overflow-hidden">
+            {{ projectLink }}
+            <span class="ripple"></span>
+        </button>
+    </div>
+</section>
+
+<section class="w-screen bg-background_dark-0">
+    <img class="w-7/12 mx-auto" [src]="projectImage" [alt]="projectTitle">
+    <div class="flex flex-col w-5/12 h-full justify-center items-start md:items-start mt-24 mx-auto">
+        <p class="text-primary-0 mobileTitle1 md:desktopTitle1 text-center md:text-left mb-3 md:mb-0">
+            {{ projectInfoSmallTitle }}
+        </p>
+        <p class="mobileTitle2 text-white-0 font-semibold w-full sm:w-3/4 md:w-3/4 lg:w-full xl:w-full text-center md:text-left md:desktopTitle2">
+            {{ projectInfoTitle }} <span id="typed-text" class="text-primary-0"></span>
+        </p>
+        <p class="mobileTitle3 md:desktopTitle3 w-full text-gray-0 text-center md:text-left whitespace-pre-line">{{ projectInfo }}</p>
+    </div>
+</section>

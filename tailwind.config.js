@@ -8,6 +8,9 @@ module.exports = {
       'poppins': ['Poppins'],
     },
     extend: {
+      height: {
+        'smallFullScreen': '90vh'
+      },
       animation: {
         'loop-scroll': 'loop-scroll 50s linear infinite',
       },

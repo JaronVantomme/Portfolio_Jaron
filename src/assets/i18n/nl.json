@@ -1,0 +1,38 @@
+{
+    "WELCOME": "WELKOM",
+    "SKILLS": "VAARDIGHEDEN",
+    "WORK": "WERK",
+    "CONTACT": "CONTACT",
+    "Welcome": "Welkom",
+    "Hi,_IM": "Hallo, ik ben",
+    "DESCRIPTION_1": "Ik ben een Full Stack Web Developer gevestigd in België. Ik ontwerp en ontwikkel ervaringen die het leven van mensen gemakkelijker maken.",
+    "GetInTouch": "Neem contact op",
+    "Skills": "Vaardigheden",
+    "MySkills": "MIJN VAARDIGHEDEN",
+    "SkillsDescription": "Wat ik kan doen",
+    "Work": "Werk",
+    "MyWork": "MIJN WERK",
+    "WorkDescription": "De meest voorkomende methoden voor het ontwerpen van websites die goed werken op desktops zijn responsief en adaptief ontwerp.",
+    "Contact": "Contact",
+    "SendMail": "Stuur een e-mail",
+    "ContactForm": "CONTACTFORMULIER",
+    "Send": "Verstuur",
+    "Projects": {
+    "Team-Project": {
+      "date": "Oktober 2024",
+      "title": "Team Project",
+      "description": "Een interactieve Flappy Bird-app die bestuurd wordt via een trampoline, waardoor gamen en fysieke activiteit samenkomen.",
+      "link": "BEZOEK WEBSITE",
+      "largeDescription": "In ons teamproject hebben we de klassieke Flappy Bird-game vernieuwd door spelers de mogelijkheid te geven om de vogel te besturen met behulp van een trampoline. Dit zorgt voor een unieke en actieve speelervaring. We hebben agile methodologie toegepast om samen te werken en de app te ontwikkelen, waarbij we ons richtten op gebruiksvriendelijkheid en plezier.",
+      "skills": [
+        "Programmeren",
+        "Teamwork",
+        "Agile Methodologie",
+        "Game Design",
+        "Creatief Denken"
+      ],
+      "image": "path/to/image.jpg"
+    }
+  }
+  }
+  

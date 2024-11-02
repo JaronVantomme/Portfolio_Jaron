@@ -9,6 +9,7 @@ import { ScrollService } from '../../services/scroll.service';
 import { debounceTime, Subject } from 'rxjs';
 import emailjs from 'emailjs-com';
 import { FormsModule } from '@angular/forms';
+import { TranslationService } from '../../services/tranlation.service';
 
 
 @Component({
@@ -58,7 +59,7 @@ export class HomePageComponent implements OnInit {
   private currentSection: string = '';
 
 
-  constructor(private cursorService: CursorService, private elRef: ElementRef, private scrollService: ScrollService) {}
+  constructor(private cursorService: CursorService, private elRef: ElementRef, private scrollService: ScrollService, public translationService: TranslationService) {}
 
   ngOnInit() {
     this.updateCurrentSection();
@@ -189,11 +190,12 @@ export class HomePageComponent implements OnInit {
 
   updateCurrentSection() {
     const sections = this.elRef.nativeElement.querySelectorAll('section');
-    let currentSectionId = '';
+    let currentSectionId: string = '';
 
     sections.forEach((section: HTMLElement) => {
       const rect = section.getBoundingClientRect();
       if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+        console.log('sesionID: ', section.id)
         currentSectionId = section.id;
       }
     });
@@ -225,6 +227,10 @@ export class HomePageComponent implements OnInit {
 
   closePopup() {
     this.isFlipped = !this.isFlipped;
+  }
+
+  getTranslation(key: string): string {
+    return this.translationService.getTranslation(key);
   }
 
 }

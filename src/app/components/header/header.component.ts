@@ -1,23 +1,34 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { CursorService } from '../../services/CursorService';
 import { ScrollService } from '../../services/scroll.service';
+import { TranslationService } from './../../services/tranlation.service';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
   public activeSection: string = 'welkom';
+  public selectedLang: string = 'en'
 
-  constructor(private cursorService: CursorService, private scrollService: ScrollService) {}
+  constructor(private cursorService: CursorService, private scrollService: ScrollService, public translationService: TranslationService, private router: Router) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    const lang = localStorage.getItem('lang');
+    this.selectedLang = lang !== null ? lang : 'en';
+
+    this.setLanguage(this.selectedLang)
 
     this.scrollService.currentSection$.subscribe(section => {
       switch (section) {
+        case 'welkom':
+          this.activeSection = 'welkom';
+          break;
         case 'skills':
           this.activeSection = 'skills';
           break;
@@ -28,7 +39,7 @@ export class HeaderComponent implements OnInit {
           this.activeSection = 'contact';
           break;
         default:
-          this.activeSection = 'welkom';
+          break;
       }
     });
   }
@@ -49,10 +60,22 @@ export class HeaderComponent implements OnInit {
   }
 
   scrollToSection(sectionId: string) {
-    this.activeSection = sectionId
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (window.location.pathname !== '/') {
+      this.router.navigate(['/']).then(() => {
+        setTimeout(() => {
+          this.activeSection = sectionId;
+          const element = document.getElementById(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 300);
+      });
+    } else {
+      this.activeSection = sectionId;
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   }
 
@@ -65,11 +88,21 @@ export class HeaderComponent implements OnInit {
         }
       });
     }, {
-      threshold: 0.5, // Adjust the threshold as needed
+      threshold: 0.5,
     });
 
     sections.forEach(section => {
       observer.observe(section);
     });
+  }
+
+  setLanguage(lang: string) {
+    this.selectedLang = lang
+    localStorage.setItem('lang', lang)
+    this.translationService.setLanguage(lang);
+  }
+
+  getTranslation(key: string): string {
+    return this.translationService.getTranslation(key);
   }
 }
