@@ -411,6 +411,7 @@ li{
 
   .time-one {
     display: none;
+    background-color: red;
   }
 
   .time-two {

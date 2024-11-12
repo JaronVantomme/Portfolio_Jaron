@@ -1,4 +1,9 @@
 {
+    "Name": "Jaron Vantomme",
+    "Programmer": "een programmeur",
+    "Developer": "een ontwikkelaar",
+    "Designer": "een ontwerper",
+    "ReadMore": "Lees Meer",
     "WELCOME": "WELKOM",
     "SKILLS": "VAARDIGHEDEN",
     "WORK": "WERK",
@@ -17,22 +22,382 @@
     "SendMail": "Stuur een e-mail",
     "ContactForm": "CONTACTFORMULIER",
     "Send": "Verstuur",
+    "FullName": "Naam",
+    "PhoneNumber": "Telefoonnummer",
+    "YourEmail": "Uw e-mail",
+    "YourMessage": "Uw bericht",
+    "AllRightsReserved": "Alle rechten voorbehouden",
     "Projects": {
-    "Team-Project": {
-      "date": "Oktober 2024",
-      "title": "Team Project",
-      "description": "Een interactieve Flappy Bird-app die bestuurd wordt via een trampoline, waardoor gamen en fysieke activiteit samenkomen.",
-      "link": "BEZOEK WEBSITE",
-      "largeDescription": "In ons teamproject hebben we de klassieke Flappy Bird-game vernieuwd door spelers de mogelijkheid te geven om de vogel te besturen met behulp van een trampoline. Dit zorgt voor een unieke en actieve speelervaring. We hebben agile methodologie toegepast om samen te werken en de app te ontwikkelen, waarbij we ons richtten op gebruiksvriendelijkheid en plezier.",
-      "skills": [
-        "Programmeren",
-        "Teamwork",
-        "Agile Methodologie",
-        "Game Design",
-        "Creatief Denken"
-      ],
-      "image": "path/to/image.jpg"
-    }
-  }
+      "Social-Creativity-Cup-2020": {
+        "id": "Social-Creativity-Cup-2020",
+        "title": "Social Creativity Cup 2020",
+        "category": "document",
+        "image": "https://i.postimg.cc/ZRC4DmBC/Social-Creativity-Cup-2020.png",
+        "isNewArea": true,
+        "areaTime": "2010-2016",
+        "areaTitle": "Student IW",
+        "areaDescription": "VTI Roeselare",
+        "description": "",
+        "link": "",
+        "largeDescription": "",
+        "skills": "",
+        "projectInfoSmallTitle": "",
+        "projectInfoTitle": "",
+        "projectInfo": ""
+      },
+      "Project-One": {
+        "id": "Project-One",
+        "title": "Project One",
+        "category": "website",
+        "image": "https://i.postimg.cc/TPQ34QtH/Project-One.png",
+        "isNewArea": true,
+        "areaTime": "2010-2016",
+        "areaTitle": "Student MCT",
+        "areaDescription": "Howest Kortrijk",
+        "description": "",
+        "link": "",
+        "largeDescription": "",
+        "skills": "",
+        "projectInfoSmallTitle": "",
+        "projectInfoTitle": "",
+        "projectInfo": ""
+      },
+      "Interaction-Design-Project": {
+        "id": "Interaction-Design-Project",
+        "title": "Interaction Design Project",
+        "category": "website",
+        "image": "https://i.postimg.cc/xTy8m0K2/Interaction-Design-Project-1.png",
+        "isNewArea": false,
+        "areaTime": "2016-2022",
+        "areaTitle": "Student MCT",
+        "areaDescription": "Howest Kortrijk",
+        "description": "",
+        "link": "",
+        "largeDescription": "",
+        "skills": "",
+        "projectInfoSmallTitle": "",
+        "projectInfoTitle": "",
+        "projectInfo": ""
+      },
+      "Team-Project": {
+        "id": "Team-Project",
+        "title": "Team Project",
+        "date": "October 2024",
+        "category": "website",
+        "image": "https://i.postimg.cc/k4Q3H5MM/Team-Project-1.png",
+        "isNewArea": false,
+        "areaTime": "2016-2022",
+        "areaTitle": "Student MCT",
+        "areaDescription": "Howest Kortrijk",
+        "description": "An interactive Flappy Bird app controlled via a trampoline, combining gaming and physical activity.",
+        "link": "VISIT WEBSITE",
+        "largeDescription": "In our team project, we revamped the classic Flappy Bird game by allowing players to control the bird using a trampoline. This creates a unique and active gaming experience. We applied agile methodology to collaborate and develop the app, focusing on usability and enjoyment.",
+        "skills": [
+            "Programming",
+            "Teamwork",
+            "Agile Methodology",
+            "Game Design",
+            "Creative Thinking"
+        ],
+        "projectInfoSmallTitle": "Project overview",
+        "projectInfoTitle": "Team Project",
+        "projectInfo": "Na lang overwegen vond ik dat het tijd was voor een frisse start. Mijn vorige website, jaronvantomme2.netlify.app, was het resultaat van een project tijdens mijn schooltijd en diende me goed als eerste stap in de digitale wereld. Hoewel ik er veel van heb geleerd, voelde ik dat mijn vaardigheden en visie sindsdien zijn geëvolueerd.\n \n Deze nieuwe portfolio is gebouwd met Angular, een framework dat me in staat stelt om dynamische en moderne webapplicaties te ontwikkelen. Het nieuwe ontwerp weerspiegelt niet alleen mijn groei als developer, maar ook mijn drang om altijd bij te blijven met de nieuwste technologieën en trends in de industrie. \n \n Op deze website vind je een overzicht van mijn projecten, vaardigheden en ambities. Ik nodig je uit om een kijkje te nemen en mijn reis in de wereld van webontwikkeling verder te ontdekken. \n \n Bedankt voor je interesse en veel plezier op mijn nieuwe platform!"
+        },
+        "Portfolio": {
+          "id": "Portfolio",
+          "title": "Portfolio",
+          "category": "website",
+          "image": "https://i.postimg.cc/156CcdtP/Portfolio.png",
+          "isNewArea": true,
+          "areaTime": "2023 - Present",
+          "areaTitle": "Afgestudeerd",
+          "areaDescription": "Jobhopr",
+          "description": "",
+          "link": "",
+          "largeDescription": "",
+          "skills": "",
+          "projectInfoSmallTitle": "",
+          "projectInfoTitle": "",
+          "projectInfo": ""
+      }
+    },
+    "skills": [
+        {
+          "name": "Adobe XD",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Adobe_XD_CC_icon.svg/800px-Adobe_XD_CC_icon.svg.png",
+          "visitLink": "https://helpx.adobe.com/be_nl/xd/get-started.html",
+          "description": "Een ontwerp- en prototypegereedschap voor het maken van gebruikersinterfaces en -ervaringen, vaak gebruikt bij de ontwikkeling van web en apps."
+        },
+        {
+          "name": "After Effects",
+          "icon": "https://seeklogo.com/images/A/adobe-after-effects-logo-960B473FE4-seeklogo.com.png",
+          "visitLink": "https://www.adobe.com/be_nl/products/aftereffects/campaign/pricing.html?gclid=CjwKCAjwoJa2BhBPEiwA0l0ImBup-wbbX_-re9gWF4XYKbWWS0luVgbRSsIBodBZkDahR-ACezl__BoCmIcQAvD_BwE&mv=search&mv=search&mv2=paidsearch&sdid=G85SYKHF&ef_id=CjwKCAjwoJa2BhBPEiwA0l0ImBup-wbbX_-re9gWF4XYKbWWS0luVgbRSsIBodBZkDahR-ACezl__BoCmIcQAvD_BwE:G:s&s_kwcid=AL!3085!3!600579199372!e!!g!!after%20effects!1465309134!59621726089&gad_source=1",
+          "description": "Een digitale software voor visuele effecten en motion graphics die wordt gebruikt voor postproductie in film, tv en webvideo's."
+        },
+        {
+          "name": "Arduino",
+          "icon": "https://cdn.worldvectorlogo.com/logos/arduino-1.svg",
+          "visitLink": "https://www.arduino.cc/",
+          "description": "Een open-source elektronicaplatform voor het bouwen van digitale apparaten en interactieve objecten die objecten in de fysieke wereld kunnen voelen en besturen."
+        },
+        {
+          "name": "Astro",
+          "icon": "https://astro.build/assets/press/astro-icon-light-gradient.png",
+          "visitLink": "https://astro.build/",
+          "description": "Een modern front-end framework voor het bouwen van snelle, inhoudsgerichte websites met een minimum aan JavaScript."
+        },
+        {
+          "name": "Azure",
+          "icon": "https://swimburger.net/media/ppnn3pcl/azure.png",
+          "visitLink": "https://azure.microsoft.com",
+          "description": "Microsoft's cloud computing service voor het bouwen, testen en implementeren van applicaties en diensten via door Microsoft beheerde datacenters."
+        },
+        {
+          "name": "C#",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/C_Sharp_wordmark.svg/2048px-C_Sharp_wordmark.svg.png",
+          "visitLink": "https://learn.microsoft.com/en-us/dotnet/csharp/",
+          "description": "Een moderne, objectgeoriënteerde programmeertaal ontwikkeld door Microsoft, veel gebruikt voor het bouwen van Windows-toepassingen, games en bedrijfssoftware."
+        },
+        {
+          "name": "Chart.js",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/8/86/Chart.js_logo.svg",
+          "visitLink": "https://www.chartjs.org/",
+          "description": "Een populaire JavaScript-bibliotheek voor het maken van eenvoudige, duidelijke en interactieve grafieken in webapplicaties."
+        },
+        {
+          "name": "CSS",
+          "icon": "https://cdn4.iconfinder.com/data/icons/flat-brand-logo-2/512/css3-512.png",
+          "visitLink": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+          "description": "Een stylesheettaal die wordt gebruikt om de presentatie van een document te beschrijven dat is geschreven in HTML of XML en waarin wordt gedefinieerd hoe elementen moeten worden weergegeven op het scherm, op papier of in andere media."
+        },
+        {
+          "name": ".NET",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/2048px-.NET_Core_Logo.svg.png",
+          "visitLink": "https://dotnet.microsoft.com/en-us/",
+          "description": "Een stylesheettaal die wordt gebruikt om de presentatie van een document te beschrijven dat is geschreven in HTML of XML en waarin wordt gedefinieerd hoe elementen moeten worden weergegeven op het scherm, op papier of in andere media."
+        },
+        {
+          "name": "Firebase",
+          "icon": "https://cdn.iconscout.com/icon/free/png-256/free-firebase-11796860-9632965.png",
+          "visitLink": "https://firebase.google.com/",
+          "description": "Een platform ontwikkeld door Google voor het maken van mobiele en webapplicaties, dat een reeks cloudgebaseerde diensten biedt zoals verificatie, database en hosting."
+        },
+        {
+          "name": "Figma",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Figma-1-logo.png",
+          "visitLink": "https://figma.com",
+          "description": "Een webgebaseerde ontwerptool, ideaal voor UI/UX-ontwerp, die samenwerking in realtime mogelijk maakt, zodat teams op één plek kunnen ontwerpen, prototypen en feedback verzamelen."
+        },
+        {
+          "name": "Expo",
+          "icon": "https://cdn.icon-icons.com/icons2/2389/PNG/512/expo_logo_icon_145293.png",
+          "visitLink": "https://expo.dev/",
+          "description": "Een open-source platform voor het bouwen van native apps met JavaScript en React, met een reeks tools en diensten die de ontwikkeling van apps vereenvoudigen."
+        },
+        {
+          "name": "Eslint",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/e/e3/ESLint_logo.svg",
+          "visitLink": "https://eslint.org/",
+          "description": "Een hulpmiddel voor statische codeanalyse voor het identificeren en herstellen van problematische patronen in JavaScript-code, waarmee ontwikkelaars de kwaliteit en consistentie van hun code kunnen behouden."
+        },
+        {
+          "name": "Docker",
+          "icon": "https://seeklogo.com/images/D/docker-logo-CF97D0124B-seeklogo.com.png",
+          "visitLink": "https://www.docker.com/",
+          "description": "Een platform voor het ontwikkelen, verschepen en draaien van applicaties in containers, dat consistente omgevingen mogelijk maakt voor ontwikkeling, testen en productie."
+        },
+        {
+          "name": "Dapr",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Dapr_logo.svg/1024px-Dapr_logo.svg.png",
+          "visitLink": "https://dapr.io/",
+          "description": "Een draagbare, event-driven runtime voor het bouwen van gedistribueerde applicaties in cloud en edge, met ondersteuning voor meerdere talen en frameworks."
+        },
+        {
+          "name": "Git",
+          "icon": "https://static-00.iconduck.com/assets.00/git-icon-2048x2048-juzdf1l5.png",
+          "visitLink": "https://git-scm.com/",
+          "description": "Een gedistribueerd versiebeheersysteem voor het bijhouden van wijzigingen in de broncode tijdens de ontwikkeling van software, veel gebruikt voor gezamenlijke ontwikkeling."
+        },
+        {
+          "name": "Flutter",
+          "icon": "https://seeklogo.com/images/F/flutter-logo-5086DD11C5-seeklogo.com.png",
+          "visitLink": "https://flutter.dev/",
+          "description": "Een open-source UI-softwareontwikkelingstoolkit gemaakt door Google, gebruikt om native gecompileerde applicaties voor mobiel, web en desktop te ontwikkelen vanuit één codebase."
+        },
+        {
+          "name": "Github",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg",
+          "visitLink": "https://github.com/",
+          "description": "Een platform voor het hosten van en samenwerken aan Git repositories, met versiebeheer, codecontrole, probleemopsporing en projectbeheer."
+        },
+        {
+          "name": "Gitkraken",
+          "icon": "https://www.svgrepo.com/show/330510/gitkraken.svg",
+          "visitLink": "https://www.gitkraken.com/",
+          "description": "Een Git client die het gebruik van Git makkelijker en efficiënter maakt, met een visuele interface, conflictoplossing en ondersteuning voor Gitflow."
+        },
+        {
+          "name": "GraphQL",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/768px-GraphQL_Logo.svg.png",
+          "visitLink": "https://graphql.org/",
+          "description": "Een querytaal voor API's en een runtime om die query's uit te voeren, zodat clients alleen de gegevens opvragen die ze nodig hebben van de server."
+        },
+        {
+          "name": "HTML",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/1024px-HTML5_Badge.svg.png",
+          "visitLink": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+          "description": "De standaard opmaaktaal die wordt gebruikt om webpagina's te maken en die de structuur van inhoud op het web definieert."
+        },
+        {
+          "name": "Javascript",
+          "icon": "https://cdn.worldvectorlogo.com/logos/javascript-1.svg",
+          "visitLink": "https://www.javascript.com/",
+          "description": "Een veelzijdige programmeertaal op hoog niveau die vaak wordt gebruikt bij webontwikkeling om interactieve effecten te creëren in webbrowsers."
+        },
+        {
+          "name": "Typescript",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/768px-Typescript_logo_2020.svg.png",
+          "visitLink": "https://www.typescriptlang.org/",
+          "description": "Een strikt syntactische superset van JavaScript die optionele statische typing toevoegt, waardoor betere tooling en foutcontrole mogelijk worden."
+        },
+        {
+          "name": "Kubernetis",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg",
+          "visitLink": "https://kubernetes.io/",
+          "description": "Een open-source container orkestratiesysteem voor het automatiseren van de inzet, het schalen en het beheer van gecontaineriseerde applicaties."
+        },
+        {
+          "name": "JSON",
+          "icon": "https://www.svgrepo.com/show/306281/json.svg",
+          "visitLink": "https://www.json.org/json-en.html",
+          "description": "Een lichtgewicht gegevensuitwisselingsformaat dat gemakkelijk door mensen kan worden gelezen en geschreven en gemakkelijk door machines kan worden geparseerd en gegenereerd, vaak gebruikt voor het verzenden van gegevens in webtoepassingen."
+        },
+        {
+          "name": "Netlify",
+          "icon": "https://www.svgrepo.com/show/373874/netlify.svg",
+          "visitLink": "https://www.netlify.com/",
+          "description": "Een platform voor het automatiseren en implementeren van moderne webprojecten, met hosting, continue integratie en CDN-diensten voor snelle, veilige websites."
+        },
+        {
+          "name": "Nest.js",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/a/a8/NestJS.svg",
+          "visitLink": "https://nestjs.com/",
+          "description": "Een vooruitstrevend Node.js framework voor het bouwen van efficiënte en schaalbare server-side applicaties, gebruikmakend van TypeScript en met een modulaire architectuur."
+        },
+        {
+          "name": "MySQL",
+          "icon": "https://icons.veryicon.com/png/o/miscellaneous/gwidc_1/mysql-2.png",
+          "visitLink": "https://www.mysql.com/",
+          "description": "Een open-source relationeel databasebeheersysteem gebaseerd op Structured Query Language (SQL), veel gebruikt voor gegevensopslag en -beheer."
+        },
+        {
+          "name": "NPM",
+          "icon": "https://www.svgrepo.com/show/355146/npm.svg",
+          "visitLink": "https://www.npmjs.com/",
+          "description": "De pakketbeheerder voor JavaScript, waarmee ontwikkelaars code kunnen delen en hergebruiken en afhankelijkheden in hun projecten kunnen beheren."
+        },
+        {
+          "name": "Postman",
+          "icon": "https://www.svgrepo.com/show/354202/postman-icon.svg",
+          "visitLink": "https://www.postman.com/",
+          "description": "Een samenwerkingsplatform voor API-ontwikkeling, waarmee ontwikkelaars eenvoudig API's kunnen ontwerpen, testen, documenteren en bewaken."
+        },
+        {
+          "name": "Node.js",
+          "icon": "https://seeklogo.com/images/N/nodejs-logo-FBE122E377-seeklogo.com.png",
+          "visitLink": "https://nodejs.org/en",
+          "description": "Een JavaScript-runtime gebouwd op de V8 JavaScript-engine van Chrome, waarmee ontwikkelaars JavaScript aan de serverkant kunnen uitvoeren om schaalbare netwerktoepassingen te bouwen."
+        },
+        {
+          "name": "MQTT",
+          "icon": "https://avatars.githubusercontent.com/u/1544528?v=4",
+          "visitLink": "https://mqtt.org/",
+          "description": "Een lichtgewicht berichtenprotocol voor kleine sensoren en mobiele apparaten, geoptimaliseerd voor netwerken met een hoge latentie of onbetrouwbare netwerken."
+        },
+        {
+          "name": "Next.js",
+          "icon": "https://cdn.worldvectorlogo.com/logos/next-js.svg",
+          "visitLink": "https://nextjs.org/",
+          "description": "Een op React gebaseerd framework voor het bouwen van snelle, gebruiksvriendelijke en schaalbare webapplicaties, met functies als server-side rendering en statische site-generatie."
+        },
+        {
+          "name": "MongoDB",
+          "icon": "https://www.svgrepo.com/show/331488/mongodb.svg",
+          "visitLink": "https://www.mongodb.com/",
+          "description": "Een populaire NoSQL database die gegevens opslaat in flexibele, JSON-achtige documenten, waardoor gegevens snel en schaalbaar kunnen worden opgeslagen en opgehaald."
+        },
+        {
+          "name": "Three.js",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Three.js_Icon.svg/1200px-Three.js_Icon.svg.png",
+          "visitLink": "https://threejs.org/",
+          "description": "Een JavaScript-bibliotheek waarmee je eenvoudig 3D-inhoud voor het web kunt maken, inclusief afbeeldingen, animaties en interactieve ervaringen."
+        },
+        {
+          "name": "Prettier",
+          "icon": "https://www.svgrepo.com/show/306599/prettier.svg",
+          "visitLink": "https://prettier.io/",
+          "description": "Een opiniërende codevormer die een consistente stijl afdwingt door je code te parseren en opnieuw af te drukken met zijn eigen regels."
+        },
+        {
+          "name": "Python",
+          "icon": "https://www.svgrepo.com/show/376344/python.svg",
+          "visitLink": "https://www.python.org/",
+          "description": "Een veelzijdige programmeertaal op hoog niveau, bekend om zijn leesbaarheid en eenvoud, die wordt gebruikt voor webontwikkeling, gegevensanalyse, AI en meer."
+        },
+        {
+          "name": "React",
+          "icon": "https://www.svgrepo.com/show/327388/logo-react.svg",
+          "visitLink": "https://react.dev/",
+          "description": "Een populaire JavaScript-bibliotheek voor het bouwen van gebruikersinterfaces, vooral toepassingen voor één pagina, met een componentgebaseerde architectuur."
+        },
+        {
+          "name": "Sass",
+          "icon": "https://cdn.iconscout.com/icon/free/png-256/free-sass-3521691-2945135.png",
+          "visitLink": "https://sass-lang.com/",
+          "description": "Een preprocessor scripttaal die wordt geïnterpreteerd of gecompileerd in CSS en die variabelen, geneste regels en functies biedt voor beter te onderhouden stylesheets."
+        },
+        {
+          "name": "Socket.io",
+          "icon": "https://cdn.icon-icons.com/icons2/2389/PNG/512/socket_io_logo_icon_144874.png",
+          "visitLink": "https://socket.io/",
+          "description": "Een JavaScript-bibliotheek voor realtime tweerichtingscommunicatie tussen webclients en servers, die functies als chatten en meldingen mogelijk maakt."
+        },
+        {
+          "name": "Raspberry Pi",
+          "icon": "https://upload.wikimedia.org/wikipedia/fr/thumb/3/3b/Raspberry_Pi_logo.svg/1200px-Raspberry_Pi_logo.svg.png",
+          "visitLink": "https://www.raspberrypi.com/",
+          "description": "Een goedkope computer ter grootte van een creditcard die kan worden aangesloten op een monitor of tv, gebruikt voor elektronicaprojecten, programmeren en kleinschalige serverimplementaties."
+        },
+        {
+          "name": "Tailwind",
+          "icon": "https://www.svgrepo.com/show/333609/tailwind-css.svg",
+          "visitLink": "https://tailwindcss.com/",
+          "description": "Een utility-first CSS framework waarmee ontwikkelaars snel aangepaste gebruikersinterfaces kunnen bouwen door utility classes rechtstreeks in HTML samen te stellen."
+        },
+        {
+          "name": "UI/UX",
+          "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvFruzSMJRcWHdJSDWeiwndqINBExXqN2xsg&s",
+          "visitLink": "https://www.code14.nl/kennisbank/wat-is-ux-ui-design",
+          "description": "Het proces van het ontwerpen van gebruikersinterfaces (UI) en gebruikerservaringen (UX) die gebruiksvriendelijk en visueel aantrekkelijk zijn en voldoen aan de behoeften van gebruikers."
+        },
+        {
+          "name": "Xamarin",
+          "icon": "https://cdn.worldvectorlogo.com/logos/xamarin.svg",
+          "visitLink": "https://dotnet.microsoft.com/en-us/apps/xamarin",
+          "description": "Een framework voor het bouwen van cross-platform mobiele applicaties met C# en .NET, waarmee ontwikkelaars code kunnen delen voor Android-, iOS- en Windows-apps."
+        },
+        {
+          "name": "Vue.js",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1184px-Vue.js_Logo_2.svg.png",
+          "visitLink": "https://vuejs.org/",
+          "description": "Een vooruitstrevend JavaScript framework voor het bouwen van gebruikersinterfaces, bekend om zijn eenvoud, flexibiliteit en eenvoudige integratie met bestaande projecten."
+        },
+        {
+          "name": "Vite",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Vitejs-logo.svg/1039px-Vitejs-logo.svg.png",
+          "visitLink": "https://vitejs.dev/",
+          "description": "Een snelle buildtool en ontwikkelserver voor moderne webprojecten, met directe serverstart, directe vervanging van modules en geoptimaliseerde productie builds."
+        }
+    ]
   }
   

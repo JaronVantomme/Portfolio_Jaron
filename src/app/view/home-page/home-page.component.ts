@@ -1,15 +1,15 @@
-import { Component, HostListener, AfterViewInit, OnInit, ElementRef, ViewChild } from '@angular/core';
-import VanillaTilt from 'vanilla-tilt';
+import { Component, HostListener, AfterViewInit, OnInit, ElementRef, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { InfinityLoopScrollComponent } from '../../components/infinity-loop-scroll/infinity-loop-scroll.component';
 import { TimelineComponent } from '../../components/timeline/timeline.component';
-import Typed from 'typed.js';
 import { CursorService } from '../../services/CursorService';
 import { CommonModule } from '@angular/common';
 import { ScrollService } from '../../services/scroll.service';
-import { debounceTime, Subject } from 'rxjs';
-import emailjs from 'emailjs-com';
+import { debounceTime, Subject, Subscription, takeUntil } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { TranslationService } from '../../services/tranlation.service';
+
+import VanillaTilt from 'vanilla-tilt';
+import Typed from 'typed.js';
 
 
 @Component({
@@ -24,60 +24,36 @@ export class HomePageComponent implements OnInit {
   @ViewChild('flipCard', { static: false }) flipCard: ElementRef | undefined;
   @ViewChild('messageField', { static: false }) messageField: ElementRef | undefined;
 
-  private userId = 'mq9EISwKXRK9fCDi_';
-  private serviceId = 'service_o5hpnwl';
-  private templateId = 'template_2yhkx2l';
+  public $unsubscribe = new Subject<void>();
 
+  private typed: Typed | null = null;
   public adjustCardHeightSubject = new Subject<void>();
-
   public activeFilter: string = 'all';
   public isFlipped = false;
-
   public name: string = ''
   public phoneNumber: any = ''
   public email: string = ''
   public message: string = ''
-
-
-  public workItems = [
-    { title: 'Project One', category: 'website', image: 'https://i.postimg.cc/T14c50mZ/Project-One.jpg' },
-    { title: 'Social Creativity Cup 2020', category: 'document', image: 'https://i.postimg.cc/L5KwkY3H/Social-Creativity-Cup.jpg' },
-    { title: 'Interaction Design Project', category: 'website', image: 'https://i.postimg.cc/DZt6WKyb/Interaction-Design-Project.jpg' },
-    { title: 'Team Project', category: 'website', image: 'https://i.postimg.cc/zvgr4tJj/Team-Project.jpg' },
-    { title: 'Portfolio', category: 'website', image: 'https://i.postimg.cc/0QGZFBCg/Portfolio-Mockup.jpg' },
-  ];
-
-  // public workItems = [
-  //   { title: 'Project One', category: 'website', image: 'https://i.postimg.cc/NfRDb3h0/Project-One-White.jpg' },
-  //   { title: 'Social Creativity Cup 2020', category: 'document', image: 'https://i.postimg.cc/L5KwkY3H/Social-Creativity-Cup.jpg' },
-  //   { title: 'Interaction Design Project', category: 'website', image: 'https://i.postimg.cc/K8yq2Z7L/Interaction-Design-Project-White.jpg' },
-  //   { title: 'Team Project', category: 'website', image: 'https://i.postimg.cc/nzMTkMZ8/Team-Project-White.jpg' },
-  //   { title: 'Portfolio', category: 'website', image: 'https://i.postimg.cc/DZDWqMjd/Portfolio-Mockup-White.jpg' },
-  // ];
-
-  public filteredItems = this.workItems;
   private currentSection: string = '';
 
 
-  constructor(private cursorService: CursorService, private elRef: ElementRef, private scrollService: ScrollService, public translationService: TranslationService) {}
+  constructor(private cursorService: CursorService, private elRef: ElementRef, private scrollService: ScrollService, public translationService: TranslationService, private cdRef: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.updateCurrentSection();
+
+    this.translationService.languageChange$.pipe(takeUntil(this.$unsubscribe)).subscribe(async () => {
+      this.setTypingEffect()
+    });
   }
 
   ngAfterViewInit(): void {
-    const options = {
-      strings: ["Jaron Vantomme", "Jaron Vantomme", "a programmer" , "a programmer", "a developer" , "a developer", "a designer" , "a designer"],
-      typeSpeed: 100,
-      backSpeed: 100,
-      backDelay: 3000,
-      startDelay: 250,
-      loop: true,
-      showCursor: true,
-      cursorChar: '|',
-    };
-
-    new Typed('#typed-text', options);
+    setTimeout(() => {
+      if (!this.typed) {
+        this.setTypingEffect();
+        this.cdRef.detectChanges();
+      }
+    });
 
     const elements = Array.from(document.querySelectorAll('.work-item')) as HTMLElement[];
 
@@ -88,7 +64,7 @@ export class HomePageComponent implements OnInit {
       'max-glare': 0.1,
     });
 
-    this.adjustCardHeightSubject.pipe(debounceTime(100)).subscribe(() => {
+    this.adjustCardHeightSubject.pipe(debounceTime(100), takeUntil(this.$unsubscribe)).subscribe(() => {
       this.adjustCardHeight();
     });
 
@@ -98,6 +74,28 @@ export class HomePageComponent implements OnInit {
       });
       resizeObserver.observe(this.messageField.nativeElement);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.$unsubscribe.next();
+    this.$unsubscribe.complete();
+  }
+
+  setTypingEffect() {
+    if (this.typed) this.typed.destroy();
+    
+    const options = {
+      strings: [this.translationService.getTranslation('Name'), this.translationService.getTranslation('Name'), this.translationService.getTranslation('Programmer'), this.translationService.getTranslation('Programmer'), this.getTranslation('Developer'), this.getTranslation('Developer'), this.getTranslation('Designer') , this.getTranslation('Designer')],
+      typeSpeed: 100,
+      backSpeed: 100,
+      backDelay: 3000,
+      startDelay: 250,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|',
+    };
+
+    this.typed = new Typed('#typed-text', options);
   }
 
   adjustCardHeight() {
@@ -156,16 +154,7 @@ export class HomePageComponent implements OnInit {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 600);
-  }
-
-  filterItems(category: string) {
-    this.activeFilter = category;
-    if (category === 'all') {
-      this.filteredItems = this.workItems;
-    } else {
-      this.filteredItems = this.workItems.filter(item => item.category === category);
-    }
+    }, 100);
   }
 
   @HostListener('document:mousemove', ['$event'])
@@ -184,7 +173,7 @@ export class HomePageComponent implements OnInit {
   }
 
   @HostListener('window:scroll', ['$event'])
-  onWindowScroll(event: Event) {
+  onWindowScroll() {
     this.updateCurrentSection();
   }
 
@@ -195,7 +184,6 @@ export class HomePageComponent implements OnInit {
     sections.forEach((section: HTMLElement) => {
       const rect = section.getBoundingClientRect();
       if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-        console.log('sesionID: ', section.id)
         currentSectionId = section.id;
       }
     });

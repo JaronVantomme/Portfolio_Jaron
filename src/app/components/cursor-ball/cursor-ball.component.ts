@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CursorService } from './../../services/CursorService';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-cursor-ball',
@@ -9,6 +10,9 @@ import { CursorService } from './../../services/CursorService';
 })
 export class CursorBallComponent implements OnInit {
   @ViewChild('ball') ball!: ElementRef;
+
+  public $unsubscribe = new Subject<void>();
+
   private ballX: number = 0;
   private ballY: number = 0;
   private isHovering: boolean = false;
@@ -16,7 +20,7 @@ export class CursorBallComponent implements OnInit {
   constructor(private cursorService: CursorService) {}
 
   ngOnInit(): void {
-    this.cursorService.mousePosition$.subscribe((position: any) => {
+    this.cursorService.mousePosition$.pipe(takeUntil(this.$unsubscribe)).subscribe((position: any) => {
       if (!this.isHovering) {
         this.ballX += (position.x - this.ballX) * 0.1;
         this.ballY += (position.y - this.ballY) * 0.1;
@@ -24,7 +28,7 @@ export class CursorBallComponent implements OnInit {
       }
     });
 
-    this.cursorService.hoveringElement$.subscribe((element: any) => {
+    this.cursorService.hoveringElement$.pipe(takeUntil(this.$unsubscribe)).subscribe((element: any) => {
       if (element) {
         this.isHovering = true;
         this.transformBallToElement(element);
@@ -33,6 +37,11 @@ export class CursorBallComponent implements OnInit {
         this.resetBall();
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.$unsubscribe.next();
+    this.$unsubscribe.complete();
   }
 
   updateBallPosition() {

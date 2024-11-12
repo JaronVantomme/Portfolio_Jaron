@@ -11,33 +11,23 @@
         <div class="content-info">
           <h3 class="content-title">{{ item.title }}</h3>
           <p class="content-description">{{ item.areaDescription }}</p>
-          <button class="content-button"  (click)="goToProjectDetails(item.id)">Read More</button>
+          <button class="content-button"  (click)="goToProjectDetails(item.id)">{{ getTranslation('ReadMore') }}</button>
         </div>
       </div>
-      <!-- <div class="time" *ngIf="item.areaTime !== '' && isAreaVisibleWithAnimation(i) && i === 0">
-        <p class="areaTime">{{ this.workItems[currentItemIndex].areaTime }}</p>
-        <p class="areaTitle">{{ this.workItems[currentItemIndex].areaTitle }}</p>
-        <p class="areaDescription">{{ this.workItems[currentItemIndex].areaDescription }}</p>
-      </div>   -->
-      <div class="time-one" *ngIf="i === 0">
-        <p class="areaTime">2010-2016</p>
-        <p class="areaTitle">Student IW</p>
-        <p class="areaDescription">VTI Roeselare</p>
-      </div>  
-      <div class="time-two" *ngIf="i === 0">
-        <p class="areaTime">2016-2022</p>
-        <p class="areaTitle">Student MCT</p>
-        <p class="areaDescription">Howest Kortrijk</p>
-      </div>  
-      <div class="time-three" *ngIf="i === 0">
-        <p class="areaTime">2023 - Present</p>
-        <p class="areaTitle">Afgestudeerd</p>
-        <p class="areaDescription">Jobhopr</p>
-      </div>  
+
+      <ng-container *ngIf="i === 0">
+        <div *ngFor="let area of areaData; let j = index" [class]="'time-' + getIndexAsWord(j)">
+          <p *ngIf="i === 0" class="areaTime">{{ area.areaTime }}</p>
+          <p *ngIf="i === 0" class="areaTitle">{{ area.areaTitle }}</p>
+          <p *ngIf="i === 0" class="areaDescription">{{ area.areaDescription }}</p>
+        </div>
+      </ng-container>
+      
+      
       <div class="time" *ngIf="item.isNewArea && isAreaVisible()">
-        <p class="areaTime">{{ this.item.areaTime }}</p>
-        <p class="areaTitle">{{ this.item.areaTitle }}</p>
-        <p class="areaDescription">{{ this.item.areaDescription }}</p>
+        <p class="areaTime">{{ item.areaTime }}</p>
+        <p class="areaTitle">{{ item.areaTitle }}</p>
+        <p class="areaDescription">{{ item.areaDescription }}</p>
       </div>
     </li>
   </ul>

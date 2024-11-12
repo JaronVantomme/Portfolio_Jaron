@@ -116,10 +116,10 @@
                     <div class="overlay">
                         <form (submit)="sendEmail()" class="flex flex-col gap-4">
                             <p class="mobileTitle2 md:desktopTitle2 text-white-0 font-semibold text-center">{{ getTranslation('ContactForm') }}</p>
-                            <input type="text" id="name" name="name" [(ngModel)]="name" placeholder="Full name" required class="input-field"/>
-                            <input type="number" id="phoneNumber" [(ngModel)]="phoneNumber" name="phoneNumber" placeholder="Phone number" required class="input-field"/>
-                            <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="Your Email" required class="input-field"/>
-                            <textarea #messageField name="message" [(ngModel)]="message" placeholder="Your Message" required class="input-field-area" (input)="adjustCardHeightSubject.next()"></textarea>
+                            <input type="text" id="name" name="name" [(ngModel)]="name" [placeholder]="getTranslation('FullName')" required class="input-field"/>
+                            <input type="number" id="phoneNumber" [(ngModel)]="phoneNumber" name="phoneNumber" [placeholder]="getTranslation('PhoneNumber')" required class="input-field"/>
+                            <input type="email" id="email" name="email" [(ngModel)]="email" [placeholder]="getTranslation('YourEmail')" required class="input-field"/>
+                            <textarea #messageField name="message" [(ngModel)]="message" [placeholder]="getTranslation('YourMessage')" required class="input-field-area" (input)="adjustCardHeightSubject.next()"></textarea>
                             <button type="submit" class="submit-button">{{ getTranslation('Send') }}</button>
                         </form>
                     </div>

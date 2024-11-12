@@ -2,15 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslationService } from './../../services/tranlation.service';
 import { CommonModule } from '@angular/common';
+import { InfinityLoopScrollComponent } from '../infinity-loop-scroll/infinity-loop-scroll.component';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-project',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, InfinityLoopScrollComponent],
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
+  public $unsubscribe = new Subject<void>();
+  
   public projectDate: string = '';
   public projectId: string = '';
   public projectTitle: string = '';
@@ -29,15 +33,20 @@ export class ProjectComponent implements OnInit {
   ngOnInit(): void {
     this.projectImage = '../../../assets/images/Portfolio';
 
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.pipe(takeUntil(this.$unsubscribe)).subscribe(params => {
       const id = params.get('id');
       this.projectId = id !== null ? id : '';
       this.loadProjectData();
     });
 
-    this.translationService.languageChange$.subscribe(() => {
+    this.translationService.languageChange$.pipe(takeUntil(this.$unsubscribe)).subscribe(() => {
       this.loadProjectData();
     });
+  }
+
+  ngOnDestroy(): void {
+    this.$unsubscribe.next();
+    this.$unsubscribe.complete();
   }
 
   loadProjectData() {
@@ -81,6 +90,6 @@ export class ProjectComponent implements OnInit {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 600);
+    }, 100);
   }
 }

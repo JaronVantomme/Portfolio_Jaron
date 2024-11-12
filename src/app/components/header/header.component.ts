@@ -4,6 +4,7 @@ import { ScrollService } from '../../services/scroll.service';
 import { TranslationService } from './../../services/tranlation.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
+  public $unsubscribe = new Subject<void>();
+
   public activeSection: string = 'welkom';
   public selectedLang: string = 'en'
 
@@ -24,7 +27,7 @@ export class HeaderComponent implements OnInit {
 
     this.setLanguage(this.selectedLang)
 
-    this.scrollService.currentSection$.subscribe(section => {
+    this.scrollService.currentSection$.pipe(takeUntil(this.$unsubscribe)).subscribe(section => {
       switch (section) {
         case 'welkom':
           this.activeSection = 'welkom';
@@ -42,6 +45,11 @@ export class HeaderComponent implements OnInit {
           break;
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.$unsubscribe.next();
+    this.$unsubscribe.complete();
   }
 
   @HostListener('document:mousemove', ['$event'])

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-splash-screen',
   standalone: true,
