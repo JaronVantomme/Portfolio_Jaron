@@ -1,17 +1,17 @@
 <section id="welkom" class="w-screen h-screen bg-background_dark-0">
     <div class="flex flex-col w-full h-full justify-center pl-4 sm:pl-8 md:pl-[90px] lg:pl-[200px] items-center md:items-start">
         <p class="text-primary-0 mobileTitle1 md:desktopTitle1 text-center md:text-left mb-3 md:mb-0">
-            Welcome
+            {{ getTranslation('Welcome') }}
         </p>
         <p class="mobileTitle2 text-white-0 font-semibold w-full sm:w-3/4 md:w-3/4 lg:w-full xl:w-full text-center md:text-left md:desktopTitle2">
-            Hi, I'm <span id="typed-text" class="text-primary-0"></span>
+            {{ getTranslation('Hi,_IM') }} <span id="typed-text" class="text-primary-0"></span>
         </p>
         <p class="mobileTitle3 md:desktopTitle3 w-[280px] md:w-[680px] text-gray-0 text-center md:text-left">
-            I am a Full Stack Web Developer based in Belgium. I design and develop experiences that make people's lives easier.
+            {{ getTranslation('DESCRIPTION_1') }}
         </p>
         <!-- Je component HTML bestand -->
         <button (click)="applyRipple($event)" class="magnet-button bg-primary-0 rounded-full w-fit px-4 sm:px-6 py-2 font-semibold mt-5 cursor-pointer text-center relative overflow-hidden">
-            Get in touch
+            {{ getTranslation('GetInTouch') }}
             <span class="ripple"></span>
         </button>
 
@@ -20,9 +20,9 @@
 
 <section id="skills" class="relative w-screen h-fit bg-background_light-0 pb-14 pt-32">
     <div class="flex flex-col h-full w-full items-center">
-        <p class="mobileTitle1 md:desktopTitle1 text-primary-0 mb-3 md:mb-0">Skills</p>
-        <p class="mobileTitle2 md:desktopTitle2 text-white-0 font-semibold">MY SKILLS</p>
-        <p class="mobileTitle3 md:desktopTitle3 text-gray-0">What i can do</p>
+        <p class="mobileTitle1 md:desktopTitle1 text-primary-0 mb-3 md:mb-0">{{ getTranslation('Skills') }}</p>
+        <p class="mobileTitle2 md:desktopTitle2 text-white-0 font-semibold">{{ getTranslation('MySkills') }}</p>
+        <p class="mobileTitle3 md:desktopTitle3 text-gray-0">{{ getTranslation('SkillsDescription') }}</p>
         <app-infinity-loop-scroll class="relative mt-8"></app-infinity-loop-scroll>        
     </div>
     <div class="pointer-events-none absolute w-32 md:w-72 top-0 left-0 h-full bg-gradient-to-r from-background_light-0 via-background-light to-transparent"></div>
@@ -30,11 +30,11 @@
 </section>
 
 <div id="work" class="h-[195px] w-screen bg-background_dark-0"></div>
-<section class="relative w-screen h-fit bg-background_dark-0 pb-14">
+<section id="work" class="relative w-screen h-fit bg-background_dark-0 pb-14">
     <div class="flex flex-col h-full w-full items-center">
-        <p class="mobileTitle1 md:desktopTitle1 text-primary-0 mb-3 md:mb-0">Work</p>
-        <p class="mobileTitle2 md:desktopTitle2 text-white-0 font-semibold">MY WORK</p>
-        <p class="mobileTitle3 md:desktopTitle3 text-gray-0 w-full text-center px-10">Most common methods for designing website that wok well on desktop is responsive and adaptive design</p>
+        <p class="mobileTitle1 md:desktopTitle1 text-primary-0 mb-3 md:mb-0">{{ getTranslation('Work') }}</p>
+        <p class="mobileTitle2 md:desktopTitle2 text-white-0 font-semibold">{{ getTranslation('MyWork') }}</p>
+        <p class="mobileTitle3 md:desktopTitle3 text-gray-0 w-full text-center px-10">{{ getTranslation('WorkDescription') }}</p>
     </div>
     <!-- <app-timeline></app-timeline> -->
 
@@ -90,15 +90,15 @@
                     <img src="https://i.postimg.cc/wBvfBftc/image-70.png" alt="Background Image" class="background-image-front">
                     <div class="overlay">
                         <div class="content">
-                            <p class="mobileTitle1 md:desktopTitle1 text-primary-0 mb-3 md:mb-0">Contact</p>
-                            <p class="mobileTitle2 md:desktopTitle2 text-white-0 font-semibold">GET IN TOUCH</p>
+                            <p class="mobileTitle1 md:desktopTitle1 text-primary-0 mb-3 md:mb-0">{{ getTranslation('Contact') }}</p>
+                            <p class="mobileTitle2 md:desktopTitle2 text-white-0 font-semibold">{{ getTranslation('GetInTouch') }}</p>
                             <p class="mobileTitle3 md:desktopTitle3 text-gray-0 w-full text-center mb-5">Jaron.vantomme&#64;gmail.com</p>
                             <button *ngIf="!isFlipped" (click)="changeFlipCard()" class="magnet-button bg-white-0 text-black-0 rounded-full w-fit px-4 sm:px-6 py-2 font-semibold mt-5 cursor-pointer text-center relative overflow-hidden">
-                                Send mail
+                                {{ getTranslation('SendMail') }}
                                 <span class="ripple-dark"></span>
                             </button>
                             <div *ngIf="isFlipped" class="magnet-button mb-4 bg-white-0 text-black-0 rounded-full w-fit px-4 sm:px-6 py-2 font-semibold mt-5 cursor-pointer text-center relative overflow-hidden opacity-0">
-                                Send mail
+                                {{ getTranslation('SendMail') }}
                                 <span class="ripple-dark"></span>
                             </div>
                         </div>
@@ -115,12 +115,12 @@
                       </button>
                     <div class="overlay">
                         <form (submit)="sendEmail()" class="flex flex-col gap-4">
-                            <p class="mobileTitle2 md:desktopTitle2 text-white-0 font-semibold text-center">CONTACT FORM</p>
-                            <input type="text" id="name" name="name" [(ngModel)]="name" placeholder="Full name" required class="input-field"/>
-                            <input type="number" id="phoneNumber" [(ngModel)]="phoneNumber" name="phoneNumber" placeholder="Phone number" required class="input-field"/>
-                            <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="Your Email" required class="input-field"/>
-                            <textarea #messageField name="message" [(ngModel)]="message" placeholder="Your Message" required class="input-field-area" (input)="adjustCardHeightSubject.next()"></textarea>
-                            <button type="submit" class="submit-button">Send</button>
+                            <p class="mobileTitle2 md:desktopTitle2 text-white-0 font-semibold text-center">{{ getTranslation('ContactForm') }}</p>
+                            <input type="text" id="name" name="name" [(ngModel)]="name" [placeholder]="getTranslation('FullName')" required class="input-field"/>
+                            <input type="number" id="phoneNumber" [(ngModel)]="phoneNumber" name="phoneNumber" [placeholder]="getTranslation('PhoneNumber')" required class="input-field"/>
+                            <input type="email" id="email" name="email" [(ngModel)]="email" [placeholder]="getTranslation('YourEmail')" required class="input-field"/>
+                            <textarea #messageField name="message" [(ngModel)]="message" [placeholder]="getTranslation('YourMessage')" required class="input-field-area" (input)="adjustCardHeightSubject.next()"></textarea>
+                            <button type="submit" class="submit-button">{{ getTranslation('Send') }}</button>
                         </form>
                     </div>
                 </div>

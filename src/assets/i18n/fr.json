@@ -1,0 +1,403 @@
+{
+    "Name": "Jaron Vantomme",
+    "Programmer": "un programmeur",
+    "Developer": "un développeur",
+    "Designer": "un designer",
+    "ReadMore": "En savoir plus",
+    "WELCOME": "BIENVENUE",
+    "SKILLS": "COMPÉTENCES",
+    "WORK": "TRAVAIL",
+    "CONTACT": "CONTACT",
+    "Welcome": "Bienvenue",
+    "Hi,_IM": "Salut, je suis",
+    "DESCRIPTION_1": "Je suis un Développeur Full Stack basé en Belgique. Je conçois et développe des expériences qui facilitent la vie des gens.",
+    "GetInTouch": "Prenez contact",
+    "Skills": "Compétences",
+    "MySkills": "MES COMPÉTENCES",
+    "SkillsDescription": "Ce que je peux faire",
+    "Work": "Travail",
+    "MyWork": "MON TRAVAIL",
+    "WorkDescription": "Les méthodes les plus courantes pour concevoir des sites Web qui fonctionnent bien sur les ordinateurs de bureau sont la conception responsive et adaptative.",
+    "Contact": "Contact",
+    "SendMail": "Envoyer un email",
+    "ContactForm": "FORMULAIRE DE CONTACT",
+    "Send": "Envoyer",
+    "FullName": "Nom et prénom",
+    "PhoneNumber": "Numéro de téléphone",
+    "YourEmail": "Votre email",
+    "YourMessage": "Votre message",
+    "AllRightsReserved": "Tous droits réservés",
+    "Projects": {
+      "Social-Creativity-Cup-2020": {
+        "id": "Social-Creativity-Cup-2020",
+        "title": "Social Creativity Cup 2020",
+        "category": "document",
+        "image": "https://i.postimg.cc/ZRC4DmBC/Social-Creativity-Cup-2020.png",
+        "isNewArea": true,
+        "areaTime": "2010-2016",
+        "areaTitle": "Étudiant IW",
+        "areaDescription": "VTI Roeselare",
+        "description": "",
+        "link": "",
+        "largeDescription": "",
+        "skills": "",
+        "projectInfoSmallTitle": "",
+        "projectInfoTitle": "",
+        "projectInfo": ""
+      },
+      "Project-One": {
+        "id": "Project-One",
+        "title": "Project One",
+        "category": "website",
+        "image": "https://i.postimg.cc/TPQ34QtH/Project-One.png",
+        "isNewArea": true,
+        "areaTime": "2010-2016",
+        "areaTitle": "Étudiant MCT",
+        "areaDescription": "Howest Kortrijk",
+        "description": "",
+        "link": "",
+        "largeDescription": "",
+        "skills": "",
+        "projectInfoSmallTitle": "",
+        "projectInfoTitle": "",
+        "projectInfo": ""
+      },
+      "Interaction-Design-Project": {
+        "id": "Interaction-Design-Project",
+        "title": "Interaction Design Project",
+        "category": "website",
+        "image": "https://i.postimg.cc/xTy8m0K2/Interaction-Design-Project-1.png",
+        "isNewArea": false,
+        "areaTime": "2016-2022",
+        "areaTitle": "Étudiant MCT",
+        "areaDescription": "Howest Kortrijk",
+        "description": "",
+        "link": "",
+        "largeDescription": "",
+        "skills": "",
+        "projectInfoSmallTitle": "",
+        "projectInfoTitle": "",
+        "projectInfo": ""
+      },
+      "Team-Project": {
+        "id": "Team-Project",
+        "title": "Team Project",
+        "date": "October 2024",
+        "category": "website",
+        "image": "https://i.postimg.cc/k4Q3H5MM/Team-Project-1.png",
+        "isNewArea": false,
+        "areaTime": "2016-2022",
+        "areaTitle": "Étudiant MCT",
+        "areaDescription": "Howest Kortrijk",
+        "description": "An interactive Flappy Bird app controlled via a trampoline, combining gaming and physical activity.",
+        "link": "VISIT WEBSITE",
+        "largeDescription": "In our team project, we revamped the classic Flappy Bird game by allowing players to control the bird using a trampoline. This creates a unique and active gaming experience. We applied agile methodology to collaborate and develop the app, focusing on usability and enjoyment.",
+        "skills": [
+            "Programming",
+            "Teamwork",
+            "Agile Methodology",
+            "Game Design",
+            "Creative Thinking"
+        ],
+        "projectInfoSmallTitle": "Project overview",
+        "projectInfoTitle": "Team Project",
+        "projectInfo": "Na lang overwegen vond ik dat het tijd was voor een frisse start. Mijn vorige website, jaronvantomme2.netlify.app, was het resultaat van een project tijdens mijn schooltijd en diende me goed als eerste stap in de digitale wereld. Hoewel ik er veel van heb geleerd, voelde ik dat mijn vaardigheden en visie sindsdien zijn geëvolueerd.\n \n Deze nieuwe portfolio is gebouwd met Angular, een framework dat me in staat stelt om dynamische en moderne webapplicaties te ontwikkelen. Het nieuwe ontwerp weerspiegelt niet alleen mijn groei als developer, maar ook mijn drang om altijd bij te blijven met de nieuwste technologieën en trends in de industrie. \n \n Op deze website vind je een overzicht van mijn projecten, vaardigheden en ambities. Ik nodig je uit om een kijkje te nemen en mijn reis in de wereld van webontwikkeling verder te ontdekken. \n \n Bedankt voor je interesse en veel plezier op mijn nieuwe platform!"
+        },
+        "Portfolio": {
+          "id": "Portfolio",
+          "title": "Portfolio",
+          "category": "website",
+          "image": "https://i.postimg.cc/156CcdtP/Portfolio.png",
+          "isNewArea": true,
+          "areaTime": "2023 - Present",
+          "areaTitle": "Diplômé",
+          "areaDescription": "Jobhopr",
+          "description": "",
+          "link": "",
+          "largeDescription": "",
+          "skills": "",
+          "projectInfoSmallTitle": "",
+          "projectInfoTitle": "",
+          "projectInfo": ""
+      }
+    },
+    "skills": [
+        {
+          "name": "Adobe XD",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Adobe_XD_CC_icon.svg/800px-Adobe_XD_CC_icon.svg.png",
+          "visitLink": "https://helpx.adobe.com/be_nl/xd/get-started.html",
+          "description": "Un outil de conception et de prototypage pour créer des interfaces et des expériences utilisateur, couramment utilisé dans le développement de sites web et d'applications."
+        },
+        {
+          "name": "After Effects",
+          "icon": "https://seeklogo.com/images/A/adobe-after-effects-logo-960B473FE4-seeklogo.com.png",
+          "visitLink": "https://www.adobe.com/be_nl/products/aftereffects/campaign/pricing.html?gclid=CjwKCAjwoJa2BhBPEiwA0l0ImBup-wbbX_-re9gWF4XYKbWWS0luVgbRSsIBodBZkDahR-ACezl__BoCmIcQAvD_BwE&mv=search&mv=search&mv2=paidsearch&sdid=G85SYKHF&ef_id=CjwKCAjwoJa2BhBPEiwA0l0ImBup-wbbX_-re9gWF4XYKbWWS0luVgbRSsIBodBZkDahR-ACezl__BoCmIcQAvD_BwE:G:s&s_kwcid=AL!3085!3!600579199372!e!!g!!after%20effects!1465309134!59621726089&gad_source=1",
+          "description": "Logiciel d'effets visuels numériques et de graphisme de mouvement utilisé pour la post-production de films, de programmes télévisés et de vidéos en ligne."
+        },
+        {
+          "name": "Arduino",
+          "icon": "https://cdn.worldvectorlogo.com/logos/arduino-1.svg",
+          "visitLink": "https://www.arduino.cc/",
+          "description": "Plate-forme électronique à code source ouvert permettant de construire des appareils numériques et des objets interactifs capables de détecter et de contrôler des objets dans le monde physique."
+        },
+        {
+          "name": "Astro",
+          "icon": "https://astro.build/assets/press/astro-icon-light-gradient.png",
+          "visitLink": "https://astro.build/",
+          "description": "Un framework front-end moderne pour construire des sites web rapides et centrés sur le contenu en utilisant un minimum de JavaScript."
+        },
+        {
+          "name": "Azure",
+          "icon": "https://swimburger.net/media/ppnn3pcl/azure.png",
+          "visitLink": "https://azure.microsoft.com",
+          "description": "Service d'informatique en nuage de Microsoft permettant de créer, de tester et de déployer des applications et des services par l'intermédiaire de centres de données gérés par Microsoft."
+        },
+        {
+          "name": "C#",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/C_Sharp_wordmark.svg/2048px-C_Sharp_wordmark.svg.png",
+          "visitLink": "https://learn.microsoft.com/en-us/dotnet/csharp/",
+          "description": "Langage de programmation moderne, orienté objet, développé par Microsoft, largement utilisé pour créer des applications Windows, des jeux et des logiciels d'entreprise."
+        },
+        {
+          "name": "Chart.js",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/8/86/Chart.js_logo.svg",
+          "visitLink": "https://www.chartjs.org/",
+          "description": "Une bibliothèque JavaScript populaire pour créer des graphiques simples, propres et interactifs dans les applications web."
+        },
+        {
+          "name": "CSS",
+          "icon": "https://cdn4.iconfinder.com/data/icons/flat-brand-logo-2/512/css3-512.png",
+          "visitLink": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+          "description": "Un langage de feuille de style utilisé pour décrire la présentation d'un document écrit en HTML ou XML, définissant la manière dont les éléments doivent être affichés à l'écran, sur papier ou sur d'autres supports."
+        },
+        {
+          "name": ".NET",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/2048px-.NET_Core_Logo.svg.png",
+          "visitLink": "https://dotnet.microsoft.com/en-us/",
+          "description": "Une plateforme de développement gratuite, multiplateforme et open-source pour créer de nombreux types d'applications, notamment web, mobiles, de bureau, de jeux et IoT."
+        },
+        {
+          "name": "Firebase",
+          "icon": "https://cdn.iconscout.com/icon/free/png-256/free-firebase-11796860-9632965.png",
+          "visitLink": "https://firebase.google.com/",
+          "description": "Plateforme développée par Google pour la création d'applications mobiles et web, offrant une suite de services basés sur le cloud comme l'authentification, la base de données et l'hébergement."
+        },
+        {
+          "name": "Figma",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Figma-1-logo.png",
+          "visitLink": "https://figma.com",
+          "description": "Un outil de conception basé sur le web, idéal pour la conception UI/UX, qui permet la collaboration en temps réel, permettant aux équipes de concevoir, de prototyper et de recueillir des commentaires en un seul endroit."
+        },
+        {
+          "name": "Expo",
+          "icon": "https://cdn.icon-icons.com/icons2/2389/PNG/512/expo_logo_icon_145293.png",
+          "visitLink": "https://expo.dev/",
+          "description": "Une plateforme open-source pour la création d'apps natives avec JavaScript et React, offrant une suite d'outils et de services qui simplifient le développement d'apps."
+        },
+        {
+          "name": "Eslint",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/e/e3/ESLint_logo.svg",
+          "visitLink": "https://eslint.org/",
+          "description": "Outil d'analyse statique du code permettant d'identifier et de corriger les schémas problématiques trouvés dans le code JavaScript, aidant les développeurs à maintenir la qualité et la cohérence du code."
+        },
+        {
+          "name": "Docker",
+          "icon": "https://seeklogo.com/images/D/docker-logo-CF97D0124B-seeklogo.com.png",
+          "visitLink": "https://www.docker.com/",
+          "description": "Une plateforme pour le développement, l'expédition et l'exécution d'applications dans des conteneurs, permettant de créer des environnements cohérents pour le développement, les tests et la production."
+        },
+        {
+          "name": "Dapr",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Dapr_logo.svg/1024px-Dapr_logo.svg.png",
+          "visitLink": "https://dapr.io/",
+          "description": "Un moteur d'exécution portable, piloté par les événements, pour la création d'applications distribuées dans le nuage et à la périphérie, prenant en charge de nombreux langages et frameworks."
+        },
+        {
+          "name": "Git",
+          "icon": "https://static-00.iconduck.com/assets.00/git-icon-2048x2048-juzdf1l5.png",
+          "visitLink": "https://git-scm.com/",
+          "description": "Système de contrôle de version distribué permettant de suivre les modifications apportées au code source pendant le développement d'un logiciel, largement utilisé pour le développement collaboratif."
+        },
+        {
+          "name": "Flutter",
+          "icon": "https://seeklogo.com/images/F/flutter-logo-5086DD11C5-seeklogo.com.png",
+          "visitLink": "https://flutter.dev/",
+          "description": "Il s'agit d'une boîte à outils open-source de développement de logiciels d'interface utilisateur créée par Google, utilisée pour développer des applications compilées nativement pour les téléphones mobiles, le web et les ordinateurs de bureau à partir d'une base de code unique."
+        },
+        {
+          "name": "Github",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg",
+          "visitLink": "https://github.com/",
+          "description": "Plate-forme d'hébergement et de collaboration sur les dépôts Git, offrant le contrôle de version, l'examen du code, le suivi des problèmes et la gestion de projet."
+        },
+        {
+          "name": "Gitkraken",
+          "icon": "https://www.svgrepo.com/show/330510/gitkraken.svg",
+          "visitLink": "https://www.gitkraken.com/",
+          "description": "Un client Git qui rend l'utilisation de Git plus facile et plus efficace, offrant une interface visuelle, la résolution des conflits et le support de Gitflow."
+        },
+        {
+          "name": "GraphQL",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/768px-GraphQL_Logo.svg.png",
+          "visitLink": "https://graphql.org/",
+          "description": "Un langage de requête pour les API et un moteur d'exécution de ces requêtes, permettant aux clients de ne demander au serveur que les données dont ils ont besoin."
+        },
+        {
+          "name": "HTML",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/1024px-HTML5_Badge.svg.png",
+          "visitLink": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+          "description": "Le langage de balisage standard utilisé pour créer des pages web, définissant la structure du contenu sur le web."
+        },
+        {
+          "name": "Javascript",
+          "icon": "https://cdn.worldvectorlogo.com/logos/javascript-1.svg",
+          "visitLink": "https://www.javascript.com/",
+          "description": "Langage de programmation polyvalent de haut niveau couramment utilisé dans le développement web pour créer des effets interactifs dans les navigateurs web."
+        },
+        {
+          "name": "Typescript",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/768px-Typescript_logo_2020.svg.png",
+          "visitLink": "https://www.typescriptlang.org/",
+          "description": "Un surensemble syntaxique strict de JavaScript qui ajoute un typage statique optionnel, ce qui permet d'améliorer l'outillage et la vérification des erreurs."
+        },
+        {
+          "name": "Kubernetis",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg",
+          "visitLink": "https://kubernetes.io/",
+          "description": "Un système d'orchestration de conteneurs open-source pour automatiser le déploiement, la mise à l'échelle et la gestion des applications conteneurisées."
+        },
+        {
+          "name": "JSON",
+          "icon": "https://www.svgrepo.com/show/306281/json.svg",
+          "visitLink": "https://www.json.org/json-en.html",
+          "description": "Format d'échange de données léger, facile à lire et à écrire pour les humains, et facile à analyser et à générer pour les machines, souvent utilisé pour transmettre des données dans les applications web."
+        },
+        {
+          "name": "Netlify",
+          "icon": "https://www.svgrepo.com/show/373874/netlify.svg",
+          "visitLink": "https://www.netlify.com/",
+          "description": "Une plateforme d'automatisation et de déploiement de projets web modernes, fournissant des services d'hébergement, d'intégration continue et de CDN pour des sites web rapides et sécurisés."
+        },
+        {
+          "name": "Nest.js",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/a/a8/NestJS.svg",
+          "visitLink": "https://nestjs.com/",
+          "description": "Un framework Node.js progressif pour la construction d'applications côté serveur efficaces et évolutives, s'appuyant sur TypeScript et offrant une architecture modulaire."
+        },
+        {
+          "name": "MySQL",
+          "icon": "https://icons.veryicon.com/png/o/miscellaneous/gwidc_1/mysql-2.png",
+          "visitLink": "https://www.mysql.com/",
+          "description": "Système de gestion de base de données relationnelle à code source ouvert basé sur le langage de requête structuré (SQL), largement utilisé pour le stockage et la gestion de données."
+        },
+        {
+          "name": "NPM",
+          "icon": "https://www.svgrepo.com/show/355146/npm.svg",
+          "visitLink": "https://www.npmjs.com/",
+          "description": "Le gestionnaire de paquets pour JavaScript, qui permet aux développeurs de partager et de réutiliser le code, et de gérer les dépendances dans leurs projets."
+        },
+        {
+          "name": "Postman",
+          "icon": "https://www.svgrepo.com/show/354202/postman-icon.svg",
+          "visitLink": "https://www.postman.com/",
+          "description": "Plate-forme de collaboration pour le développement d'API, permettant aux développeurs de concevoir, tester, documenter et surveiller les API en toute simplicité."
+        },
+        {
+          "name": "Node.js",
+          "icon": "https://seeklogo.com/images/N/nodejs-logo-FBE122E377-seeklogo.com.png",
+          "visitLink": "https://nodejs.org/en",
+          "description": "Un moteur d'exécution JavaScript basé sur le moteur JavaScript V8 de Chrome, permettant aux développeurs d'exécuter JavaScript côté serveur pour créer des applications réseau évolutives."
+        },
+        {
+          "name": "MQTT",
+          "icon": "https://avatars.githubusercontent.com/u/1544528?v=4",
+          "visitLink": "https://mqtt.org/",
+          "description": "Un protocole de messagerie léger pour les petits capteurs et les appareils mobiles, optimisé pour les réseaux à forte latence ou peu fiables."
+        },
+        {
+          "name": "Next.js",
+          "icon": "https://cdn.worldvectorlogo.com/logos/next-js.svg",
+          "visitLink": "https://nextjs.org/",
+          "description": "Un framework basé sur React pour construire des applications web rapides, conviviales et évolutives, offrant des fonctionnalités telles que le rendu côté serveur et la génération de sites statiques."
+        },
+        {
+          "name": "MongoDB",
+          "icon": "https://www.svgrepo.com/show/331488/mongodb.svg",
+          "visitLink": "https://www.mongodb.com/",
+          "description": "Une base de données NoSQL populaire qui stocke les données dans des documents flexibles de type JSON, ce qui permet un stockage et une récupération rapides et évolutifs des données."
+        },
+        {
+          "name": "Three.js",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Three.js_Icon.svg/1200px-Three.js_Icon.svg.png",
+          "visitLink": "https://threejs.org/",
+          "description": "Une bibliothèque JavaScript qui facilite la création de contenu 3D pour le web, y compris des graphiques, des animations et des expériences interactives."
+        },
+        {
+          "name": "Prettier",
+          "icon": "https://www.svgrepo.com/show/306599/prettier.svg",
+          "visitLink": "https://prettier.io/",
+          "description": "Un formateur de code qui impose un style cohérent en analysant votre code et en le réimprimant avec ses propres règles."
+        },
+        {
+          "name": "Python",
+          "icon": "https://www.svgrepo.com/show/376344/python.svg",
+          "visitLink": "https://www.python.org/",
+          "description": "Langage de programmation polyvalent de haut niveau, connu pour sa lisibilité et sa simplicité, utilisé pour le développement web, l'analyse de données, l'intelligence artificielle, etc."
+        },
+        {
+          "name": "React",
+          "icon": "https://www.svgrepo.com/show/327388/logo-react.svg",
+          "visitLink": "https://react.dev/",
+          "description": "Une bibliothèque JavaScript populaire pour la construction d'interfaces utilisateur, en particulier les applications à page unique, avec une architecture basée sur des composants."
+        },
+        {
+          "name": "Sass",
+          "icon": "https://cdn.iconscout.com/icon/free/png-256/free-sass-3521691-2945135.png",
+          "visitLink": "https://sass-lang.com/",
+          "description": "Un langage de script de préprocesseur qui est interprété ou compilé en CSS, offrant des variables, des règles imbriquées et des fonctions pour des feuilles de style plus faciles à maintenir."
+        },
+        {
+          "name": "Socket.io",
+          "icon": "https://cdn.icon-icons.com/icons2/2389/PNG/512/socket_io_logo_icon_144874.png",
+          "visitLink": "https://socket.io/",
+          "description": "Une bibliothèque JavaScript pour la communication bidirectionnelle en temps réel entre les clients et les serveurs web, permettant des fonctionnalités telles que le chat et les notifications."
+        },
+        {
+          "name": "Raspberry Pi",
+          "icon": "https://upload.wikimedia.org/wikipedia/fr/thumb/3/3b/Raspberry_Pi_logo.svg/1200px-Raspberry_Pi_logo.svg.png",
+          "visitLink": "https://www.raspberrypi.com/",
+          "description": "Ordinateur peu coûteux, de la taille d'une carte de crédit, qui se branche sur un moniteur ou un téléviseur, utilisé pour les projets électroniques, la programmation et les déploiements de serveurs à petite échelle."
+        },
+        {
+          "name": "Tailwind",
+          "icon": "https://www.svgrepo.com/show/333609/tailwind-css.svg",
+          "visitLink": "https://tailwindcss.com/",
+          "description": "Un cadre CSS axé sur l'utilité qui permet aux développeurs de créer rapidement des interfaces utilisateur personnalisées en composant des classes d'utilité directement dans le code HTML."
+        },
+        {
+          "name": "UI/UX",
+          "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvFruzSMJRcWHdJSDWeiwndqINBExXqN2xsg&s",
+          "visitLink": "https://www.code14.nl/kennisbank/wat-is-ux-ui-design",
+          "description": "Le processus de conception d'interfaces utilisateur (UI) et d'expériences utilisateur (UX) qui sont faciles à utiliser, visuellement attrayantes et qui répondent aux besoins des utilisateurs."
+        },
+        {
+          "name": "Xamarin",
+          "icon": "https://cdn.worldvectorlogo.com/logos/xamarin.svg",
+          "visitLink": "https://dotnet.microsoft.com/en-us/apps/xamarin",
+          "description": "Un cadre pour la création d'applications mobiles multiplateformes utilisant C# et .NET, permettant aux développeurs de partager le code entre les applications Android, iOS et Windows."
+        },
+        {
+          "name": "Vue.js",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1184px-Vue.js_Logo_2.svg.png",
+          "visitLink": "https://vuejs.org/",
+          "description": "Un cadre JavaScript progressif pour la construction d'interfaces utilisateur, connu pour sa simplicité, sa flexibilité et sa facilité d'intégration dans des projets existants."
+        },
+        {
+          "name": "Vite",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Vitejs-logo.svg/1039px-Vitejs-logo.svg.png",
+          "visitLink": "https://vitejs.dev/",
+          "description": "Un outil de construction rapide et un serveur de développement pour les projets web modernes, offrant un démarrage instantané du serveur, un remplacement à chaud des modules, et des constructions de production optimisées."
+        }
+    ]
+  }
+  

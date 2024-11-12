@@ -1,3 +1,42 @@
-<div class="w-screen h-screen flex justify-center items-center">
-    <p class="text-white-0">project works!</p>
-</div>
+<section id="welkom" class="w-screen h-smallFullScreen bg-background_dark-0">
+    <div class="flex flex-col w-full h-full justify-center pl-4 sm:pl-8 md:pl-[90px] lg:pl-[200px] items-center md:items-start">
+        <p class="text-primary-0 mobileTitle1 md:desktopTitle1 text-center md:text-left mb-3 md:mb-0">
+            {{ projectDate }}
+        </p>
+        <p class="mobileTitle2 text-white-0 font-semibold w-full sm:w-3/4 md:w-3/4 lg:w-full xl:w-full text-center md:text-left md:desktopTitle2">
+            {{ projectTitle }} <span id="typed-text" class="text-primary-0"></span>
+        </p>
+        <p class="mobileTitle3 md:desktopTitle3 w-[280px] md:w-[680px] text-gray-0 text-center md:text-left">
+            {{ projectDescription }}
+        </p>
+        <!-- Je component HTML bestand -->
+        <button (click)="applyRipple($event)" class="magnet-button bg-primary-0 rounded-full w-fit px-4 sm:px-6 py-2 font-semibold mt-5 cursor-pointer text-center relative overflow-hidden">
+            {{ projectLink }}
+            <span class="ripple"></span>
+        </button>
+    </div>
+</section>
+
+<section class="w-screen bg-background_dark-0 pb-16">
+    <img class="w-7/12 mx-auto" [src]="projectImage" [alt]="projectTitle">
+    <div class="flex flex-col w-5/12 h-full justify-center items-start md:items-start mt-24 mx-auto">
+        <p class="text-primary-0 mobileTitle1 md:desktopTitle1 text-center md:text-left mb-3 md:mb-0">
+            {{ projectInfoSmallTitle }}
+        </p>
+        <p class="mobileTitle2 text-white-0 font-semibold w-full sm:w-3/4 md:w-3/4 lg:w-full xl:w-full text-center md:text-left md:desktopTitle2">
+            {{ projectInfoTitle }} <span id="typed-text" class="text-primary-0"></span>
+        </p>
+        <p class="mobileTitle3 md:desktopTitle3 w-full text-gray-0 text-center md:text-left whitespace-pre-line">{{ projectInfo }}</p>
+    </div>
+</section>
+
+<section id="skills" class="relative w-screen h-fit bg-background_light-0 pb-14 pt-16">
+    <div class="flex flex-col h-full w-full items-center">
+        <p class="mobileTitle1 md:desktopTitle1 text-primary-0 mb-3 md:mb-0">{{ getTranslation('Skills') }}</p>
+        <p class="mobileTitle2 md:desktopTitle2 text-white-0 font-semibold">{{ getTranslation('MySkills') }}</p>
+        <p class="mobileTitle3 md:desktopTitle3 text-gray-0">{{ getTranslation('SkillsDescription') }}</p>
+        <app-infinity-loop-scroll [selectedSkills]="['Adobe XD', 'After Effects']" [rows]="1" class="relative mt-8"></app-infinity-loop-scroll>        
+    </div>
+    <div class="pointer-events-none absolute w-32 md:w-72 top-0 left-0 h-full bg-gradient-to-r from-background_light-0 via-background-light to-transparent"></div>
+    <div class="pointer-events-none absolute w-32 md:w-72 top-0 right-0 h-full bg-gradient-to-r from-background_light-0 via-background-light to-transparent rotate-180"></div>
+</section>

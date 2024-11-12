@@ -8,10 +8,10 @@ export const routes: Routes = [
         component: HomePageComponent,
         pathMatch: 'full',
     },
-    {
-        path: '**',
-        redirectTo: ''
-    },
+    // {
+    //     path: '**',
+    //     redirectTo: ''
+    // },
     {
         path: 'project/:id',
         component: ProjectComponent,

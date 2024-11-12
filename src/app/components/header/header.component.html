@@ -31,10 +31,10 @@
 
     <section class="absolute top-5 right-5 md:top-14 md:right-14 flex flex-col justify-between h-full w-fit">
         <div class="flex flex-col items-end font-semibold text-[14px]">
-            <button (click)="scrollToSection('welkom')" [class.active]="activeSection === 'welkom'" class="magnet-button text-primary-0">WELKOM</button>
-            <button (click)="scrollToSection('skills')" [class.active]="activeSection === 'skills'" class="magnet-button text-primary-0">SKILLS</button>
-            <button (click)="scrollToSection('work')" [class.active]="activeSection === 'work'" class="magnet-button text-primary-0">WORK</button>
-            <button (click)="scrollToSection('contact')" [class.active]="activeSection === 'contact'" class="magnet-button text-primary-0">CONTACT</button>
+            <button (click)="scrollToSection('welkom')" [class.active]="activeSection === 'welkom'" class="magnet-button text-primary-0">{{ getTranslation('WELCOME') }}</button>
+            <button (click)="scrollToSection('skills')" [class.active]="activeSection === 'skills'" class="magnet-button text-primary-0">{{ getTranslation('SKILLS') }}</button>
+            <button (click)="scrollToSection('work')" [class.active]="activeSection === 'work'" class="magnet-button text-primary-0">{{ getTranslation('WORK') }}</button>
+            <button (click)="scrollToSection('contact')" [class.active]="activeSection === 'contact'" class="magnet-button text-primary-0">{{ getTranslation('CONTACT') }}</button>
         </div>    
     </section>
 
@@ -50,9 +50,9 @@
 
     <section class="absolute right-0 top-0 h-screen flex items-center">
         <div class="flex gap-2 rotate-90 w-[45px] md:w-[75px]">
-            <button class="magnet-button text-white-0">EN</button>
-            <button class="magnet-button text-primary-0">FR</button>
-            <button class="magnet-button text-primary-0">NL</button>
+            <button class="magnet-button text-white-0" [ngClass]="{'text-white-0': selectedLang === 'en', 'text-primary-0': selectedLang !== 'en'}" (click)="setLanguage('en')">EN</button>
+            <button class="magnet-button text-primary-0" [ngClass]="{'text-white-0': selectedLang === 'fr', 'text-primary-0': selectedLang !== 'fr'}" (click)="setLanguage('fr')">FR</button>
+            <button class="magnet-button text-primary-0" [ngClass]="{'text-white-0': selectedLang === 'nl', 'text-primary-0': selectedLang !== 'nl'}" (click)="setLanguage('nl')">NL</button>
         </div>
     </section>
 

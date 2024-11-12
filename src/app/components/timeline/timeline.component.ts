@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { TranslationService } from '../../services/tranlation.service';
+import { Subject, takeUntil } from 'rxjs';
+import { Project } from '../../models/project.model';
 
 @Component({
   selector: 'app-timeline',
@@ -9,30 +12,86 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.css']
 })
-export class TimelineComponent implements AfterViewInit {
-  
+export class TimelineComponent implements OnInit {
   @ViewChild('timelineContainer', { static: true }) timelineContainer!: ElementRef;
 
-  public workItems = [
-    { id:'Social-Creativity-Cup-2020', title: 'Social Creativity Cup 2020', category: 'document', image: 'https://i.postimg.cc/ZRC4DmBC/Social-Creativity-Cup-2020.png', isNewArea: true, areaTime: '2010-2016', areaTitle: 'Student IW', areaDescription: 'VTI Roeselare' },
-    { id:'Project-One', title: 'Project One', category: 'website', image: 'https://i.postimg.cc/TPQ34QtH/Project-One.png', isNewArea: true, areaTime: '2016-2022', areaTitle: 'Student MCT', areaDescription: 'Howest Kortrijk' },
-    { id:'Interaction-Design-Project', title: 'Interaction Design Project', category: 'website', image: 'https://i.postimg.cc/xTy8m0K2/Interaction-Design-Project-1.png', isNewArea: false, areaTime: '2016-2022', areaTitle: 'Student MCT', areaDescription: 'Howest Kortrijk' },
-    { id:'Team-Project', title: 'Team Project', category: 'website', image: 'https://i.postimg.cc/k4Q3H5MM/Team-Project-1.png', isNewArea: false, areaTime: '2016-2022', areaTitle: 'Student MCT', areaDescription: 'Howest Kortrijk' },
-    { id:'Portfolio', title: 'Portfolio', category: 'website', image: 'https://i.postimg.cc/156CcdtP/Portfolio.png', isNewArea: true, areaTime: '2023 - Present', areaTitle: 'Afgestudeerd', areaDescription: 'Jobhopr' },
-  ];
+  public $unsubscribe = new Subject<void>();
 
-  constructor(private router: Router) {}
+  public workItems = [new Project()]
+  public areaData = [new Project()]
+
+  constructor(private router: Router, private translationService: TranslationService, private cdr: ChangeDetectorRef) {}
 
   currentItemIndex: number= 0 ;
+
+  ngOnInit(): void {
+    this.translationService.languageChange$.pipe(takeUntil(this.$unsubscribe)).subscribe(async () => {
+      const rawProjects = this.translationService.getTranslation('Projects');
+      this.workItems = this.transformProjects(rawProjects);
+      this.areaData = await this.getNewAreaData(this.workItems) as any;
+      this.cdr.detectChanges();
+      setTimeout(() => {
+        this.handleScroll();
+      }, 0);
+    });
+
+    const rawProjects = this.translationService.getTranslation('Projects');
+    this.workItems = this.transformProjects(rawProjects);
+    this.areaData = this.getNewAreaData(this.workItems) as any
+  }
+
+  ngAfterViewInit() {
+    window.addEventListener('scroll', this.handleScroll.bind(this));
+    window.addEventListener('resize', this.handleScroll.bind(this));
+    this.handleScroll();
+  }
+
+  ngOnDestroy(): void {
+    this.$unsubscribe.next();
+    this.$unsubscribe.complete();
+  }
+
+  getIndexAsWord(index: number): string {
+    const words = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+    return words[index] || "unknown";
+  }
 
   goToProjectDetails(projectId: string) {
     this.router.navigateByUrl(`/project/${projectId}`)
   }
 
-  ngAfterViewInit() {
-    window.addEventListener('scroll', this.handleScroll.bind(this));
-    window.addEventListener('resize', this.handleScroll.bind(this)); // Handle resizing
-    this.handleScroll(); // Initial check
+  getTranslation(key: string): string {
+    return this.translationService.getTranslation(key);
+  }
+
+  transformProjects(rawData: any): Project[] {
+    return Object.values(rawData).map((project: any) => new Project(
+      project.id,
+      project.title,
+      project.category,
+      project.image,
+      project.isNewArea,
+      project.areaTime,
+      project.areaTitle,
+      project.areaDescription,
+      project.description,
+      project.link,
+      project.largeDescription,
+      project.skills,
+      project.projectInfoSmallTitle,
+      project.projectInfoTitle,
+      project.projectInfo
+    ));
+  }
+
+  getNewAreaData(workItems: Project[]) {
+    return workItems
+      .filter(item => item.isNewArea)
+      .map(item => ({
+        areaTime: item.areaTime,
+        areaTitle: item.areaTitle,
+        areaDescription: item.areaDescription
+      }));
   }
 
   handleScroll() {

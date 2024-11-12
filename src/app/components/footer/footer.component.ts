@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslationService } from '../../services/tranlation.service';
 
 @Component({
   selector: 'app-footer',
@@ -9,4 +10,9 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
+  constructor(private translationService: TranslationService) {}
+  
+  getTranslation(key: string): string {
+    return this.translationService.getTranslation(key);
+  }
 }
