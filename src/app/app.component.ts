@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent, CursorBallComponent, CommonModule, SplashScreenComponent],
   template: `
+    <!-- <app-cursor-ball></app-cursor-ball> -->
     <app-header *ngIf="!showSplash"></app-header>
     
     <div *ngIf="!removeSplash" [ngClass]="{'splash-container': true, 'slide-out': !showSplash, 'slide-in': showSplash}">

@@ -4,6 +4,7 @@ import { TranslationService } from './../../services/tranlation.service';
 import { CommonModule } from '@angular/common';
 import { InfinityLoopScrollComponent } from '../infinity-loop-scroll/infinity-loop-scroll.component';
 import { Subject, takeUntil } from 'rxjs';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-project',
@@ -15,6 +16,7 @@ import { Subject, takeUntil } from 'rxjs';
 export class ProjectComponent implements OnInit {
   public $unsubscribe = new Subject<void>();
   
+  private projectName: string | null = '';
   public projectDate: string = '';
   public projectId: string = '';
   public projectTitle: string = '';
@@ -34,15 +36,18 @@ export class ProjectComponent implements OnInit {
   constructor(
     private route: ActivatedRoute, 
     private translationService: TranslationService,
-    private router: Router
+    private router: Router,
+    private meta: Meta,
+    private titleService: Title,
   ) {}
 
   ngOnInit(): void {
+    this.setupMetaTags()
     window.scrollTo(0, 0);
     this.projectImage = '../../../assets/images/Portfolio';
 
     this.route.paramMap.pipe(takeUntil(this.$unsubscribe)).subscribe(params => {
-      const id = params.get('id');
+      const id = params.get('projectnaam');
       this.projectId = id !== null ? id : '';
       this.loadProjectData();
     });
@@ -114,5 +119,18 @@ export class ProjectComponent implements OnInit {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }, 100);
+  }
+
+  setupMetaTags() {
+    this.route.paramMap.subscribe(params => {
+      this.projectName = params.get('projectnaam');
+
+      this.titleService.setTitle(`Project: ${this.projectName} | Jaron Vantomme`);
+      this.meta.updateTag({ name: 'description', content: `Bekijk het project ${this.projectName} van Jaron Vantomme. Ontdek meer over zijn werk.` });
+      this.meta.updateTag({ property: 'og:title', content: `Project: ${this.projectName} | Jaron Vantomme` });
+      this.meta.updateTag({ property: 'og:description', content: `Ontdek het project ${this.projectName} van Jaron Vantomme.` });
+      this.meta.updateTag({ property: 'og:image', content: 'url-naar-afbeelding-van-het-project.jpg' });
+      this.meta.updateTag({ property: 'og:url', content: `http://localhost:50462/project/${this.projectName}` });
+    });
   }
 }

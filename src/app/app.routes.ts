@@ -8,12 +8,12 @@ export const routes: Routes = [
         component: HomePageComponent,
         pathMatch: 'full',
     },
-    // {
-    //     path: '**',
-    //     redirectTo: ''
-    // },
     {
-        path: 'project/:id',
+        path: 'project/:projectnaam',
         component: ProjectComponent,
-    }
+    },
+    {
+        path: '**',
+        redirectTo: ''
+    },
 ];
