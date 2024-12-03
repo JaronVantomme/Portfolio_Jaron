@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component'; 
 import { CursorBallComponent } from './components/cursor-ball/cursor-ball.component';
 import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, ViewportScroller } from '@angular/common';
 import { TitleService } from './services/title.service';
 
 @Component({
@@ -14,7 +14,7 @@ import { TitleService } from './services/title.service';
   template: `
     <app-header *ngIf="!showSplash"></app-header>
     
-    <div [ngClass]="{'splash-container': true, 'slide-out': !showSplash, 'slide-in': showSplash}">
+    <div *ngIf="!removeSplash" [ngClass]="{'splash-container': true, 'slide-out': !showSplash, 'slide-in': showSplash}">
       <app-splash-screen></app-splash-screen>
     </div>
     
@@ -28,14 +28,25 @@ import { TitleService } from './services/title.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  showSplash = true;
+  public showSplash = true;
+  public removeSplash = false
 
-  constructor(private titleService: TitleService) {}
-
+  constructor() {}
 
   ngOnInit() {
+    const currentPath = window.location.pathname;
+
+    if (currentPath !== '/' && currentPath.length > 1) {
+      this.showSplash = false;
+      this.removeSplash = true;
+    }
+
+
     setTimeout(() => {
       this.showSplash = false;
+      setTimeout(() => {
+        this.removeSplash = true
+      }, 1000)
     }, 4000);
   }
 }

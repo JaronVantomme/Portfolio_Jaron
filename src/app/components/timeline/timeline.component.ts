@@ -76,10 +76,8 @@ export class TimelineComponent implements OnInit {
       project.areaDescription,
       project.description,
       project.link,
-      project.largeDescription,
       project.skills,
       project.projectInfoSmallTitle,
-      project.projectInfoTitle,
       project.projectInfo
     ));
   }

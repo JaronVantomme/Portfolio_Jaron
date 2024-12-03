@@ -10,7 +10,6 @@ export class Project {
       public areaDescription: string = '',
       public description: string = '',
       public link: string = '',
-      public largeDescription: string = '',
       public skills: string = '',
       public projectInfoSmallTitle: string = '',
       public projectInfoTitle: string = '',
