@@ -406,6 +406,12 @@
           "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Vitejs-logo.svg/1039px-Vitejs-logo.svg.png",
           "visitLink": "https://vitejs.dev/",
           "description": "Un outil de construction rapide et un serveur de développement pour les projets web modernes, offrant un démarrage instantané du serveur, un remplacement à chaud des modules, et des constructions de production optimisées."
+        },
+        {
+          "name": "WordPress",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Wordpress_Blue_logo.png/1200px-Wordpress_Blue_logo.png",
+          "visitLink": "https://wordpress.com/",
+          "description": "WordPress est un CMS polyvalent qui permet aux utilisateurs de tout créer, des blogs aux sites Web complexes. Avec une interface conviviale, des thèmes personnalisables et des plugins, c'est une plateforme idéale pour les débutants et les développeurs, offrant flexibilité et évolutivité pour tous types de projets."
         }
     ]
   }

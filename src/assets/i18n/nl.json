@@ -406,7 +406,12 @@
           "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Vitejs-logo.svg/1039px-Vitejs-logo.svg.png",
           "visitLink": "https://vitejs.dev/",
           "description": "Een snelle buildtool en ontwikkelserver voor moderne webprojecten, met directe serverstart, directe vervanging van modules en geoptimaliseerde productie builds."
+        },
+        {
+          "name": "WordPress",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Wordpress_Blue_logo.png/1200px-Wordpress_Blue_logo.png",
+          "visitLink": "https://wordpress.com/",
+          "description": "WordPress is een veelzijdig CMS waarmee gebruikers alles kunnen maken, van blogs tot complexe websites. Met een gebruiksvriendelijke interface, aanpasbare thema's en plug-ins is het een ideaal platform voor zowel beginners als ontwikkelaars, dat flexibiliteit en schaalbaarheid biedt voor allerlei soorten projecten."
         }
     ]
   }
-  

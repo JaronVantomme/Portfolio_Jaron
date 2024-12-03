@@ -406,6 +406,12 @@
           "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Vitejs-logo.svg/1039px-Vitejs-logo.svg.png",
           "visitLink": "https://vitejs.dev/",
           "description": "A fast build tool and development server for modern web projects, offering instant server start, hot module replacement, and optimized production builds."
+        },
+        {
+          "name": "WordPress",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Wordpress_Blue_logo.png/1200px-Wordpress_Blue_logo.png",
+          "visitLink": "https://wordpress.com/",
+          "description": "WordPress is a versatile CMS that allows users to create everything from blogs to complex websites. With a user-friendly interface, customizable themes, and plugins, it’s an ideal platform for both beginners and developers, offering flexibility and scalability for all kinds of projects."
         }
     ]
 }
