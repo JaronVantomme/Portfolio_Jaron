@@ -67,7 +67,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  scrollToSection(sectionId: string) {
+  scrollToSection(sectionId: 'welkom' | 'skills' | 'work' | 'contact') {
     if (window.location.pathname !== '/') {
       this.router.navigate(['/']).then(() => {
         setTimeout(() => {
@@ -84,6 +84,25 @@ export class HeaderComponent implements OnInit {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
+    }
+  }
+
+  goToSocials(location: 'github' | 'instagram' | 'linkedin' | 'facebook') {
+    switch (location) {
+      case 'github':
+        alert('github')
+        break;
+      case 'instagram':
+        alert('instagram')
+        break;
+      case 'linkedin':
+        alert('linkedin')
+        break;
+      case 'facebook':
+        alert('facebook')
+        break;
+      default:
+        break
     }
   }
 

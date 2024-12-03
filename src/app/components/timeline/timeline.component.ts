@@ -24,20 +24,22 @@ export class TimelineComponent implements OnInit {
 
   currentItemIndex: number= 0 ;
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.translationService.languageChange$.pipe(takeUntil(this.$unsubscribe)).subscribe(async () => {
       const rawProjects = this.translationService.getTranslation('Projects');
-      this.workItems = this.transformProjects(rawProjects);
-      this.areaData = await this.getNewAreaData(this.workItems) as any;
+      const rawAreas = this.translationService.getTranslation('Areas');
+      this.workItems = this.transformProjects(rawProjects, rawAreas);
+      this.areaData = this.getNewAreaData(this.workItems) as any;
       this.cdr.detectChanges();
       setTimeout(() => {
         this.handleScroll();
       }, 0);
     });
-
+  
     const rawProjects = this.translationService.getTranslation('Projects');
-    this.workItems = this.transformProjects(rawProjects);
-    this.areaData = this.getNewAreaData(this.workItems) as any
+    const rawAreas = this.translationService.getTranslation('Areas');
+    this.workItems = this.transformProjects(rawProjects, rawAreas);
+    this.areaData = this.getNewAreaData(this.workItems) as any;
   }
 
   ngAfterViewInit() {
@@ -64,24 +66,25 @@ export class TimelineComponent implements OnInit {
     return this.translationService.getTranslation(key);
   }
 
-  transformProjects(rawData: any): Project[] {
-    return Object.values(rawData).map((project: any) => new Project(
-      project.id,
-      project.title,
-      project.category,
-      project.image,
-      project.isNewArea,
-      project.areaTime,
-      project.areaTitle,
-      project.areaDescription,
-      project.description,
-      project.link,
-      project.largeDescription,
-      project.skills,
-      project.projectInfoSmallTitle,
-      project.projectInfoTitle,
-      project.projectInfo
-    ));
+  transformProjects(rawData: any, areas: any): Project[] {
+    return Object.values(rawData).map((project: any) => {
+      const area = areas[project.areaID] || {}; // Haal de juiste area op met areaID
+      return new Project(
+        project.id,
+        project.title,
+        project.category,
+        project.image,
+        project.isNewArea,
+        area.areaTime || '', // Voeg de areaTime toe uit Areas
+        area.areaTitle || '', // Voeg de areaTitle toe uit Areas
+        area.areaDescription || '', // Voeg de areaDescription toe uit Areas
+        project.description,
+        project.link,
+        project.skills,
+        project.projectInfoSmallTitle,
+        project.projectInfo
+      );
+    });
   }
 
   getNewAreaData(workItems: Project[]) {

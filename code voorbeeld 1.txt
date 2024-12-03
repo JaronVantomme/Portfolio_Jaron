@@ -102,7 +102,7 @@ export class TimelineComponent implements AfterViewInit {
 
     if (closestIndex !== null && closestIndex !== this.currentItemIndex) {
       this.currentItemIndex = closestIndex;
-      console.log(`Currently viewing item: ${this.workItems[this.currentItemIndex].title}`);
+      console.info(`Currently viewing item: ${this.workItems[this.currentItemIndex].title}`);
     }
   }
 }

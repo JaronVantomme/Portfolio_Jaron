@@ -19,8 +19,8 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class SplashScreenComponent {
-  showSplash = true;
-  showBackground = false;
+  public showSplash = true;
+  public showBackground = false;
 
   ngOnInit() {
     setTimeout(() => {
