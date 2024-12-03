@@ -1,4 +1,4 @@
-<div class="flex fixed justify-between h-screen w-screen p-[20px] md:p-[40px] z-50 fixed-container">
+<div class="flex fixed justify-between h-dvh w-screen p-[20px] md:p-[40px] z-50 fixed-container">
     
     <section class="gradient-black-to-transparent-top"></section>
 
@@ -48,7 +48,7 @@
         </div>
     </section>
 
-    <section class="absolute right-0 top-0 h-screen flex items-center">
+    <section class="absolute right-0 top-0 h-full flex items-center">
         <div class="flex gap-2 rotate-90 w-[45px] md:w-[75px]">
             <button class="magnet-button text-white-0" [ngClass]="{'text-white-0': selectedLang === 'en', 'text-primary-0': selectedLang !== 'en'}" (click)="setLanguage('en')">EN</button>
             <button class="magnet-button text-primary-0" [ngClass]="{'text-white-0': selectedLang === 'fr', 'text-primary-0': selectedLang !== 'fr'}" (click)="setLanguage('fr')">FR</button>

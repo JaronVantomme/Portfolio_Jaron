@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component'; 
 import { CursorBallComponent } from './components/cursor-ball/cursor-ball.component';
 import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
-import { CommonModule, ViewportScroller } from '@angular/common';
-import { TitleService } from './services/title.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +17,7 @@ import { TitleService } from './services/title.service';
       <app-splash-screen></app-splash-screen>
     </div>
     
-    <div *ngIf="!showSplash" class="flex flex-col min-h-screen overflow-x-hidden">
+    <div *ngIf="!showSplash" class="flex flex-col h-min-screen overflow-x-hidden">
       <div class="flex-1 bg-background-dark-0">
         <router-outlet></router-outlet>
       </div>    
