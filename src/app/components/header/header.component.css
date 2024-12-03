@@ -32,7 +32,8 @@
     bottom: 0;
     left: 0;
     width: fit-content; 
-    height: 200px;
+    height: 180px;
+    z-index: 99;
     transform: translateY(0px);
     transform: translateX(45px);
 }
@@ -50,10 +51,12 @@
 @media screen and (max-width: 768px) {
     .socials-indicator {
         transform: translateX(20px);
+        height: 160px;
     }
 
     .scroll-indicator {
         width: 8vw;
+        height: 85px;
     }
 }
 
