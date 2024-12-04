@@ -19,6 +19,7 @@ export class TimelineComponent implements OnInit {
 
   public workItems = [new Project()]
   public areaData = [new Project()]
+  private areaCounts: number[] = []
 
   constructor(private router: Router, private translationService: TranslationService, private cdr: ChangeDetectorRef) {}
 
@@ -30,6 +31,7 @@ export class TimelineComponent implements OnInit {
       const rawAreas = this.translationService.getTranslation('Areas');
       this.workItems = this.transformProjects(rawProjects, rawAreas);
       this.areaData = this.getNewAreaData(this.workItems) as any;
+      this.areaCounts = this.getAreaCounts(this.workItems)
       this.cdr.detectChanges();
       setTimeout(() => {
         this.handleScroll();
@@ -40,11 +42,19 @@ export class TimelineComponent implements OnInit {
     const rawAreas = this.translationService.getTranslation('Areas');
     this.workItems = this.transformProjects(rawProjects, rawAreas);
     this.areaData = this.getNewAreaData(this.workItems) as any;
+    this.areaCounts = this.getAreaCounts(this.workItems)
   }
 
   ngAfterViewInit() {
     window.addEventListener('scroll', this.handleScroll.bind(this));
     window.addEventListener('resize', this.handleScroll.bind(this));
+
+    const timelineElement = document.querySelector('.timeline') as HTMLElement;
+    if (timelineElement) {
+      if (window.innerWidth <= 1300) timelineElement.style.height = `${this.getProjectsHeight()}px`;
+      else timelineElement.style.height = `${this.getProjectsHeight()}px`;
+    }
+
     this.handleScroll();
   }
 
@@ -66,18 +76,41 @@ export class TimelineComponent implements OnInit {
     return this.translationService.getTranslation(key);
   }
 
+  getAreaCounts(projects: any) {
+    const groupedProjects: any[] = [];
+    let lastValidGroupIndex: number | null = null;
+
+    projects.forEach((project: any) => {
+        const groupKey = project.areaTime && project.areaTitle && project.areaDescription
+            ? `${project.areaTime}|${project.areaTitle}|${project.areaDescription}`
+            : null;
+
+        if (groupKey) {
+            lastValidGroupIndex = groupedProjects.length;
+            groupedProjects.push([project]);
+        } else if (lastValidGroupIndex !== null) {
+            groupedProjects[lastValidGroupIndex].push(project);
+        }
+    });
+
+    const areaCounts = groupedProjects.map((projectsInGroup: any[]) => projectsInGroup.length);
+
+    return areaCounts;
+  }
+
+
   transformProjects(rawData: any, areas: any): Project[] {
     return Object.values(rawData).map((project: any) => {
-      const area = areas[project.areaID] || {}; // Haal de juiste area op met areaID
+      const area = areas[project.areaID] || {};
       return new Project(
         project.id,
         project.title,
         project.category,
         project.image,
         project.isNewArea,
-        area.areaTime || '', // Voeg de areaTime toe uit Areas
-        area.areaTitle || '', // Voeg de areaTitle toe uit Areas
-        area.areaDescription || '', // Voeg de areaDescription toe uit Areas
+        area.areaTime || '',
+        area.areaTitle || '',
+        area.areaDescription || '',
         project.description,
         project.link,
         project.skills,
@@ -128,29 +161,32 @@ export class TimelineComponent implements OnInit {
     let scrollIndicatorPointTwoHeight = scrollIndicatorHeight
     let scrollIndicatorPointThreeHeight = scrollIndicatorHeight
 
-    if (scrollIndicatorHeight < 15) {
-      scrollIndicatorHeight = 15;
+    if (scrollIndicatorHeight < this.getAreaValue(0, 'start')) {
+      scrollIndicatorHeight = this.getAreaValue(0, 'start');
       if (window.innerWidth > 1300) {
-        scrollIndicatorPointOneHeight = 15;
+        scrollIndicatorPointOneHeight = this.getAreaValue(0, 'start');
       } else {
         scrollIndicatorPointOneHeight = 0;
       }
     }
-    if (scrollIndicatorHeight >= 264.5) {
-      scrollIndicatorPointOneHeight = 270;
+
+    if (scrollIndicatorHeight >= this.getAreaValue(0, 'end')) {
+      scrollIndicatorPointOneHeight = this.getAreaValue(0, 'end');
     }
-    if (scrollIndicatorHeight < 364.5) {
-      scrollIndicatorPointTwoHeight = 364.5
+    if (scrollIndicatorHeight < this.getAreaValue(1, 'start')) {
+      scrollIndicatorPointTwoHeight = this.getAreaValue(1, 'start')
     }
-    if (scrollIndicatorHeight >= 1315) {
-      scrollIndicatorPointTwoHeight = 1315;
+
+
+    if (scrollIndicatorHeight >= this.getAreaValue(1, 'end')) {
+      scrollIndicatorPointTwoHeight = this.getAreaValue(1, 'end');
     }
-    if (scrollIndicatorHeight < 1415) {
-      scrollIndicatorPointThreeHeight = 1415 
+    if (scrollIndicatorHeight < this.getAreaValue(2, 'start')) {
+      scrollIndicatorPointThreeHeight = this.getAreaValue(2, 'start') 
     }
-    if (scrollIndicatorHeight > 1425) {
+    if (scrollIndicatorHeight > this.getAreaValue(2 , 'end')) {
       if (window.innerWidth <= 1300) {
-        scrollIndicatorHeight = 1425;
+        if (scrollIndicatorHeight >= this.getProjectsHeight()) scrollIndicatorHeight = this.getProjectsHeight();
       }
     }
     
@@ -181,7 +217,26 @@ export class TimelineComponent implements OnInit {
   shouldShowPoint(index: number): boolean {
     return index === 0;
   }
+
+  getStyleByClass(className: string): number {
+    const element = document.querySelector(`.${className}`);
   
+    if (!element) {
+      console.error(`Element met class "${className}" niet gevonden.`);
+      return 0;
+    }
+  
+    const style = window.getComputedStyle(element);
+  
+    const topValue = parseFloat(style.top);
+  
+    if (isNaN(topValue)) {
+      console.error(`Kon de 'top' waarde niet parsen van het element.`);
+      return 0;
+    }
+  
+    return topValue;
+  }
   
 
   checkVisibleItem() {
@@ -236,6 +291,24 @@ export class TimelineComponent implements OnInit {
     }
   }
 
+  getProjectsHeight(): number {
+    if (window.innerWidth <= 1300) return this.getAreaValue(this.areaCounts.length - 1, 'end') + (60 * (this.areaCounts.length - 1)) + 140
+    else return this.getAreaValue(this.areaCounts.length - 1, 'end')+100
+  }
 
+  getAreaValue(areaNumber: number, state: 'start' | 'end'): number {
+    const timelineElements = document.querySelectorAll('li') as NodeListOf<HTMLElement>;
+    const projectHeight = timelineElements[0].offsetHeight
+
+    switch (state) {
+      case 'start':
+        if (areaNumber === 0) return 20
+        else return this.getAreaValue(areaNumber - 1, 'end') + 100
+      case 'end':
+        return this.getAreaValue(areaNumber, 'start') + (projectHeight * this.areaCounts[areaNumber]) - 100
+      default:
+        return 0
+    }
+  }
 
 }
