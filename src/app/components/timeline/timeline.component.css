@@ -376,7 +376,7 @@ li{
   }
   .timeline:before{
     left:20px;
-    height: 80%;;
+    height: 100%;;
   }
   .timeline ul li:nth-child(odd),
   .timeline ul li:nth-child(even)

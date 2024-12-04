@@ -1,7 +1,7 @@
 <div id="work" class="timeline" #timelineContainer>
   <div class="scroll-indicator"></div>
   <ul>
-    <li *ngFor="let item of workItems; let i = index" #timelineItem [ngClass]="item.isNewArea ? 'margin' : 'noMargin'">
+    <li class="projectItemContainer" *ngFor="let item of workItems; let i = index" #timelineItem [ngClass]="item.isNewArea ? 'margin' : 'noMargin'">
       <div *ngIf="item.isNewArea && isAreaVisible()" class="timeline-point"></div>
       <div *ngIf="i === 0 && isAreaVisibleWithAnimation(i)" class="timeline-point-animation-1"></div>
       <div *ngIf="i === 0 && isAreaVisibleWithAnimation(i)" class="timeline-point-animation-2"></div>

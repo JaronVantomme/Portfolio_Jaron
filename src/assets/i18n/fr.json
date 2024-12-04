@@ -35,7 +35,7 @@
         "category": "website",
         "image": "https://i.postimg.cc/156CcdtP/Portfolio.png",
         "isNewArea": true,
-        "areaID": "area-1",
+        "areaID": "graduatedArea",
         "description": "",
         "linkTitle": "VISITEZ LE SITE WEB",
         "link": "",
@@ -51,7 +51,7 @@
         "category": "website",
         "image": "https://i.postimg.cc/k4Q3H5MM/Team-Project-1.png",
         "isNewArea": true,
-        "areaID": "area-2",
+        "areaID": "studentMCTArea",
         "description": "An interactive Flappy Bird app controlled via a trampoline, combining gaming and physical activity.",
         "linkTitle": "VISITEZ LE SITE WEB",
         "link": "",
@@ -103,7 +103,7 @@
         "category": "document",
         "image": "https://i.postimg.cc/ZRC4DmBC/Social-Creativity-Cup-2020.png",
         "isNewArea": true,
-        "areaID": "area-3",
+        "areaID": "studentIWArea",
         "description": "Pendant le confinement, nous avons imaginé un concept de jardin de réunion durable, visant à rassembler les résidents locaux autour d'un biomeilleur et d'énergies renouvelables.",
         "linkTitle": "VISITEZ LE SITE WEB",
         "link": "https://socialcreativity.be/cases/social-creativity-cup-2020/",
@@ -114,17 +114,17 @@
       }      
     },
     "Areas": {
-      "area-1": {
+      "graduatedArea": {
         "areaTime": "Présent-2024",
         "areaTitle": "Diplômé",
         "areaDescription": "Jobhopr"
       },
-      "area-2": {
+      "studentMCTArea": {
         "areaTime": "2024-2021",
         "areaTitle": "Étudiant MCT",
         "areaDescription": "Howest Kortrijk"
       },
-      "area-3": {
+      "studentIWArea": {
         "areaTime": "2021-2015",
         "areaTitle": "Étudiant IW",
         "areaDescription": "VTI Roeselare"
@@ -412,6 +412,30 @@
           "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Wordpress_Blue_logo.png/1200px-Wordpress_Blue_logo.png",
           "visitLink": "https://wordpress.com/",
           "description": "WordPress est un CMS polyvalent qui permet aux utilisateurs de tout créer, des blogs aux sites Web complexes. Avec une interface conviviale, des thèmes personnalisables et des plugins, c'est une plateforme idéale pour les débutants et les développeurs, offrant flexibilité et évolutivité pour tous types de projets."
+        },
+        {
+          "name": "Neo4j",
+          "icon": "https://raw.githubusercontent.com/github/explore/94f07c4e08146eea151ff5648b9a5048f8ab37d3/topics/neo4j/neo4j.png",
+          "visitLink": "https://neo4j.com/",
+          "description": "Neo4j est une puissante base de données graphique qui connecte les données via des relations. Il offre un moyen intuitif de modéliser et d'analyser des données complexes, avec Cypher, un langage de requête facile à utiliser. Idéal pour les applications telles que les réseaux sociaux, les systèmes de recommandation et la détection des fraudes."
+        },
+        {
+          "name": "Angular",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png",
+          "visitLink": "https://angular.dev/",
+          "description": "Angular est un framework puissant pour créer des applications Web dynamiques et évolutives. Avec TypeScript à la base et un riche ensemble de fonctionnalités telles que la liaison de données bidirectionnelle et l'injection de dépendances, Angular est parfait pour les développeurs qui souhaitent gérer des projets frontaux complexes."
+        },
+        {
+          "name": "Xcode",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Xcode.svg/1200px-Xcode.svg.png",
+          "visitLink": "https://developer.apple.com/xcode/",
+          "description": "Xcode est l'environnement de développement intégré (IDE) d'Apple permettant de créer des applications pour iOS, macOS, watchOS et tvOS. Il propose des outils tels qu'Interface Builder, un simulateur et des options de débogage, permettant aux développeurs de créer facilement des applications intuitives et puissantes."
+        },
+        {
+          "name": "Android Studio",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Android_Studio_Logo_2024.svg/2048px-Android_Studio_Logo_2024.svg.png",
+          "visitLink": "https://developer.android.com/studio",
+          "description": "Android Studio est l'IDE officiel pour le développement Android, construit sur IntelliJ IDEA. Il offre des fonctionnalités telles qu'un éditeur de mise en page visuelle, de puissants outils de débogage et un émulateur, permettant aux développeurs de créer facilement des applications Android réactives et riches en fonctionnalités."
         }
     ]
   }
