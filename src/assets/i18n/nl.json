@@ -35,7 +35,7 @@
         "category": "website",
         "image": "https://i.postimg.cc/156CcdtP/Portfolio.png",
         "isNewArea": true,
-        "areaID": "area-1",
+        "areaID": "graduatedArea",
         "description": "",
         "linkTitle": "BEZOEK WEBSITE",
         "link": "",
@@ -51,7 +51,7 @@
         "category": "website",
         "image": "https://i.postimg.cc/k4Q3H5MM/Team-Project-1.png",
         "isNewArea": true,
-        "areaID": "area-2",
+        "areaID": "studentMCTArea",
         "description": "An interactive Flappy Bird app controlled via a trampoline, combining gaming and physical activity.",
         "linkTitle": "BEZOEK WEBSITE",
         "link": "",
@@ -103,7 +103,7 @@
         "category": "document",
         "image": "https://i.postimg.cc/ZRC4DmBC/Social-Creativity-Cup-2020.png",
         "isNewArea": true,
-        "areaID": "area-3",
+        "areaID": "studentIWArea",
         "description": "Tijdens de lockdown bedachten we een concept voor een duurzame ontmoetingstuin, gericht op het samenbrengen van buurtbewoners met een biomeiler en hernieuwbare energie als kern.",
         "linkTitle": "BEZOEK WEBSITE",
         "link": "https://socialcreativity.be/cases/social-creativity-cup-2020/",
@@ -114,17 +114,22 @@
       }  
     },
     "Areas": {
-      "area-1": {
+      "graduatedArea": {
         "areaTime": "Heden-2024",
         "areaTitle": "Afgestudeerd",
         "areaDescription": "Jobhopr"
       },
-      "area-2": {
+      "stageMCTArea": {
+        "areaTime": "Feb-Jun 2021",
+        "areaTitle": "Stage MCT",
+        "areaDescription": "Howest Kortrijk"
+      },
+      "studentMCTArea": {
         "areaTime": "2024-2021",
         "areaTitle": "Student MCT",
         "areaDescription": "Howest Kortrijk"
       },
-      "area-3": {
+      "studentIWArea": {
         "areaTime": "2021-2015",
         "areaTitle": "Student IW",
         "areaDescription": "VTI Roeselare"
@@ -412,6 +417,30 @@
           "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Wordpress_Blue_logo.png/1200px-Wordpress_Blue_logo.png",
           "visitLink": "https://wordpress.com/",
           "description": "WordPress is een veelzijdig CMS waarmee gebruikers alles kunnen maken, van blogs tot complexe websites. Met een gebruiksvriendelijke interface, aanpasbare thema's en plug-ins is het een ideaal platform voor zowel beginners als ontwikkelaars, dat flexibiliteit en schaalbaarheid biedt voor allerlei soorten projecten."
+        },
+        {
+          "name": "Neo4j",
+          "icon": "https://raw.githubusercontent.com/github/explore/94f07c4e08146eea151ff5648b9a5048f8ab37d3/topics/neo4j/neo4j.png",
+          "visitLink": "https://neo4j.com/",
+          "description": "Neo4j is een krachtige grafendatabase die gegevens verbindt door middel van relaties. Het biedt een intuïtieve manier om complexe gegevens te modelleren en te analyseren, met Cypher, een gebruiksvriendelijke querytaal. Ideaal voor toepassingen zoals sociale netwerken, aanbevelingssystemen en fraudedetectie."
+        },
+        {
+          "name": "Angular",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png",
+          "visitLink": "https://angular.dev/",
+          "description": "Angular is een krachtig framework voor het bouwen van dynamische en schaalbare webapplicaties. Met TypeScript als kern en een uitgebreide set functies zoals tweewegs databinding en dependency injection, is Angular perfect voor ontwikkelaars die complexe front-endprojecten willen beheren."
+        },
+        {
+          "name": "Xcode",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Xcode.svg/1200px-Xcode.svg.png",
+          "visitLink": "https://developer.apple.com/xcode/",
+          "description": "Xcode is de geïntegreerde ontwikkelomgeving (IDE) van Apple voor het bouwen van apps voor iOS, macOS, watchOS en tvOS. Het biedt tools zoals Interface Builder, een simulator, en debuggingopties, waardoor ontwikkelaars eenvoudig intuïtieve en krachtige apps kunnen creëren."
+        },
+        {
+          "name": "Android Studio",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Android_Studio_Logo_2024.svg/2048px-Android_Studio_Logo_2024.svg.png",
+          "visitLink": "https://developer.android.com/studio",
+          "description": "Android Studio is de officiële IDE voor Android-ontwikkeling, gebouwd op IntelliJ IDEA. Het biedt functies zoals een visuele lay-outeditor, krachtige debuggingtools, en een emulator, waardoor ontwikkelaars gemakkelijk responsieve en veelzijdige Android-apps kunnen maken."
         }
     ]
   }
