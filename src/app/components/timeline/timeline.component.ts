@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { TranslationService } from '../../services/tranlation.service';
-import { Subject, takeUntil } from 'rxjs';
+import { fromEvent, Subject, Subscription, takeUntil } from 'rxjs';
 import { Project } from '../../models/project.model';
 
 @Component({
@@ -16,16 +16,21 @@ export class TimelineComponent implements OnInit {
   @ViewChild('timelineContainer', { static: true }) timelineContainer!: ElementRef;
 
   public $unsubscribe = new Subject<void>();
+  resizeSubscription: Subscription = new Subscription();
 
   public workItems = [new Project()]
   public areaData = [new Project()]
   private areaCounts: number[] = []
+  private currentItemIndex: number= 0;
 
   constructor(private router: Router, private translationService: TranslationService, private cdr: ChangeDetectorRef) {}
 
-  currentItemIndex: number= 0 ;
 
   async ngOnInit(): Promise<void> {
+    this.resizeSubscription = fromEvent(window, 'resize').subscribe(() => {
+      this.setTimlineHeight()
+    });
+
     this.translationService.languageChange$.pipe(takeUntil(this.$unsubscribe)).subscribe(async () => {
       const rawProjects = this.translationService.getTranslation('Projects');
       const rawAreas = this.translationService.getTranslation('Areas');
@@ -49,12 +54,7 @@ export class TimelineComponent implements OnInit {
     window.addEventListener('scroll', this.handleScroll.bind(this));
     window.addEventListener('resize', this.handleScroll.bind(this));
 
-    const timelineElement = document.querySelector('.timeline') as HTMLElement;
-    if (timelineElement) {
-      if (window.innerWidth <= 1300) timelineElement.style.height = `${this.getProjectsHeight()}px`;
-      else timelineElement.style.height = `${this.getProjectsHeight()}px`;
-    }
-
+    this.setTimlineHeight()
     this.handleScroll();
   }
 
@@ -308,6 +308,14 @@ export class TimelineComponent implements OnInit {
         return this.getAreaValue(areaNumber, 'start') + (projectHeight * this.areaCounts[areaNumber]) - 100
       default:
         return 0
+    }
+  }
+
+  setTimlineHeight() {
+    const timelineElement = document.querySelector('.timeline') as HTMLElement;
+    if (timelineElement) {
+      if (window.innerWidth <= 1300) timelineElement.style.height = `${this.getProjectsHeight()}px`;
+      else timelineElement.style.height = `${this.getProjectsHeight()}px`;
     }
   }
 
