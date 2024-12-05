@@ -173,39 +173,6 @@ li{
   border: 4px solid white;
   z-index: 10;
 }
-.timeline-point-animation-1 {
-  position: absolute;
-  width: 19px;
-  height: 19px;
-  top: 15px;
-  left: -7px;
-  background: #89CFF0;
-  border-radius: 50%;
-  border: 4px solid white;
-  z-index: 10;
-}
-.timeline-point-animation-2 {
-  position: absolute;
-  width: 19px;
-  height: 19px;
-  top: 15px;
-  left: -7px;
-  background: #89CFF0;
-  border-radius: 50%;
-  border: 4px solid white;
-  z-index: 10;
-}
-.timeline-point-animation-3 {
-  position: absolute;
-  width: 19px;
-  height: 19px;
-  top: 15px;
-  left: -7px;
-  background: #89CFF0;
-  border-radius: 50%;
-  border: 4px solid white;
-  z-index: 10;
-}
 .timeline ul li h3{
   padding:0;
   margin:0;
@@ -232,13 +199,18 @@ li{
   color: #fff;
   text-align: end;
 }
-.timeline ul li .time-one h4{
+/* .timeline ul li .time-one h4,
+.timeline ul li .time-two h4,
+.timeline ul li .time-three h4,
+.timeline ul li .time-four h4 {
   margin:0;
   padding:0;
   font-size:14px;
 }
-.timeline ul li .time-one
-{
+.timeline ul li .time-one,
+.timeline ul li .time-two,
+.timeline ul li .time-three,
+.timeline ul li .time-four {
   position: absolute;
   top: -20px;
   right: 700px;
@@ -247,39 +219,7 @@ li{
   padding: 8px 16px;
   color: #fff;
   text-align: end;
-}
-.timeline ul li .time-two h4{
-  margin:0;
-  padding:0;
-  font-size:14px;
-}
-.timeline ul li .time-two
-{
-  position: absolute;
-  top: -20px;
-  right: 700px;
-  width: 260px;
-  margin: 0;
-  padding: 8px 16px;
-  color: #fff;
-  text-align: end;
-}
-.timeline ul li .time-three h4{
-  margin:0;
-  padding:0;
-  font-size:14px;
-}
-.timeline ul li .time-three
-{
-  position: absolute;
-  top: -20px;
-  right: 700px;
-  width: 260px;
-  margin: 0;
-  padding: 8px 16px;
-  color: #fff;
-  text-align: end;
-}
+} */
 .areaTime {
   font-size: 14px;
   padding: 0;
@@ -409,16 +349,10 @@ li{
     display: none;
   }
 
-  .time-one {
-    display: none;
-    background-color: red;
-  }
-
-  .time-two {
-    display: none;
-  }
-
-  .time-three {
+  .time-one,
+  .time-two,
+  .time-tree,
+  .time-four {
     display: none;
   }
 

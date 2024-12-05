@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { TranslationService } from '../../services/tranlation.service';
 import { fromEvent, Subject, Subscription, takeUntil } from 'rxjs';
@@ -29,6 +29,7 @@ export class TimelineComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.resizeSubscription = fromEvent(window, 'resize').subscribe(() => {
       this.setTimlineHeight()
+      this.applyTimelinePointStyles()
     });
 
     this.translationService.languageChange$.pipe(takeUntil(this.$unsubscribe)).subscribe(async () => {
@@ -54,6 +55,8 @@ export class TimelineComponent implements OnInit {
     window.addEventListener('scroll', this.handleScroll.bind(this));
     window.addEventListener('resize', this.handleScroll.bind(this));
 
+    this.applyTimelinePointStyles()
+
     this.setTimlineHeight()
     this.handleScroll();
   }
@@ -66,6 +69,10 @@ export class TimelineComponent implements OnInit {
   getIndexAsWord(index: number): string {
     const words = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
     return words[index] || "unknown";
+  }
+
+  generateArray(length: number): number[] {
+    return Array.from({ length }, (_, i) => i);
   }
 
   goToProjectDetails(projectId: string) {
@@ -140,80 +147,78 @@ export class TimelineComponent implements OnInit {
   updateScrollIndicator() {
     const timeline = this.timelineContainer.nativeElement;
     const scrollIndicator = timeline.querySelector('.scroll-indicator') as HTMLElement;
-    const timeOne = timeline.querySelector('.time-one') as HTMLElement;
-    const timeTwo = timeline.querySelector('.time-two') as HTMLElement;
-    const timeThree = timeline.querySelector('.time-three') as HTMLElement;
-    const pointOne = document.querySelectorAll('.timeline-point-animation-1');
-    const pointTwo = document.querySelectorAll('.timeline-point-animation-2');
-    const pointTree = document.querySelectorAll('.timeline-point-animation-3');
-  
     const timelineRect = timeline.getBoundingClientRect();
     const windowHeight = window.innerHeight;
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   
     const timelineStart = timelineRect.top + scrollTop - windowHeight / 2;
     const timelineEnd = timelineRect.bottom + scrollTop - windowHeight / 2;
-    
+  
     const scrolled = Math.max(0, Math.min(1, (scrollTop - timelineStart) / (timelineEnd - timelineStart)));
-    
     let scrollIndicatorHeight = scrolled * timelineRect.height;
-    let scrollIndicatorPointOneHeight = scrollIndicatorHeight
-    let scrollIndicatorPointTwoHeight = scrollIndicatorHeight
-    let scrollIndicatorPointThreeHeight = scrollIndicatorHeight
+  
+    const timeElements = this.generateTimeElements();
+    const pointAnimations = this.generatePointAnimations();
+  
+    const areaDataLength = this.areaData.length;
+  
+    for (let i = 0; i < areaDataLength; i++) {
+      let pointHeight = scrollIndicatorHeight;
+  
+      const isLastElement = i === areaDataLength - 1;
 
-    if (scrollIndicatorHeight < this.getAreaValue(0, 'start')) {
-      scrollIndicatorHeight = this.getAreaValue(0, 'start');
+      pointHeight = (scrollIndicatorHeight < this.getAreaValue(i, 'start')) 
+      ? this.getAreaValue(i, 'start')
+      : (scrollIndicatorHeight >= this.getAreaValue(i, 'end') + (isLastElement ? 100 : 0))
+      ? this.getAreaValue(i, 'end') + (isLastElement ? 100 : 0)
+      : pointHeight;
+  
       if (window.innerWidth > 1300) {
-        scrollIndicatorPointOneHeight = this.getAreaValue(0, 'start');
-      } else {
-        scrollIndicatorPointOneHeight = 0;
+        const timeElement = timeElements[i] as HTMLElement;
+        if (timeElement) timeElement.style.top = `${pointHeight - 20}px`;
+  
+        pointAnimations[i]?.forEach(point => {
+          const htmlPoint = point as HTMLElement;
+          htmlPoint.style.top = `${pointHeight}px`;
+        });
+      }
+  
+      if (i === areaDataLength - 1 && window.innerWidth <= 1300) {
+        if (scrollIndicatorHeight >= this.getProjectsHeight()) {
+          scrollIndicatorHeight = this.getProjectsHeight();
+        }
       }
     }
-
-    if (scrollIndicatorHeight >= this.getAreaValue(0, 'end')) {
-      scrollIndicatorPointOneHeight = this.getAreaValue(0, 'end');
-    }
-    if (scrollIndicatorHeight < this.getAreaValue(1, 'start')) {
-      scrollIndicatorPointTwoHeight = this.getAreaValue(1, 'start')
-    }
-
-
-    if (scrollIndicatorHeight >= this.getAreaValue(1, 'end')) {
-      scrollIndicatorPointTwoHeight = this.getAreaValue(1, 'end');
-    }
-    if (scrollIndicatorHeight < this.getAreaValue(2, 'start')) {
-      scrollIndicatorPointThreeHeight = this.getAreaValue(2, 'start') 
-    }
-    if (scrollIndicatorHeight > this.getAreaValue(2 , 'end')) {
-      if (window.innerWidth <= 1300) {
-        if (scrollIndicatorHeight >= this.getProjectsHeight()) scrollIndicatorHeight = this.getProjectsHeight();
-      }
-    }
-    
-    
+  
     scrollIndicator.style.height = `${scrollIndicatorHeight}px`;
-
-    
-
-    if (window.innerWidth > 1300) {
-      timeOne.style.top = `${scrollIndicatorPointOneHeight -20}px`
-      pointOne.forEach(point => {
-        const htmlPoint = point as HTMLElement;
-        htmlPoint.style.top = `${scrollIndicatorPointOneHeight}px`
-      });
-      timeTwo.style.top = `${scrollIndicatorPointTwoHeight -20}px`
-      pointTwo.forEach(point => {
-        const htmlPoint = point as HTMLElement;
-        htmlPoint.style.top = `${scrollIndicatorPointTwoHeight}px`
-      });
-      timeThree.style.top = `${scrollIndicatorPointThreeHeight -20}px`
-      pointTree.forEach(point => {
-        const htmlPoint = point as HTMLElement;
-        htmlPoint.style.top = `${scrollIndicatorPointThreeHeight}px`
-      });
-    }
   }
 
+  generateTimeElements() {
+    const timeElements = [];
+    const areaDataLength = this.areaData.length;
+  
+    for (let i = 0; i < areaDataLength; i++) {
+      const timeElement = document.querySelector(`.time-${this.getIndexAsWord(i)}`);
+      if (timeElement) {
+        timeElements.push(timeElement);
+      }
+    }
+  
+    return timeElements;
+  }
+
+  generatePointAnimations() {
+    const animations = [];
+    const areaDataLength = this.areaData.length;
+  
+    for (let i = 1; i <= areaDataLength; i++) {
+      const pointAnimation = document.querySelectorAll(`.timeline-point-animation-${i}`);
+      animations.push(pointAnimation);
+    }
+  
+    return animations;
+  }
+  
   shouldShowPoint(index: number): boolean {
     return index === 0;
   }
@@ -319,4 +324,69 @@ export class TimelineComponent implements OnInit {
     }
   }
 
+  applyTimelinePointStyles() {
+    for (let i = 0; i < this.areaData.length; i++) {
+      const className = `.timeline-point-animation-${i + 1}`;
+      const timeClassNames = Array.from({ length: 4 }, (_, index) => `time-${this.getIndexAsWord(index)}`);
+
+      const point = document.querySelector(className);
+      if (point) {
+        (point as HTMLElement).style.position = 'absolute';
+        (point as HTMLElement).style.width = '19px';
+        (point as HTMLElement).style.height = '19px';
+        (point as HTMLElement).style.top = '-18px';
+        (point as HTMLElement).style.left = '-7px';
+        (point as HTMLElement).style.background = '#89CFF0';
+        (point as HTMLElement).style.borderRadius = '50%';
+        (point as HTMLElement).style.border = '4px solid white';
+        (point as HTMLElement).style.zIndex = '10';
+      }
+
+      const timelineItems = document.querySelectorAll('.timeline ul li');
+
+      if (window.innerWidth <= 1300) {
+        timelineItems.forEach(item => {
+          timeClassNames.forEach(timeClass => {
+            const timeElement = item.querySelector(`.${timeClass}`) as HTMLElement;
+            
+            if (timeElement) {
+              timeElement.style.display = 'none';
+            }
+          });
+        });
+      } else {
+        timelineItems.forEach(item => {
+          timeClassNames.forEach(timeClass => {
+            const timeElement = item.querySelector(`.${timeClass}`) as HTMLElement;
+        
+            if (timeElement) {
+              timeElement.style.display = '';
+            }
+
+            if (timeElement) {
+              Object.assign(timeElement.style, {
+                position: 'absolute',
+                top: '-20px',
+                right: '700px',
+                width: '260px',
+                margin: '0',
+                padding: '8px 16px',
+                color: '#fff',
+                textAlign: 'end',
+              });
+        
+              const h4Element = timeElement.querySelector('h4');
+              if (h4Element) {
+                Object.assign(h4Element.style, {
+                  margin: '0',
+                  padding: '0',
+                  fontSize: '14px',
+                });
+              }
+            }
+          });
+        });
+      }
+    }
+  }
 }
