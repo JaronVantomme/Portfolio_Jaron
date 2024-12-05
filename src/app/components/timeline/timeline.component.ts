@@ -29,6 +29,7 @@ export class TimelineComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.resizeSubscription = fromEvent(window, 'resize').subscribe(() => {
       this.setTimlineHeight()
+      this.applyTimelinePointStyles()
     });
 
     this.translationService.languageChange$.pipe(takeUntil(this.$unsubscribe)).subscribe(async () => {
@@ -53,6 +54,8 @@ export class TimelineComponent implements OnInit {
   ngAfterViewInit() {
     window.addEventListener('scroll', this.handleScroll.bind(this));
     window.addEventListener('resize', this.handleScroll.bind(this));
+
+    this.applyTimelinePointStyles()
 
     this.setTimlineHeight()
     this.handleScroll();
@@ -321,4 +324,69 @@ export class TimelineComponent implements OnInit {
     }
   }
 
+  applyTimelinePointStyles() {
+    for (let i = 0; i < this.areaData.length; i++) {
+      const className = `.timeline-point-animation-${i + 1}`;
+      const timeClassNames = Array.from({ length: 4 }, (_, index) => `time-${this.getIndexAsWord(index)}`);
+
+      const point = document.querySelector(className);
+      if (point) {
+        (point as HTMLElement).style.position = 'absolute';
+        (point as HTMLElement).style.width = '19px';
+        (point as HTMLElement).style.height = '19px';
+        (point as HTMLElement).style.top = '-18px';
+        (point as HTMLElement).style.left = '-7px';
+        (point as HTMLElement).style.background = '#89CFF0';
+        (point as HTMLElement).style.borderRadius = '50%';
+        (point as HTMLElement).style.border = '4px solid white';
+        (point as HTMLElement).style.zIndex = '10';
+      }
+
+      const timelineItems = document.querySelectorAll('.timeline ul li');
+
+      if (window.innerWidth <= 1300) {
+        timelineItems.forEach(item => {
+          timeClassNames.forEach(timeClass => {
+            const timeElement = item.querySelector(`.${timeClass}`) as HTMLElement;
+            
+            if (timeElement) {
+              timeElement.style.display = 'none';
+            }
+          });
+        });
+      } else {
+        timelineItems.forEach(item => {
+          timeClassNames.forEach(timeClass => {
+            const timeElement = item.querySelector(`.${timeClass}`) as HTMLElement;
+        
+            if (timeElement) {
+              timeElement.style.display = '';
+            }
+
+            if (timeElement) {
+              Object.assign(timeElement.style, {
+                position: 'absolute',
+                top: '-20px',
+                right: '700px',
+                width: '260px',
+                margin: '0',
+                padding: '8px 16px',
+                color: '#fff',
+                textAlign: 'end',
+              });
+        
+              const h4Element = timeElement.querySelector('h4');
+              if (h4Element) {
+                Object.assign(h4Element.style, {
+                  margin: '0',
+                  padding: '0',
+                  fontSize: '14px',
+                });
+              }
+            }
+          });
+        });
+      }
+    }
+  }
 }
