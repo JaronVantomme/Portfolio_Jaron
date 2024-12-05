@@ -6,9 +6,7 @@
       <ng-container *ngIf="i === 0 && isAreaVisibleWithAnimation(i)">
         <div *ngFor="let index of generateArray(areaData.length)" [class]="'timeline-point-animation-' + (index + 1)">
         </div>
-      </ng-container>      <!-- <div *ngIf="i === 0 && isAreaVisibleWithAnimation(i)" class="timeline-point-animation-1"></div>
-      <div *ngIf="i === 0 && isAreaVisibleWithAnimation(i)" class="timeline-point-animation-2"></div>
-      <div *ngIf="i === 0 && isAreaVisibleWithAnimation(i)" class="timeline-point-animation-3"></div> -->
+      </ng-container>
       <div [ngClass]="item.isNewArea ? 'content' :'content-noArea'">
         <img class="content-img" [src]="item.image" [alt]="item.title">
         <div class="content-info">
@@ -25,7 +23,6 @@
           <p *ngIf="i === 0" class="areaDescription">{{ area.areaDescription }}</p>
         </div>
       </ng-container>
-      
       
       <div class="time" *ngIf="item.isNewArea && isAreaVisible()">
         <p class="areaTime">{{ item.areaTime }}</p>

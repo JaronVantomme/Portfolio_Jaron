@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { TranslationService } from '../../services/tranlation.service';
 import { fromEvent, Subject, Subscription, takeUntil } from 'rxjs';
@@ -154,12 +154,8 @@ export class TimelineComponent implements OnInit {
     const scrolled = Math.max(0, Math.min(1, (scrollTop - timelineStart) / (timelineEnd - timelineStart)));
     let scrollIndicatorHeight = scrolled * timelineRect.height;
   
-    const timeElements = [timeline.querySelector('.time-one'), timeline.querySelector('.time-two'), timeline.querySelector('.time-three')];
-    const pointAnimations = [
-      document.querySelectorAll('.timeline-point-animation-1'),
-      document.querySelectorAll('.timeline-point-animation-2'),
-      document.querySelectorAll('.timeline-point-animation-3'),
-    ];
+    const timeElements = this.generateTimeElements();
+    const pointAnimations = this.generatePointAnimations();
   
     const areaDataLength = this.areaData.length;
   
@@ -193,8 +189,33 @@ export class TimelineComponent implements OnInit {
   
     scrollIndicator.style.height = `${scrollIndicatorHeight}px`;
   }
-  
 
+  generateTimeElements() {
+    const timeElements = [];
+    const areaDataLength = this.areaData.length;
+  
+    for (let i = 0; i < areaDataLength; i++) {
+      const timeElement = document.querySelector(`.time-${this.getIndexAsWord(i)}`);
+      if (timeElement) {
+        timeElements.push(timeElement);
+      }
+    }
+  
+    return timeElements;
+  }
+
+  generatePointAnimations() {
+    const animations = [];
+    const areaDataLength = this.areaData.length;
+  
+    for (let i = 1; i <= areaDataLength; i++) {
+      const pointAnimation = document.querySelectorAll(`.timeline-point-animation-${i}`);
+      animations.push(pointAnimation);
+    }
+  
+    return animations;
+  }
+  
   shouldShowPoint(index: number): boolean {
     return index === 0;
   }
