@@ -68,6 +68,10 @@ export class TimelineComponent implements OnInit {
     return words[index] || "unknown";
   }
 
+  generateArray(length: number): number[] {
+    return Array.from({ length }, (_, i) => i);
+  }
+
   goToProjectDetails(projectId: string) {
     this.router.navigateByUrl(`/project/${projectId}`)
   }
@@ -140,79 +144,56 @@ export class TimelineComponent implements OnInit {
   updateScrollIndicator() {
     const timeline = this.timelineContainer.nativeElement;
     const scrollIndicator = timeline.querySelector('.scroll-indicator') as HTMLElement;
-    const timeOne = timeline.querySelector('.time-one') as HTMLElement;
-    const timeTwo = timeline.querySelector('.time-two') as HTMLElement;
-    const timeThree = timeline.querySelector('.time-three') as HTMLElement;
-    const pointOne = document.querySelectorAll('.timeline-point-animation-1');
-    const pointTwo = document.querySelectorAll('.timeline-point-animation-2');
-    const pointTree = document.querySelectorAll('.timeline-point-animation-3');
-  
     const timelineRect = timeline.getBoundingClientRect();
     const windowHeight = window.innerHeight;
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   
     const timelineStart = timelineRect.top + scrollTop - windowHeight / 2;
     const timelineEnd = timelineRect.bottom + scrollTop - windowHeight / 2;
-    
+  
     const scrolled = Math.max(0, Math.min(1, (scrollTop - timelineStart) / (timelineEnd - timelineStart)));
-    
     let scrollIndicatorHeight = scrolled * timelineRect.height;
-    let scrollIndicatorPointOneHeight = scrollIndicatorHeight
-    let scrollIndicatorPointTwoHeight = scrollIndicatorHeight
-    let scrollIndicatorPointThreeHeight = scrollIndicatorHeight
+  
+    const timeElements = [timeline.querySelector('.time-one'), timeline.querySelector('.time-two'), timeline.querySelector('.time-three')];
+    const pointAnimations = [
+      document.querySelectorAll('.timeline-point-animation-1'),
+      document.querySelectorAll('.timeline-point-animation-2'),
+      document.querySelectorAll('.timeline-point-animation-3'),
+    ];
+  
+    const areaDataLength = this.areaData.length;
+  
+    for (let i = 0; i < areaDataLength; i++) {
+      let pointHeight = scrollIndicatorHeight;
+  
+      const isLastElement = i === areaDataLength - 1;
 
-    if (scrollIndicatorHeight < this.getAreaValue(0, 'start')) {
-      scrollIndicatorHeight = this.getAreaValue(0, 'start');
+      pointHeight = (scrollIndicatorHeight < this.getAreaValue(i, 'start')) 
+      ? this.getAreaValue(i, 'start')
+      : (scrollIndicatorHeight >= this.getAreaValue(i, 'end') + (isLastElement ? 100 : 0))
+      ? this.getAreaValue(i, 'end') + (isLastElement ? 100 : 0)
+      : pointHeight;
+  
       if (window.innerWidth > 1300) {
-        scrollIndicatorPointOneHeight = this.getAreaValue(0, 'start');
-      } else {
-        scrollIndicatorPointOneHeight = 0;
+        const timeElement = timeElements[i] as HTMLElement;
+        if (timeElement) timeElement.style.top = `${pointHeight - 20}px`;
+  
+        pointAnimations[i]?.forEach(point => {
+          const htmlPoint = point as HTMLElement;
+          htmlPoint.style.top = `${pointHeight}px`;
+        });
+      }
+  
+      if (i === areaDataLength - 1 && window.innerWidth <= 1300) {
+        if (scrollIndicatorHeight >= this.getProjectsHeight()) {
+          scrollIndicatorHeight = this.getProjectsHeight();
+        }
       }
     }
-
-    if (scrollIndicatorHeight >= this.getAreaValue(0, 'end')) {
-      scrollIndicatorPointOneHeight = this.getAreaValue(0, 'end');
-    }
-    if (scrollIndicatorHeight < this.getAreaValue(1, 'start')) {
-      scrollIndicatorPointTwoHeight = this.getAreaValue(1, 'start')
-    }
-
-
-    if (scrollIndicatorHeight >= this.getAreaValue(1, 'end')) {
-      scrollIndicatorPointTwoHeight = this.getAreaValue(1, 'end');
-    }
-    if (scrollIndicatorHeight < this.getAreaValue(2, 'start')) {
-      scrollIndicatorPointThreeHeight = this.getAreaValue(2, 'start') 
-    }
-    if (scrollIndicatorHeight > this.getAreaValue(2 , 'end')) {
-      if (window.innerWidth <= 1300) {
-        if (scrollIndicatorHeight >= this.getProjectsHeight()) scrollIndicatorHeight = this.getProjectsHeight();
-      }
-    }
-    
-    
+  
     scrollIndicator.style.height = `${scrollIndicatorHeight}px`;
-
-    
-
-    if (window.innerWidth > 1300) {
-      timeOne.style.top = `${scrollIndicatorPointOneHeight -20}px`
-      pointOne.forEach(point => {
-        const htmlPoint = point as HTMLElement;
-        htmlPoint.style.top = `${scrollIndicatorPointOneHeight}px`
-      });
-      timeTwo.style.top = `${scrollIndicatorPointTwoHeight -20}px`
-      pointTwo.forEach(point => {
-        const htmlPoint = point as HTMLElement;
-        htmlPoint.style.top = `${scrollIndicatorPointTwoHeight}px`
-      });
-      timeThree.style.top = `${scrollIndicatorPointThreeHeight -20}px`
-      pointTree.forEach(point => {
-        const htmlPoint = point as HTMLElement;
-        htmlPoint.style.top = `${scrollIndicatorPointThreeHeight}px`
-      });
-    }
   }
+  
 
   shouldShowPoint(index: number): boolean {
     return index === 0;
